@@ -461,7 +461,7 @@ html {
   height: 461;
 }
 .img1 {
-  background-image: url("../images/bg-img.png");
+  /* background-image: url("../images/bg-img.png"); */
   background-repeat: no-repeat;
   background-position: 100% 60%;
   background-size: contain;

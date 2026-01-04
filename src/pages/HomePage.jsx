@@ -1,19 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
-import car1 from "../assets/images/car1.png";
+// import car1 from "../assets/images/car1.png";
 
-import googlePlay from "../assets/images/googleBlack.png";
-import applePlay from "../assets/images/blackApple.png";
+// import googlePlay from "../assets/images/googleBlack.png";
+// import applePlay from "../assets/images/blackApple.png";
 
-import screenshot1 from "../assets/images/screenshot1.png";
-import screenshot2 from "../assets/images/screenshot2.png";
-import screenshot3 from "../assets/images/screenshot3.png";
-import screenshot4 from "../assets/images/screenshot4.png";
-import screenshot5 from "../assets/images/screenshot5.png";
-import screenshot6 from "../assets/images/screenshot6.png";
-
-import bannerimg from "../assets/images/banner-img.png";
-
-import downloadImg from "../assets/images/downloadApp.jpg";
+// import screenshot1 from "../assets/images/screenshot1.png";
+// import screenshot2 from "../assets/images/screenshot2.png";
+// import screenshot3 from "../assets/images/screenshot3.png";
+// import screenshot4 from "../assets/images/screenshot4.png";
+// import screenshot5 from "../assets/images/screenshot5.png";
+// import screenshot6 from "../assets/images/screenshot6.png";
 
 import { useNavigate } from "react-router-dom";
 
@@ -24,13 +20,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { Users, GaugeCircle, Wind, DoorOpen as Door } from "lucide-react";
 
-import { FaStar } from "react-icons/fa";
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-import yellow_line from "../assets/images/yellow-line.png";
 
 import { useLocation } from "react-router-dom";
 import { scroller } from "react-scroll";
@@ -83,14 +75,14 @@ const HomePage = () => {
     };
   }, []);
 
-  const screenshots = [
-    { id: 1, image: screenshot1 },
-    { id: 2, image: screenshot2 },
-    { id: 3, image: screenshot3 },
-    { id: 4, image: screenshot4 },
-    { id: 5, image: screenshot5 },
-    { id: 6, image: screenshot6 },
-  ];
+  // const screenshots = [
+  //   { id: 1, image: screenshot1 },
+  //   { id: 2, image: screenshot2 },
+  //   { id: 3, image: screenshot3 },
+  //   { id: 4, image: screenshot4 },
+  //   { id: 5, image: screenshot5 },
+  //   { id: 6, image: screenshot6 },
+  // ];
 
   const location = useLocation();
 
@@ -105,15 +97,15 @@ const HomePage = () => {
     }
   }, [location]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentScreenshot((prevIndex) =>
-        prevIndex === screenshots.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 3000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentScreenshot((prevIndex) =>
+  //       prevIndex === screenshots.length - 1 ? 0 : prevIndex + 1
+  //     );
+  //   }, 3000);
 
-    return () => clearInterval(interval);
-  }, [screenshots.length]);
+  //   return () => clearInterval(interval);
+  // }, [screenshots.length]);
 
   // Initialize AOS
   useEffect(() => {
@@ -174,7 +166,7 @@ const HomePage = () => {
                   data-aos="fade-left"
                   data-aos-delay="300"
                 >
-                  <img src={bannerimg} alt="" />
+                  {/* <img src={bannerimg} alt="" /> */}
                 </div>
               </div>
             </div>
@@ -271,7 +263,7 @@ const HomePage = () => {
         <div className="row">
           <div className="col-md-6" data-aos="fade-right" data-aos-delay="200">
             <div className="carImg">
-              <img src={bannerimg} alt="" className="mt-5" width={"100%"} />
+              {/* <img src={bannerimg} alt="" className="mt-5" width={"100%"} /> */}
             </div>
           </div>
           {/* Right Side */}
@@ -336,35 +328,35 @@ const HomePage = () => {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <img src={screenshot1} style={{ opacity: "55%" }} alt="" />
+              {/* <img src={screenshot1} style={{ opacity: "55%" }} alt="" /> */}
             </div>
             <div
               className="col-md-2 screenshots"
               data-aos="fade-up"
               data-aos-delay="300"
             >
-              <img src={screenshot2} style={{ opacity: "55%" }} alt="" />
+              {/* <img src={screenshot2} style={{ opacity: "55%" }} alt="" /> */}
             </div>
             <div
               className="col-md-2 screenshots filter mt-4"
               data-aos="zoom-in"
               data-aos-delay="400"
             >
-              <img src={screenshot3} alt="" />
+              {/* <img src={screenshot3} alt="" /> */}
             </div>
             <div
               className="col-md-2 screenshots mt-4"
               data-aos="fade-up"
               data-aos-delay="500"
             >
-              <img src={screenshot4} style={{ opacity: "55%" }} alt="" />
+              {/* <img src={screenshot4} style={{ opacity: "55%" }} alt="" /> */}
             </div>
             <div
               className="col-md-2 screenshots"
               data-aos="fade-up"
               data-aos-delay="600"
             >
-              <img src={screenshot5} style={{ opacity: "55%" }} alt="" />
+              {/* <img src={screenshot5} style={{ opacity: "55%" }} alt="" /> */}
             </div>
             <div className="col-md-1"></div>
           </div>
@@ -375,18 +367,18 @@ const HomePage = () => {
           <div className="mobile-screenshot-slider">
             <div className="text-center mb-3">
               <img
-                src={screenshots[currentScreenshot].image}
-                alt={screenshots[currentScreenshot].title}
+                // src={screenshots[currentScreenshot].image}
+                // alt={screenshots[currentScreenshot].title}
                 className="mobile-screenshot-img"
               />
               <p className="mt-2 text-muted">
-                {screenshots[currentScreenshot].title}
+                {/* {screenshots[currentScreenshot].title} */}
               </p>
             </div>
 
             {/* Dot Indicators */}
             <div className="d-flex justify-content-center">
-              {screenshots.map((screenshot, index) => (
+              {/* {screenshots.map((screenshot, index) => (
                 <button
                   key={screenshot.id}
                   className={`mobile-dot-indicator ${
@@ -394,7 +386,7 @@ const HomePage = () => {
                   }`}
                   onClick={() => setCurrentScreenshot(index)}
                 />
-              ))}
+              ))} */}
             </div>
           </div>
         </div>
@@ -424,7 +416,7 @@ const HomePage = () => {
                 rel="noopener noreferrer"
               >
                 <img
-                  src={applePlay}
+                  // src={applePlay}
                   style={{ width: "170px", height: "63x", marginRight: "10px" }}
                 />
               </a>
@@ -434,13 +426,13 @@ const HomePage = () => {
                 rel="noopener noreferrer"
               >
                 <img
-                  src={googlePlay}
+                  // src={googlePlay}
                   style={{ width: "203px", height: "63px" }}
                 />
               </a>
             </div>
           </div>
-          <img src={bannerimg} alt="" className="download-img-section ss" />
+          {/* <img src={bannerimg} alt="" className="download-img-section ss" /> */}
         </div>
       </div>
 

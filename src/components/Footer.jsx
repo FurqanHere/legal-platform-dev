@@ -1,8 +1,5 @@
 import React from "react";
-import white_logo from "../assets/images/white-logo.svg";
-import googlePlay from "../assets/images/white-google.png";
-import applePlay from "../assets/images/white-apple-logo.png";
-import starMap from "../assets/images/starMap.png";
+
 import { Link } from "react-router-dom";
 
 import { FaXTwitter } from "react-icons/fa6";
@@ -15,10 +12,10 @@ const Footer = () => {
       <div className="container pt-5">
         <div className="row">
           <div className="col-md-5 col-sm-5 text-white">
-            <img alt="Logo" src={white_logo} className="footer-logo" />
+            {/* <img alt="Logo" src={white_logo} className="footer-logo" /> */}
             <p className="mt-4">
               Discover, search, and post UAE plate numbers in minutes <br />
-              with the Digits app – your all-in-one plate number marketplace.{" "}
+              with the Digits app – your all-in-one plate number marketplace.
               <br />
               Browse exclusive numbers, connect with buyers & sellers.
             </p>
@@ -63,7 +60,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
               >
                 <img
-                  src={applePlay}
+                  // src={applePlay}
                   className="apple-pay-img"
                   alt="Download on Apple Store"
                 />
@@ -75,7 +72,7 @@ const Footer = () => {
                 className="ms-3"
               >
                 <img
-                  src={googlePlay}
+                  // src={googlePlay}
                   alt="Get it on Google Play"
                   className="google-pay-img"
                 />

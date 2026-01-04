@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
-import logo from "../assets/images/digits-logo.png";
-import line from "../assets/images/yellow-line.png";
+// import logo from "../assets/images/digits-logo.png";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -22,7 +21,7 @@ export default function Navbar() {
     <>
       <nav className="navbar navbar-expand-lg bg-transparent px-3">
         <Link className="navbar-brand" to="/">
-          <img src={logo} alt="Logo" className="logo" />
+          {/* <img src={logo} alt="Logo" className="logo" /> */}
           {/* <h3>Digits</h3> */}
         </Link>
 
@@ -89,7 +88,7 @@ export default function Navbar() {
       >
         <div className="offcanvas-header">
           <h5 className="offcanvas-title mb-0">
-            <img src={logo} alt="Logo" className="logo" />
+            {/* <img src={logo} alt="Logo" className="logo" /> */}
           </h5>
           <button
             type="button"
