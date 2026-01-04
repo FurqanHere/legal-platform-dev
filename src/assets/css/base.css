@@ -1,0 +1,775 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.top {
+  margin-top: 150px;
+}
+body,
+html {
+  overflow-x: hidden;
+}
+
+/* Navbar container */
+
+.navbar {
+  background-color: #fff;
+  padding: 15px 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.navbar-main {
+  background-color: #000;
+  border-radius: 30px;
+  padding: 12px 0px;
+  display: flex;
+  justify-content: center;
+  max-width: 900px;
+  width: 100%;
+  margin: auto;
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 16px;
+  font-weight: 500;
+  color: #999;
+  position: relative;
+  transition: color 0.3s ease;
+  padding-bottom: 2px !important;
+}
+
+/* Active link */
+.nav-link.active {
+  color: white !important;
+  font-weight: 500;
+}
+
+.nav-link .underline {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  border-radius: 2px;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.heading-texti {
+  margin-top: 4rem;
+}
+
+.nav-link:hover .underline {
+  height: 3px;
+}
+
+.logo {
+  width: 90px;
+  margin-left: 30px;
+}
+.navbar-toggler {
+  border: none;
+  background: transparent;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+.nav-item {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.nav-underline {
+  width: 50px;
+  object-fit: contain;
+}
+
+/* Mobile adjustments */
+@media (max-width: 991px) {
+  .navbar-main {
+    width: 100%;
+    border-radius: 0;
+  }
+  .navbar-nav {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .nav-link {
+    padding: 8px 0;
+  }
+  
+  .nav-link:hover {
+    color: black !important;
+  }
+  
+  .nav-link.active {
+    color: black !important; /* Blue for active state on mobile */
+    font-weight: 600 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Smooth slide animation for offcanvas */
+  .offcanvas-start {
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    opacity: 0;
+  }
+  .offcanvas-start.show {
+    opacity: 1;
+    transform: translateX(0%) !important;
+    width: 75%;
+  }
+
+  .offcanvas-start:not(.show) {
+    transform: translateX(-100%) !important;
+  }
+
+  /* Container max-width for mobile */
+  .container {
+    max-width: 768px;
+    padding: 0 15px;
+  }
+
+  br {
+    display: none !important;
+  }
+
+  /* Ensure full width on mobile */
+  .row {
+    margin: 0;
+  }
+
+  .col-md-1,
+  .col-md-2,
+  .col-md-3,
+  .col-md-4,
+  .col-md-5,
+  .col-md-6,
+  .col-md-7,
+  .col-md-8,
+  .col-md-9,
+  .col-md-10,
+  .col-md-11,
+  .col-md-12 {
+    padding: 0 10px;
+  }
+
+  .navbar {
+    padding: 10px;
+  }
+
+  .logo {
+    height: 40px;
+  }
+  .active {
+    width: 16%;
+  }
+  .nav-link.active {
+    width: 100% !important;
+  }
+  .border-yellow {
+    margin-left: 12px;
+  }
+  .btns {
+    margin-bottom: 20px;
+    width: 100% !important;
+    justify-content: center;
+  }
+  .footer-icons li a i {
+    margin: 0px !important;
+  }
+  .footer-download-btn {
+    width: 100% !important;
+  }
+  .bi-send-fill {
+    right: 5rem !important;
+  }
+  .rentSteps {
+    margin: 50px 0;
+  }
+  .screenshots {
+    margin-bottom: 20px;
+  }
+  .inp input {
+    width: 80% !important;
+  }
+  .downloadApp h1,
+  .downloadApp span,
+  .downloadApp p {
+    padding-left: 0px !important;
+  }
+  .downloadApp {
+    margin-left: 0px !important;
+  }
+  .downloadApp .ss {
+    display: none;
+  }
+  .btn-download-app {
+    display: flex;
+    padding: 0px !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+  }
+  .btn-download-app img:nth-child(1) {
+    margin-right: 0px !important;
+    width: 135px !important;
+    height: 50px !important;
+  }
+  .btn-download-app img:nth-child(2) {
+    margin-right: 0px !important;
+    width: 170px !important;
+  }
+  .carImg {
+    width: 200px !important;
+    margin: 20px auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    transform: rotate(20deg) !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+  
+  .carImg img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 11 !important;
+  }
+  .header-banner {
+    margin-top: 20px !important;
+  }
+  .heading-texti {
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+  }
+  .yellow_border {
+    left: 130px !important;
+  }
+  .yellow_border {
+    width: 240px !important;
+    bottom: -20px !important;
+    left: 130px !important;
+  }
+  .footer-icons li a i {
+    margin-right: 5px !important;
+  }
+  .google-pay-img {
+    margin-left: 5px !important;
+  }
+  .icons-li {
+    margin-left: 10px;
+  }
+  .img1 {
+    background-image: none !important;
+  }
+  .none {
+    display: none !important;
+  }
+
+  /* Mobile-specific improvements */
+  .header-txt1 h1 {
+    font-size: 28px !important;
+    line-height: 1.3 !important;
+  }
+
+  .header-txt1 p {
+    font-size: 14px !important;
+    margin: 20px 0 !important;
+  }
+
+  /* Screenshots section mobile styles */
+  .screenshots-mobile {
+    display: block !important;
+  }
+
+  .screenshots-desktop {
+    display: none !important;
+  }
+
+  /* Card improvements for mobile */
+  .card {
+    margin-bottom: 20px;
+  }
+
+  /* Why Choose Us section mobile */
+  .starMap-img {
+    margin-bottom: 30px;
+  }
+
+  /* Download app section mobile */
+  .downloadApp {
+    height: auto !important;
+    padding: 30px 20px !important;
+  }
+
+  .downloadApp h1 {
+    font-size: 24px !important;
+    text-align: start !important;
+  }
+
+  .downloadApp p {
+    font-size: 14px !important;
+    text-align: start !important;
+  }
+
+  /* Touch-friendly buttons */
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better spacing for mobile */
+  .my-5 {
+    margin: 2rem 0 !important;
+  }
+
+  .top {
+    margin-top: 2rem !important;
+  }
+
+  /* Mobile carousel improvements */
+  .car-swiper {
+    padding: 10px 0 30px !important;
+  }
+
+  /* Mobile header improvements */
+  .header-banner {
+    padding: 20px 0 !important;
+  }
+
+  .header-txt1 {
+    text-align: center;
+  }
+
+  /* Mobile banner section centering */
+  .header-banner .row {
+    text-align: center;
+  }
+
+  .header-banner .col-md-7 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    position: relative;
+    z-index: 5;
+  }
+
+  /* Ensure background elements don't interfere */
+  .bg-clr {
+    position: absolute;
+    z-index: 1;
+  }
+
+  /* Mobile offcanvas text visibility */
+  .offcanvas-body .nav-link {
+    color: #333 !important;
+    font-weight: 500 !important;
+  }
+  
+  .offcanvas-body .nav-link:hover {
+    color: #007bff !important;
+  }
+  
+  .offcanvas-body .nav-link.active {
+    color: black !important;
+    font-weight: 600 !important;
+  }
+
+  /* Mobile card improvements */
+  .card-body {
+    padding: 15px !important;
+  }
+
+  .card-title {
+    font-size: 16px !important;
+  }
+}
+
+/* Home Page */
+.header-banner {
+  margin-top: 100px;
+}
+.header-txt1 h1 {
+  font-weight: 800;
+  font-size: 53px;
+  color: black;
+  line-height: 70px;
+}
+.header-txt1 p {
+  margin: 30px 0;
+}
+.yellow_border {
+  width: 270px;
+  position: absolute;
+  bottom: -30px;
+  left: 190px;
+}
+.btns {
+  display: flex;
+  width: 30%;
+}
+.btns img:nth-child(1) {
+  margin-right: 10px;
+}
+.btns img {
+  width: 100%;
+}
+/* Right Side */
+.carImg {
+  width: 280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(15deg) !important;
+  position: relative;
+  z-index: 10;
+  min-height: 200px; /* Ensure container has height */
+}
+.carImg img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 11;
+}
+.bg-clr .bg-1 {
+  background: #000;
+  opacity: 5%;
+  width: 461px;
+  height: 461;
+}
+.img1 {
+  background-image: url("../images/bg-img.png");
+  background-repeat: no-repeat;
+  background-position: 100% 60%;
+  background-size: contain;
+  background-color: #ffffff;
+  height: 830px;
+}
+
+/* How it Work */
+.icon-1 i {
+  padding: 27px 30px;
+  border-radius: 30px;
+}
+.deals p {
+  margin: 0 90px;
+}
+.bi-calendar2-range-fill {
+  background-color: black;
+  color: white;
+}
+
+/* Carousel */
+.car-swiper {
+  padding: 20px 10px 50px !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #0d6efd !important;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #0d6efd !important;
+}
+
+.card {
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.btn-primary {
+  padding: 8px 20px;
+  border-radius: 5px;
+}
+
+.yellow_line {
+  width: 80px;
+  position: absolute;
+  bottom: -2px;
+  left: 125px;
+}
+
+@media (max-width: 768px) {
+  .card-img-top {
+    height: 180px;
+  }
+}
+.border-top {
+  border-top: 1px solid gray;
+  padding: 10px 0;
+}
+.screenshots img {
+  filter: grayscale(100%);
+}
+.filter img {
+  filter: grayscale(0%);
+}
+.screenshots img {
+  width: 100%;
+}
+
+/* Desktop screenshots - hidden on mobile */
+.screenshots-desktop {
+  display: block;
+}
+
+/* Mobile screenshots - hidden on desktop by default */
+.screenshots-mobile {
+  display: none;
+}
+
+/* Mobile slider styles */
+.mobile-screenshot-slider {
+  width: 100%;
+  margin: 20px 0;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-screenshot-slider .screenshot-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.mobile-screenshot-slider .screenshot-slide img {
+  max-width: 200px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-screenshot-slider .screenshot-slide.active img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.mobile-screenshot-slider .screenshot-slide:not(.active) img {
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Screenshot Auto-Slider Styles */
+.mobile-screenshot-img {
+  max-width: 250px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.8s ease-in-out;
+  animation: fadeInScale 0.8s ease-in-out;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.mobile-dot-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: #ddd;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.mobile-dot-indicator.active {
+  background: #007bff;
+  transform: scale(1.3);
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+.mobile-dot-indicator:hover {
+  background: #007bff;
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+.mobile-dot-indicator.active::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid #007bff;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* Download the App */
+.download-App-main {
+  margin-top: 15rem;
+}
+.downloadApp {
+  border-radius: 30px;
+  background-color: black;
+  position: relative;
+  width: 100%;
+  height: 400px;
+  color: white;
+}
+.downloadApp h1:first-child {
+  padding: 50px 0 0 141px;
+}
+.downloadApp h1:nth-child(2),
+.downloadApp span,
+.downloadApp p {
+  padding: 0 0 0 141px;
+}
+.downloadApp span {
+  margin-top: 20px;
+}
+.downloadApp h1 {
+  font-weight: 800;
+}
+.downloadApp .ss {
+  position: absolute;
+  padding: 0px !important;
+  right: 100px;
+  top: -92px;
+  width: 25%;
+  border-radius: 30px;
+  border: 1px solid rgba(128, 128, 128, 0.17);
+  width: 280px;
+}
+
+/* Footer */
+.footer {
+  background: #303030;
+}
+.footer .footer-logo {
+  width: 50%;
+}
+.apple-pay-img,
+.google-pay-img {
+  border-radius: 6px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-icons {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  padding: 0px !important;
+}
+.footer-icons li a i {
+  font-size: 18px;
+  background-color: black;
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inp {
+  position: relative;
+}
+.inp input {
+  border-radius: 10px;
+  background-color: #454545;
+  border: 1px solid rgba(128, 128, 128, 0.218);
+  outline: none;
+  padding: 12px 20px;
+  width: 65%;
+}
+.footer-download-btn {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+.bi-send-fill {
+  background-color: black;
+  padding: 10px 13px;
+  border-radius: 5px;
+  color: white;
+  position: absolute;
+  right: 11.8rem;
+  top: 3px;
+}
+.terms-logo p {
+  color: #818181;
+}
+
+/* Privacy */
+.heading-policy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+.heading-policy h1 {
+  font-size: 3rem;
+}
+.privacy-heading p,
+.data-info ul li,
+.data-info label,
+.data-info span {
+  color: #6b6b6b;
+}
