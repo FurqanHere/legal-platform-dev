@@ -1,15 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
-// import car1 from "../assets/images/car1.png";
-
-// import googlePlay from "../assets/images/googleBlack.png";
-// import applePlay from "../assets/images/blackApple.png";
-
-// import screenshot1 from "../assets/images/screenshot1.png";
-// import screenshot2 from "../assets/images/screenshot2.png";
-// import screenshot3 from "../assets/images/screenshot3.png";
-// import screenshot4 from "../assets/images/screenshot4.png";
-// import screenshot5 from "../assets/images/screenshot5.png";
-// import screenshot6 from "../assets/images/screenshot6.png";
+import leftLeaves from "../assets/images/left-leaves.png";
+import rightLeaves from "../assets/images/right-leaves.png";
+import portalApp from "../assets/images/portal-app.png";
+import appStore from "../assets/images/app-store.png";
+import playStore from "../assets/images/play-store.png";
+import benzinga from "../assets/images/benzinga.png";
+import khaleej from "../assets/images/khaleej.png";
+import chronical from "../assets/images/chronical.png";
+import question from "../assets/images/question.png";
+import caseImg from "../assets/images/case.png";
+import postSS1 from "../assets/images/postQuestion-ss.png";
+import postSS2 from "../assets/images/postQuestion-ss2.png";
+import postSS3 from "../assets/images/postQuestion-ss3.png";
+import appScreenshot from "../assets/images/ap-ss.png";
+import stores from "../assets/images/stores.png";
 
 import { useNavigate } from "react-router-dom";
 
@@ -75,15 +79,6 @@ const HomePage = () => {
     };
   }, []);
 
-  // const screenshots = [
-  //   { id: 1, image: screenshot1 },
-  //   { id: 2, image: screenshot2 },
-  //   { id: 3, image: screenshot3 },
-  //   { id: 4, image: screenshot4 },
-  //   { id: 5, image: screenshot5 },
-  //   { id: 6, image: screenshot6 },
-  // ];
-
   const location = useLocation();
 
   useEffect(() => {
@@ -96,16 +91,6 @@ const HomePage = () => {
       });
     }
   }, [location]);
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrentScreenshot((prevIndex) =>
-  //       prevIndex === screenshots.length - 1 ? 0 : prevIndex + 1
-  //     );
-  //   }, 3000);
-
-  //   return () => clearInterval(interval);
-  // }, [screenshots.length]);
 
   // Initialize AOS
   useEffect(() => {
@@ -120,53 +105,68 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="img1">
+      <div className="img1 font-inter">
         <Header />
-        {/* Banner Sec */}
-        <div className="header-banner bg-gradient" id="home">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-5 col-12">
-                <div className="header-txt1">
-                  <div className="position-relative">
-                    <h1
-                      data-aos="fade-up"
-                      data-aos-delay="200"
-                      className="heading-texti"
-                    >
-                      Digits – Connecting UAE with Premium Plate Numbers
-                    </h1>
-                  </div>
-                </div>
-                {/* <div className="mt-5" data-aos="fade-up" data-aos-delay="600">
-                  <button
-                    type="submit"
-                    className="btn fw-bold py-2 shadow"
-                    style={{
-                      backgroundColor: "black",
-                      color: "white",
-                      borderRadius: "10px",
-                      width: "150px",
-                    }}
-                  >
-                    Get Started
-                  </button>
-                </div> */}
-              </div>
-              {/* Right Side */}
-              <div className="col-md-7 col-12">
-                <div className="bg-clr">
-                  <div className="bg-1"></div>
-                  <div className="bg-2"></div>
-                  <div className="bg-3"></div>
-                  <div className="bg-4"></div>
-                </div>
+        <div className="header-banner" id="home">
+          <div className="container position-relative">
+            
+            <div className="row g-4 align-items-stretch">
+              <div className="col-lg-6">
                 <div
-                  className="carImg"
-                  data-aos="fade-left"
-                  data-aos-delay="300"
+                  className="hero-card text-center "
+                  data-aos="fade-up"
+                  data-aos-delay="150"
                 >
-                  {/* <img src={bannerimg} alt="" /> */}
+                  <h1 className="hero-title">
+                    AI Lawyer: your <br /> personal legal AI <br /> assistant
+                  </h1>
+                  <div className="mt-3">
+                    <button className="btn hero-btn">Try For Free</button>
+                  </div>
+                  <div className="d-flex align-items-center justify-content-center gap-4 mt-4 hero-tabs">
+                    <span className="active">For consumers</span>
+                    <span
+                      onClick={() =>
+                        scroller.scrollTo("who-for", {
+                          duration: 600,
+                          smooth: "easeInOutQuart",
+                          offset: -80,
+                        })
+                      }
+                    >
+                      For lawyers
+                    </span>
+                  </div>
+                  <p className="hero-sub">
+                    Say goodbye to expensive legal consultation, long waits{" "}
+                    <br />
+                    for appointments, and confusing legal texts.
+                  </p>
+                  <div className="d-flex align-items-center justify-content-center gap-3 hero-stores ">
+                    {/* <img src={appStore} alt="Apple Store" />
+                    <img src={playStore} alt="Google Play" /> */}
+                    <img src={stores} alt="Stores" className="w-75 h-75" />
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-6">
+                <div
+                  className="hero-media"
+                  data-aos="fade-left"
+                  data-aos-delay="200"
+                >
+                  <img src={leftLeaves} alt="" className="hero-leaf hero-leaf-left" />
+                  <div className="text-center pt-3" style={{ marginTop: "30px" }}>
+                    <div className="hero-producthunt">Product hunt</div>
+                    <div className="hero-producthunt-sub">
+                      Product of the day
+                    </div>
+                    <div className="hero-producthunt-rank">1st</div>
+                  </div>
+                  <div className="hero-media-img">
+                    <img src={portalApp} alt="Portal app" />
+                  </div>
+                  <img src={rightLeaves} alt="" className="hero-leaf hero-leaf-right" />
                 </div>
               </div>
             </div>
@@ -174,139 +174,466 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* How it Work */}
-      <div
-        className="container"
-        style={{ marginTop: "100px", marginBottom: "100px" }}
-        id="howitwork"
-      >
-        <div className="text-center mb-5" data-aos="fade-up">
-          <h2 className="text-secondary">How It Work</h2>
-        </div>
-        <div className="row my-5">
-          <div
-            class="col-md-4 col-sm-12"
-            data-aos="fade-up"
-            data-aos-delay="200"
+      <div className="container brands-slider">
+        <div className="press-slider">
+          <Swiper
+            modules={[Autoplay]}
+            autoplay={{ delay: 0, disableOnInteraction: false }}
+            speed={2000}
+            loop
+            grabCursor
+            slidesPerView={3}
+            spaceBetween={40}
+            breakpoints={{
+              0: { slidesPerView: 2, spaceBetween: 24 },
+              768: { slidesPerView: 3, spaceBetween: 32 },
+              992: { slidesPerView: 3, spaceBetween: 40 },
+            }}
           >
-            <div class="deals">
-              <div className="row">
-                <div className="col-12">
-                  <div class="icon-1 text-center">
-                    <i class="bi bi-search fs-1 shadow"></i>
-                  </div>
-                </div>
-                <div className="col-12 text-center mt-5">
-                  <h6>Search Plate</h6>
-                </div>
-                <div className="col-12 text-center text-secondary">
-                  <p style={{ fontSize: "16px" }}>
-                    Browse thousands of unique UAE plate numbers with smart
-                    filters.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="col-md-4 col-sm-12 rentSteps"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            <div class="deals">
-              <div className="row">
-                <div className="col-12">
-                  <div class="icon-1 text-center">
-                    <i class="bi bi-plus-circle-fill shadow fs-1"></i>
-                  </div>
-                </div>
-                <div className="col-12 text-center mt-5">
-                  <h6>Post Your Number</h6>
-                </div>
-                <div className="col-12 text-center text-secondary">
-                  <p style={{ fontSize: "16px" }}>
-                    List your car plate for sale in just a few simple clicks.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="col-md-4 col-sm-12"
-            data-aos="fade-up"
-            data-aos-delay="600"
-          >
-            <div class="deals">
-              <div className="row">
-                <div className="col-12">
-                  <div class="icon-1 text-center">
-                    <i class="bi bi-people-fill fs-1 shadow"></i>
-                  </div>
-                </div>
-                <div className="col-12 text-center mt-5">
-                  <h6>Connect & Deal</h6>
-                </div>
-                <div className="col-12 text-center text-secondary">
-                  <p style={{ fontSize: "16px" }}>
-                    Chat securely, negotiate, and finalize your plate number
-                    deal.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+            <SwiperSlide>
+              <img src={benzinga} alt="Benzinga" className="press-logo" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={khaleej} alt="Khaleej Times" className="press-logo" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={chronical}
+                alt="The Chronicle Journal"
+                className="press-logo"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={benzinga} alt="Benzinga" className="press-logo" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={khaleej} alt="Khaleej Times" className="press-logo" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={chronical}
+                alt="The Chronicle Journal"
+                className="press-logo"
+              />
+            </SwiperSlide>
+          </Swiper>
         </div>
       </div>
 
-      {/* Why Choose Us */}
-      <div className="container my-5 bottom" id="whyChooseUs">
-        <div className="row">
-          <div className="col-md-6" data-aos="fade-right" data-aos-delay="200">
-            <div className="carImg">
-              {/* <img src={bannerimg} alt="" className="mt-5" width={"100%"} /> */}
-            </div>
-          </div>
-          {/* Right Side */}
-          <div className="col-md-6" data-aos="fade-left" data-aos-delay="400">
-            <div className="heading">
-              <h2 className="text-secondary">Why Choose Us</h2>
+      {/* Features of AI Lawyer */}
+      <div className="container features-legal" id="howitwork">
+        <div className="text-center mb-3" data-aos="fade-up">
+          <h2>Features of legal AI</h2>
+          <p className="text-muted mt-4 mb-5">
+            Explore features that boost your productivity. From document automation <br /> to advanced research, we've got the hard work covered.
+          </p>
+        </div>
+        <div className="row g-4 align-items-stretch">
+          <div className="col-md-3" data-aos="fade-up" data-aos-delay="100">
+            <div className="feature-tile feature-question text-center">
               
+              <h4 className="mt-1 fw-bold">Create a Question</h4>
+              <img
+                src={question}
+                alt="Create a Question"
+                className="feature-icon my-3"
+              />
+              <p className="feature-desc">
+                Explore features that boost your productivity. From document
+                automation advanced.
+              </p>
             </div>
-            <div className="details">
-              <div className="det-1 mt-5">
-                <h5>Smart Search & Post</h5>
-                <p className="text-secondary">
-                Easily search, post, and manage plate numbers with a
-                user-friendly app experience.
-                </p>
+          
+          <div className="mt-4 case-card" data-aos="fade-up" data-aos-delay="300">
+            <div className="feature-tile feature-case text-center">
+              
+              <h4 className="mt-1 fw-bold text-white">Create a Case</h4>
+              <img src={caseImg} alt="Create a Case" className="feature-icon case-img my-3" />
+              <p className="feature-desc">
+                Explore features that boost your productivity. From document
+                automation advanced.
+              </p>
+            </div>
+          </div>
+          </div>
+          <div className="col-md-9" data-aos="fade-up" data-aos-delay="200">
+            <div className="chat-card">
+              <div className="mini-chat-card m-3 bg-white p-4">
+              <div className="chat-header text-black">Hello Williams 👋</div>
+              <p className="chat-intro">
+                Sed ut perspiciatis unde omnis iste natus error sit <br /> voluptatem
+                accusantium doloremque laudantium, <br /> totam rem aperiam, eaque ipsa
+                quae ab ill.
+              </p>
+              <button className="btn chat-add">+ Add</button>
+</div>
+              <div className="chat-bubbles">
+                <div className="bubble dark align-self-end" style={{ height: "68px", width: "fit-content" }}>
+                  accusantium doloremque laudantium, totam.
+                  <span className="time ms-2">02:14 PM</span>
+                </div>
+                <div className="bubble light d-flex align-items-center justify-content-center" style={{ height: "68px", width: "fit-content", borderRadius: "30px" }}>Ok Thanks Bro!</div>
+                
               </div>
-              <div className="det-1 mt-5">
-                <h5>Best Price Guaranteed</h5>
-                <p className="text-secondary">
-                  Find the best deals on UAE plate numbers. If you spot a better
-                  offer, we match it.
+              <div className="chat-footer mt-3">
+                <h6 className="fw-semibold my-4" style={{ fontSize: "22px", fontWeight: "500" }}>Ask AI Lawyer</h6>
+                <p className="text-white" style={{ fontSize: "18px" }}>
+                  Legal research never been easier. Have a conversation with your virtual assistant, gain <br />
+insights and simple answers to your complex questions in real-time.
+
                 </p>
+                <div className="input-wrap">
+                  <input type="text" placeholder="Write a Messages..." className="rounded-pill" />
+                  
+                  <button className="send-btn">
+                    <i className="bi bi-send" />
+                  </button>
+                </div>
               </div>
-              <div className="det-2 mt-5">
-                <h5>Verified Listings</h5>
-                <p className="text-secondary">
-                  All plate numbers are verified to ensure safe and secure
-                  transactions.
-                </p>
+            </div>
+          </div>
+          
+        </div>
+
+        <div className="row g-4 mt-2">
+          <div className="col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div className="multi-panel p-3">
+              <h6 className="fw-semibold mb-3">Multi-platform</h6>
+              <p className="text-muted">
+                Access our platform with a simple tap on the web, iOS, or
+                Android.
+              </p>
+              <div className="row g-3 mt-1">
+                <div className="col-6">
+                  <div className="service-card selected">
+                    <div className="title">
+                      Professional Business Consultation Service
+                    </div>
+                    <div className="price">USD 499</div>
+                    <div className="badge">Active Package</div>
+                  </div>
+                </div>
+                <div className="col-6">
+                  <div className="service-card">
+                    <div className="title">
+                      Professional Business Consultation Service
+                    </div>
+                    <div className="price">USD 499</div>
+                    <div className="badge muted">Subscribed</div>
+                  </div>
+                </div>
+                <div className="col-6">
+                  <div className="service-card">
+                    <div className="title">
+                      Professional Business Consultation Service
+                    </div>
+                    <div className="price">USD 499</div>
+                    <div className="badge">Active Package</div>
+                  </div>
+                </div>
+                <div className="col-6">
+                  <div className="service-card">
+                    <div className="title">
+                      Professional Business Consultation Service
+                    </div>
+                    <div className="price">USD 499</div>
+                    <div className="badge">Active Package</div>
+                  </div>
+                </div>
               </div>
-              <div className="det-3 mt-5">
-                <h5>Instant Notifications</h5>
-                <p className="text-secondary">
-                  Get alerts when new plate numbers matching your interest are
-                  posted.
-                </p>
+            </div>
+          </div>
+          <div className="col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div className="multi-panel p-3">
+              <h6 className="fw-semibold mb-3">Multi-platform</h6>
+              <p className="text-muted">
+                Access our platform with a simple tap on the web, iOS, or
+                Android.
+              </p>
+              <div className="mobile-stack mt-2">
+                <img
+                  src={postSS1}
+                  alt="Post Question 1"
+                  className="mobile-img mobile-1"
+                />
+                <img
+                  src={postSS2}
+                  alt="Post Question 2"
+                  className="mobile-img mobile-2"
+                />
+                <img
+                  src={postSS3}
+                  alt="Post Question 3"
+                  className="mobile-img mobile-3"
+                />
               </div>
-              <div className="det-4 mt-5">
-                <h5>24/7 Support</h5>
-                <p className="text-secondary">
-                  Our team is always available to help you with any query,
-                  anytime.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="container my-5" id="faq">
+        <div className="faq-wrap p-3 p-md-4">
+          <div className="text-center mb-3">
+            <h2>Have a question?</h2>
+            <p className="text-muted">
+              Browse through our frequently asked topics.
+            </p>
+          </div>
+          <div className="accordion accordion-flush" id="faqAccordion">
+            <div className="accordion-item faq-card">
+              <h2 className="accordion-header" id="faq1h">
+                <button
+                  className="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq1"
+                  aria-expanded="false"
+                  aria-controls="faq1"
+                >
+                  What is AI Lawyer?
+                </button>
+              </h2>
+              <div
+                id="faq1"
+                className="accordion-collapse collapse"
+                aria-labelledby="faq1h"
+                data-bs-parent="#faqAccordion"
+              >
+                <div className="accordion-body">
+                  AI Lawyer is your personal legal AI assistant that helps draft
+                  documents, answer questions, and create cases across web, iOS,
+                  and Android.
+                </div>
+              </div>
+            </div>
+            <div className="accordion-item faq-card">
+              <h2 className="accordion-header" id="faq2h">
+                <button
+                  className="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq2"
+                  aria-expanded="false"
+                  aria-controls="faq2"
+                >
+                  Who is your platform for?
+                </button>
+              </h2>
+              <div
+                id="faq2"
+                className="accordion-collapse collapse"
+                aria-labelledby="faq2h"
+                data-bs-parent="#faqAccordion"
+              >
+                <div className="accordion-body">
+                  Consumers, lawyers, law firms, and law students — anyone
+                  needing fast, clear legal assistance.
+                </div>
+              </div>
+            </div>
+            <div className="accordion-item faq-card">
+              <h2 className="accordion-header" id="faq3h">
+                <button
+                  className="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq3"
+                  aria-expanded="true"
+                  aria-controls="faq3"
+                >
+                  What countries/languages does it works for?
+                </button>
+              </h2>
+              <div
+                id="faq3"
+                className="accordion-collapse collapse show"
+                aria-labelledby="faq3h"
+                data-bs-parent="#faqAccordion"
+              >
+                <div className="accordion-body">
+                  Our platform works worldwide and in many languages. You can
+                  ask questions in your language and get answers in the same
+                  language. This makes it easy for people from different places
+                  to use it.
+                </div>
+              </div>
+            </div>
+            <div className="accordion-item faq-card">
+              <h2 className="accordion-header" id="faq4h">
+                <button
+                  className="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq4"
+                  aria-expanded="false"
+                  aria-controls="faq4"
+                >
+                  How to start using AI Lawyer?
+                </button>
+              </h2>
+              <div
+                id="faq4"
+                className="accordion-collapse collapse"
+                aria-labelledby="faq4h"
+                data-bs-parent="#faqAccordion"
+              >
+                <div className="accordion-body">
+                  Sign up on web or download our mobile app, then start by
+                  asking a question or creating a case using templates.
+                </div>
+              </div>
+            </div>
+            <div className="accordion-item faq-card">
+              <h2 className="accordion-header" id="faq5h">
+                <button
+                  className="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq5"
+                  aria-expanded="false"
+                  aria-controls="faq5"
+                >
+                  How to get "Students & teachers" discount?
+                </button>
+              </h2>
+              <div
+                id="faq5"
+                className="accordion-collapse collapse"
+                aria-labelledby="faq5h"
+                data-bs-parent="#faqAccordion"
+              >
+                <div className="accordion-body">
+                  Verify your academic email and apply the education discount in
+                  your account settings.
+                </div>
+              </div>
+            </div>
+            <div className="accordion-item faq-card">
+              <h2 className="accordion-header" id="faq6h">
+                <button
+                  className="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq6"
+                  aria-expanded="false"
+                  aria-controls="faq6"
+                >
+                  Can I receive a refund if I'm not satisfied?
+                </button>
+              </h2>
+              <div
+                id="faq6"
+                className="accordion-collapse collapse"
+                aria-labelledby="faq6h"
+                data-bs-parent="#faqAccordion"
+              >
+                <div className="accordion-body">
+                  Yes. Please review our refund policy and contact support;
+                  eligible refunds are processed quickly.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="container my-5">
+        <div className="mobile-app-banner p-3 p-md-4">
+          <div className="row align-items-center g-4">
+            <div className="col-md-5">
+              <img
+                src={appScreenshot}
+                alt="AI Lawyer mobile app"
+                className="mobile-app-img"
+              />
+            </div>
+            <div className="col-md-7">
+              <div className="text-white">
+                <h2 className="mb-2">AI Lawyer mobile app</h2>
+                <p className="text-muted">
+                  Stay connected with your guide on iOS & Android. Handle
+                  documents, track cases, and receive guidance on the go.
                 </p>
+                <div className="d-flex align-items-center gap-3 mt-3">
+                  <img src={appStore} alt="App Store" className="store-badge" />
+                  <img
+                    src={playStore}
+                    alt="Google Play"
+                    className="store-badge"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="cta-protect text-center my-5">
+        <div className="container py-5">
+          <h2 className="text-white">
+            AI Lawyer protects your rights and wallet
+          </h2>
+          <div className="mt-3">
+            <button className="btn cta-btn">Try For Free</button>
+          </div>
+        </div>
+      </div>
+
+      <div className="container who-for my-5" id="who-for">
+        <div className="who-wrap p-4 p-md-5" data-aos="fade-up">
+          <h2 className="text-white text-center mb-2">Who is AI Lawyer for?</h2>
+          <p className="text-center text-muted mb-4">
+            Explore features that boost your productivity. From document
+            automation to advanced research, we've got the hard work covered.
+          </p>
+          <div className="row g-3 g-md-4 mt-2">
+            <div className="col-md-3">
+              <div className="who-card h-100">
+                <h4>AI for Legal Consumers</h4>
+                <p>
+                  From deciphering complex terms to understanding rights, we've
+                  got you covered.
+                </p>
+                <div className="who-icon">
+                  <i className="bi bi-journal"></i>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-3">
+              <div className="who-card h-100">
+                <h4>AI for Lawyers</h4>
+                <p>
+                  From deciphering complex terms to understanding rights, we've
+                  got you covered.
+                </p>
+                <div className="who-icon">
+                  <i className="bi bi-scale"></i>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-3">
+              <div className="who-card h-100">
+                <h4>AI for Law Firms</h4>
+                <p>
+                  From deciphering complex terms to understanding rights, we've
+                  got you covered.
+                </p>
+                <div className="who-icon">
+                  <i className="bi bi-bank"></i>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-3">
+              <div className="who-card h-100">
+                <h4>AI for Law Students</h4>
+                <p>
+                  From deciphering complex terms to understanding rights, we've
+                  got you covered.
+                </p>
+                <div className="who-icon">
+                  <i className="bi bi-book"></i>
+                </div>
               </div>
             </div>
           </div>

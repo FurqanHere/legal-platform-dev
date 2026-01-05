@@ -1,123 +1,60 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
-
-import { FaXTwitter } from "react-icons/fa6";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
+import appStore from "../assets/images/app-store.png";
+import playStore from "../assets/images/play-store.png";
+import fb from "../assets/images/fb.png";
+import insta from "../assets/images/insta.png";
+import whatsApp from "../assets/images/whatsApp.png";
+import yt from "../assets/images/yt.png";
 
 const Footer = () => {
   return (
-    <div className="footer" style={{ marginTop: "220px" }}>
-      <div className="container pt-5">
-        <div className="row">
-          <div className="col-md-5 col-sm-5 text-white">
-            {/* <img alt="Logo" src={white_logo} className="footer-logo" /> */}
-            <p className="mt-4">
-              Discover, search, and post UAE plate numbers in minutes <br />
-              with the Digits app – your all-in-one plate number marketplace.
-              <br />
-              Browse exclusive numbers, connect with buyers & sellers.
-            </p>
+    <footer className="footer-minimal font-inter">
+      <div className="container py-4">
+        <div className="row align-items-center">
+          <div className="col-md-6 d-flex align-items-center gap-3">
+            <img src={appStore} alt="App Store" style={{ height: 40 }} />
+            <img src={playStore} alt="Google Play" style={{ height: 40 }} />
           </div>
-          <div className="col-md-3 col-12 col-sm-2 text-white">
-            <h4 className="fw-semibold text-start mt-5">Top Links</h4>
-            <div className="d-flex justify-content-between">
-              <nav className="nav footer-nav flex-column py-3 me-3">
-                <Link to={"/"} className="nav-link text-white">
-                  Home
-                </Link>
-                <a className="nav-link text-white" href="#explore">
-                  How it Work!
-                </a>
-                <a className="nav-link text-white" href="#download">
-                  Why Choose Us
-                </a>
-                <a className="nav-link text-white" href="#faq">
-                  Screenshots
-                </a>
-                <a className="nav-link text-white" href="#faq">
-                  Download App
-                </a>
-                <Link to="/terms" className="nav-link text-white">
-                  Terms and Conditions
-                </Link>
-                <Link to="/privacy" className="nav-link text-white">
-                  Privacy Policy
-                </Link>
-              </nav>
-            </div>
+          <div className="col-md-6 d-flex justify-content-md-end justify-content-start mt-3 mt-md-0">
+            <nav className="footer-links d-flex align-items-center gap-4">
+              <div className="dropdown">
+                <button className="btn btn-link text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Company</button>
+                <ul className="dropdown-menu">
+                  <li><Link className="dropdown-item" to="/contact">Contact</Link></li>
+                  <li><Link className="dropdown-item" to="/affiliate">Affiliate</Link></li>
+                </ul>
+              </div>
+              <div className="dropdown">
+                <button className="btn btn-link text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Learn</button>
+                <ul className="dropdown-menu">
+                  <li><Link className="dropdown-item" to="/blog">Blog</Link></li>
+                  <li><a className="dropdown-item" href="#faq">FAQ</a></li>
+                </ul>
+              </div>
+              <div className="dropdown">
+                <button className="btn btn-link text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Terms</button>
+                <ul className="dropdown-menu">
+                  <li><Link className="dropdown-item" to="/terms">Terms</Link></li>
+                  <li><Link className="dropdown-item" to="/privacy">Privacy</Link></li>
+                </ul>
+              </div>
+            </nav>
           </div>
-
-          <div className="col-md-4 col-12 text-white">
-            <h6 className="fw-semibold text-white fs-4 fw-bolder mt-5">
-              Download App
-            </h6>
-            <div className="footer-download-btn mt-4">
-              <a
-                href="https://apps.apple.com/ae/app/digits-hire-car/id6747331842"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  // src={applePlay}
-                  className="apple-pay-img"
-                  alt="Download on Apple Store"
-                />
-              </a>
-              <a
-                href="https://play.google.com/store/apps/details?id=com.devicebee.digits"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ms-3"
-              >
-                <img
-                  // src={googlePlay}
-                  alt="Get it on Google Play"
-                  className="google-pay-img"
-                />
-              </a>
-            </div>
-
-            <ul className="footer-icons">
-              <li className="icons-li">
-                <a href="https://www.X.com/digitsap_ae" target="_blank">
-                  <i class="mx-3">
-                    <FaXTwitter />
-                  </i>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.instagram.com/digitsap_ae" target="_blank">
-                  <i class="mx-3">
-                    <FaInstagram />
-                  </i>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.linkedIn/digitsap_ae" target="_blank">
-                  <i class="mx-3">
-                    <FaLinkedinIn />
-                  </i>
-                </a>
-              </li>
-            </ul>
+        </div>
+        <div className="row mt-3 align-items-center">
+          <div className="col-md-6">
+            <span className="text-muted">©2025 Legal Platform. All rights reserved.</span>
+          </div>
+          <div className="col-md-6 d-flex justify-content-md-end justify-content-start mt-2 mt-md-0 gap-3">
+            <img src={fb} alt="Facebook" style={{ height: 24 }} />
+            <img src={insta} alt="Instagram" style={{ height: 24 }} />
+            <img src={whatsApp} alt="WhatsApp" style={{ height: 24 }} />
+            <img src={yt} alt="YouTube" style={{ height: 24 }} />
           </div>
         </div>
       </div>
-      <div
-        class="footer-bottom p-3 mt-3"
-        style={{ background: "rgba(39, 39, 39, 1)" }}
-      >
-        <div class="container my-auto d-flex justify-content-center align-items-center">
-          <div class="copyright text-start my-auto text-white">
-            <span style={{ fontSize: "15px" }}>
-              © Copyrights 2025 DIGITS. All rights reserved.
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
+    </footer>
   );
 };
 

@@ -1,30 +1,23 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Link as ScrollLink } from "react-scroll";
-// import logo from "../assets/images/digits-logo.png";
-
+import logo from "../assets/images/logo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const links = [
-  { name: "Home", path: "/" },
-  { name: "How it Work?", path: "howitwork" },
-  { name: "Why Choose Us", path: "whyChooseUs" },
-  { name: "Screenshot", path: "screenshot" },
-  { name: "Download App", path: "downloadApp" },
+  { name: "Templates", path: "/templates" },
+  { name: "Affiliate", path: "/affiliate" },
+  { name: "Contact", path: "/contact" },
+  { name: "FAQ", path: "/faq" },
+  { name: "Blog", path: "/blog" }
 ];
 
-export default function Navbar() {
-  const [activeLink, setActiveLink] = useState("/");
+export default function Header() {
+  const [activeLink, setActiveLink] = useState(links[0].path);
 
   return (
-    <>
-      <nav className="navbar navbar-expand-lg bg-transparent px-3">
-        <Link className="navbar-brand" to="/">
-          {/* <img src={logo} alt="Logo" className="logo" /> */}
-          {/* <h3>Digits</h3> */}
-        </Link>
-
+    <div className="font-inter">
+      <nav className="container navbar navbar-expand-lg bg-transparent px-3 position-relative">
         <button
           className="navbar-toggler d-lg-none"
           type="button"
@@ -34,62 +27,61 @@ export default function Navbar() {
           <span className="navbar-toggler-icon" />
         </button>
 
-        {/* ❖  inline menu shows ONLY lg and up */}
+        <Link
+          className="navbar-brand position-absolute start-50 translate-middle-x d-none d-lg-block"
+          to="/"
+        >
+          <img
+            src={logo}
+            alt="Legal Platform"
+            style={{ height: "auto", width: "70px" }}
+          />
+        </Link>
+
         <div className="collapse navbar-collapse d-none d-lg-flex">
-          <ul
-            className="navbar-nav ms-auto gap-4"
-            style={{
-              borderRadius: "35px",
-              marginRight: "30px",
-              padding: "8px 20px",
-              background: "black",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center"
-            }}
-          >
+          <ul className="navbar-nav gap-4">
             {links.map((l) => (
-              <li
-                className="nav-item"
-                key={l.path}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center"
-                }}
-              >
+              <li className="nav-item" key={l.path}>
                 <Link
-                  to={`/#${l.path}`}
-                  className={`nav-link ${
-                    activeLink === l.path ? "active" : ""
-                  }`}
+                  to={l.path}
+                  className={`nav-link ${activeLink === l.path ? "active" : ""}`}
                   onClick={() => setActiveLink(l.path)}
-                  style={{
-                    padding: "8px 12px",
-                    margin: 0
-                  }}
+                  style={{ padding: "8px 0" }}
                 >
                   {l.name}
                 </Link>
-                {/* {activeLink === l.path && (
-                  <img src={line} alt="" className="nav-underline" />
-                )} */}
               </li>
             ))}
           </ul>
+          <div className="ms-auto d-flex align-items-center gap-3">
+            <Link
+              to="/signin"
+              className="btn btn-outline-dark"
+              style={{ padding: "8px 16px", borderRadius: "15px" }}
+            >
+              <i className="bi bi-person me-2" />
+              Sign in
+            </Link>
+            <Link
+              to="/corporate-login"
+              className="btn bg-black text-white"
+              style={{ padding: "10px 16px", boxShadow: "0 8px 24px rgba(0,0,0,0.25)", borderRadius: "15px", fontSize: "15px" }}
+            >
+              Corporates Login
+            </Link>
+          </div>
         </div>
       </nav>
 
-      {/* ───── OFF‑CANVAS (mobile only) ───── */}
       <div
         className="offcanvas offcanvas-start d-lg-none"
         id="offcanvasNavbar"
         tabIndex="-1"
       >
         <div className="offcanvas-header">
-          <h5 className="offcanvas-title mb-0">
-            {/* <img src={logo} alt="Logo" className="logo" /> */}
-          </h5>
+          <Link className="offcanvas-title mb-0" to="/" data-bs-dismiss="offcanvas">
+            <img src={logo} alt="Legal Platform" style={{ height: 32, width: "auto" }} />
+          </Link>
           <button
             type="button"
             className="btn-close"
@@ -97,36 +89,41 @@ export default function Navbar() {
             aria-label="Close"
           />
         </div>
-
         <div className="offcanvas-body">
-          <ul className="navbar-nav gap-3">
+          <ul className="navbar-nav gap-2 mb-3">
             {links.map((l) => (
-              <li
-                className="nav-item d-flex flex-column align-items-start"
-                key={l.path}
-              >
-                <ScrollLink
-                  style={{ fontSize: "1.125rem" }}
+              <li className="nav-item" key={l.path}>
+                <Link
                   to={l.path}
-                  smooth
-                  duration={200}
-                  spy
-                  className={`nav-link ${
-                    activeLink === l.path ? "active" : ""
-                  }`}
+                  className={`nav-link ${activeLink === l.path ? "active" : ""}`}
                   onClick={() => setActiveLink(l.path)}
                   data-bs-dismiss="offcanvas"
                 >
                   {l.name}
-                </ScrollLink>
-                {/* {activeLink === l.path && (
-                  <img src={line} alt="" className="nav-underline" />
-                )} */}
+                </Link>
               </li>
             ))}
           </ul>
+          <div className="d-flex align-items-center gap-3">
+            <Link
+              to="/signin"
+              className="btn btn-outline-dark rounded-pill flex-fill"
+              data-bs-dismiss="offcanvas"
+            >
+              <i className="bi bi-person me-2" />
+              Sign in
+            </Link>
+            <Link
+              to="/corporate-login"
+              className="btn btn-dark rounded-pill flex-fill"
+              style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.25)" }}
+              data-bs-dismiss="offcanvas"
+            >
+              Corporates Login
+            </Link>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
