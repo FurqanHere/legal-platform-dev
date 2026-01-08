@@ -13,6 +13,10 @@ import postSS1 from "../assets/images/postQuestion-ss.png";
 import postSS2 from "../assets/images/postQuestion-ss2.png";
 import postSS3 from "../assets/images/postQuestion-ss3.png";
 import appScreenshot from "../assets/images/ap-ss.png";
+import doc from "../assets/images/doc.png";
+import lawyer from "../assets/images/lawyer.png";
+import law from "../assets/images/law.png";
+import books from "../assets/images/books.png";
 import stores from "../assets/images/stores.png";
 
 import { useNavigate } from "react-router-dom";
@@ -39,6 +43,7 @@ const HomePage = () => {
   const navigate = useNavigate();
   const [scrollX, setScrollX] = useState(0);
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
+  const [audienceTab, setAudienceTab] = useState("consumers");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -109,7 +114,6 @@ const HomePage = () => {
         <Header />
         <div className="header-banner" id="home">
           <div className="container position-relative">
-            
             <div className="row g-4 align-items-stretch">
               <div className="col-lg-6">
                 <div
@@ -124,15 +128,22 @@ const HomePage = () => {
                     <button className="btn hero-btn">Try For Free</button>
                   </div>
                   <div className="d-flex align-items-center justify-content-center gap-4 mt-4 hero-tabs">
-                    <span className="active">For consumers</span>
                     <span
-                      onClick={() =>
+                      className={audienceTab === "consumers" ? "active" : ""}
+                      onClick={() => setAudienceTab("consumers")}
+                    >
+                      For consumers
+                    </span>
+                    <span
+                      className={audienceTab === "lawyers" ? "active" : ""}
+                      onClick={() => {
+                        setAudienceTab("lawyers");
                         scroller.scrollTo("who-for", {
                           duration: 600,
                           smooth: "easeInOutQuart",
                           offset: -80,
-                        })
-                      }
+                        });
+                      }}
                     >
                       For lawyers
                     </span>
@@ -155,8 +166,15 @@ const HomePage = () => {
                   data-aos="fade-left"
                   data-aos-delay="200"
                 >
-                  <img src={leftLeaves} alt="" className="hero-leaf hero-leaf-left" />
-                  <div className="text-center pt-3" style={{ marginTop: "30px" }}>
+                  <img
+                    src={leftLeaves}
+                    alt=""
+                    className="hero-leaf hero-leaf-left"
+                  />
+                  <div
+                    className="text-center pt-3"
+                    style={{ marginTop: "30px" }}
+                  >
                     <div className="hero-producthunt">Product hunt</div>
                     <div className="hero-producthunt-sub">
                       Product of the day
@@ -166,7 +184,11 @@ const HomePage = () => {
                   <div className="hero-media-img">
                     <img src={portalApp} alt="Portal app" />
                   </div>
-                  <img src={rightLeaves} alt="" className="hero-leaf hero-leaf-right" />
+                  <img
+                    src={rightLeaves}
+                    alt=""
+                    className="hero-leaf hero-leaf-right"
+                  />
                 </div>
               </div>
             </div>
@@ -225,13 +247,14 @@ const HomePage = () => {
         <div className="text-center mb-3" data-aos="fade-up">
           <h2>Features of legal AI</h2>
           <p className="text-muted mt-4 mb-5">
-            Explore features that boost your productivity. From document automation <br /> to advanced research, we've got the hard work covered.
+            Explore features that boost your productivity. From document
+            automation <br /> to advanced research, we've got the hard work
+            covered.
           </p>
         </div>
         <div className="row g-4 align-items-stretch">
           <div className="col-md-3" data-aos="fade-up" data-aos-delay="100">
             <div className="feature-tile feature-question text-center">
-              
               <h4 className="mt-1 fw-bold">Create a Question</h4>
               <img
                 src={question}
@@ -243,48 +266,76 @@ const HomePage = () => {
                 automation advanced.
               </p>
             </div>
-          
-          <div className="mt-4 case-card" data-aos="fade-up" data-aos-delay="300">
-            <div className="feature-tile feature-case text-center">
-              
-              <h4 className="mt-1 fw-bold text-white">Create a Case</h4>
-              <img src={caseImg} alt="Create a Case" className="feature-icon case-img my-3" />
-              <p className="feature-desc">
-                Explore features that boost your productivity. From document
-                automation advanced.
-              </p>
+
+            <div
+              className="mt-4 case-card"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div className="feature-tile feature-case text-center">
+                <h4 className="mt-1 fw-bold text-white">Create a Case</h4>
+                <img
+                  src={caseImg}
+                  alt="Create a Case"
+                  className="feature-icon case-img my-3"
+                />
+                <p className="feature-desc">
+                  Explore features that boost your productivity. From document
+                  automation advanced.
+                </p>
+              </div>
             </div>
-          </div>
           </div>
           <div className="col-md-9" data-aos="fade-up" data-aos-delay="200">
             <div className="chat-card">
               <div className="mini-chat-card m-3 bg-white p-4">
-              <div className="chat-header text-black">Hello Williams 👋</div>
-              <p className="chat-intro">
-                Sed ut perspiciatis unde omnis iste natus error sit <br /> voluptatem
-                accusantium doloremque laudantium, <br /> totam rem aperiam, eaque ipsa
-                quae ab ill.
-              </p>
-              <button className="btn chat-add">+ Add</button>
-</div>
+                <div className="chat-header text-black">Hello Williams 👋</div>
+                <p className="chat-intro">
+                  Sed ut perspiciatis unde omnis iste natus error sit <br />{" "}
+                  voluptatem accusantium doloremque laudantium, <br /> totam rem
+                  aperiam, eaque ipsa quae ab ill.
+                </p>
+                <button className="btn chat-add">+ Add</button>
+              </div>
               <div className="chat-bubbles">
-                <div className="bubble dark align-self-end" style={{ height: "68px", width: "fit-content" }}>
+                <div
+                  className="bubble dark align-self-end"
+                  style={{ height: "68px", width: "fit-content" }}
+                >
                   accusantium doloremque laudantium, totam.
                   <span className="time ms-2">02:14 PM</span>
                 </div>
-                <div className="bubble light d-flex align-items-center justify-content-center" style={{ height: "68px", width: "fit-content", borderRadius: "30px" }}>Ok Thanks Bro!</div>
-                
+                <div
+                  className="bubble light d-flex align-items-center justify-content-center"
+                  style={{
+                    height: "68px",
+                    width: "fit-content",
+                    borderRadius: "30px",
+                  }}
+                >
+                  Ok Thanks Bro!
+                </div>
               </div>
               <div className="chat-footer mt-3">
-                <h6 className="fw-semibold my-4" style={{ fontSize: "22px", fontWeight: "500" }}>Ask AI Lawyer</h6>
+                <h6
+                  className="fw-semibold my-4"
+                  style={{ fontSize: "22px", fontWeight: "500" }}
+                >
+                  Ask AI Lawyer
+                </h6>
                 <p className="text-white" style={{ fontSize: "18px" }}>
-                  Legal research never been easier. Have a conversation with your virtual assistant, gain <br />
-insights and simple answers to your complex questions in real-time.
-
+                  Legal research never been easier. Have a conversation with
+                  your virtual assistant, gain <br />
+                  insights and simple answers to your complex questions in
+                  real-time.
                 </p>
                 <div className="input-wrap">
-                  <input type="text" placeholder="Write a Messages..." className="rounded-pill" />
-                  
+                  <input
+                    type="text"
+                    placeholder="Write a Messages..."
+                    className="rounded-pill"
+                  />
+
                   <button className="send-btn">
                     <i className="bi bi-send" />
                   </button>
@@ -292,52 +343,96 @@ insights and simple answers to your complex questions in real-time.
               </div>
             </div>
           </div>
-          
         </div>
 
         <div className="row g-4 mt-2">
           <div className="col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div className="multi-panel p-3">
               <h6 className="fw-semibold mb-3">Multi-platform</h6>
-              <p className="text-muted">
+              <p>
                 Access our platform with a simple tap on the web, iOS, or
                 Android.
               </p>
-              <div className="row g-3 mt-1">
+              <div className="row g-3 mt-1 px-3 pb-4">
                 <div className="col-6">
                   <div className="service-card selected">
-                    <div className="title">
-                      Professional Business Consultation Service
+                    <div className="title mb-3 mb-3">
+                      Professional Business <br />
+                      Consultation Service
                     </div>
-                    <div className="price">USD 499</div>
-                    <div className="badge">Active Package</div>
+                    <div className="d-flex justify-content-between align-items-center">
+                      <div>
+                        <div className="price">USD 499</div>
+                        <div className="badge">Active Package</div>
+                      </div>
+                      <div>
+                        <button
+                          className="btn rounded-pill bg-white fw-bold"
+                          style={{
+                            color: "#424242",
+                            fontSize: "12.5px",
+                            width: "112px",
+                            height: "39px",
+                          }}
+                        >
+                          Subscribed
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className="col-6">
                   <div className="service-card">
-                    <div className="title">
-                      Professional Business Consultation Service
+                    <div className="title mb-3">
+                      Professional Business <br /> Consultation Service
                     </div>
-                    <div className="price">USD 499</div>
-                    <div className="badge muted">Subscribed</div>
+                    <div className="d-flex justify-content-between align-items-center">
+                      <div>
+                        <div className="price">USD 499</div>
+                        <div className="badge">Active Package</div>
+                      </div>
+                      <div>
+                        <button className="btn rounded-pill fw-bold multi-platform-subscribe-btn">
+                          Subscribed
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className="col-6">
                   <div className="service-card">
-                    <div className="title">
-                      Professional Business Consultation Service
+                    <div className="title mb-3">
+                      Professional Business <br /> Consultation Service
                     </div>
-                    <div className="price">USD 499</div>
-                    <div className="badge">Active Package</div>
+                    <div className="d-flex justify-content-between align-items-center">
+                      <div>
+                        <div className="price">USD 499</div>
+                        <div className="badge">Active Package</div>
+                      </div>
+                      <div>
+                        <button className="btn rounded-pill fw-bold multi-platform-subscribe-btn">
+                          Subscribed
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className="col-6">
                   <div className="service-card">
-                    <div className="title">
-                      Professional Business Consultation Service
+                    <div className="title mb-3">
+                      Professional Business <br /> Consultation Service
                     </div>
-                    <div className="price">USD 499</div>
-                    <div className="badge">Active Package</div>
+                    <div className="d-flex justify-content-between align-items-center">
+                      <div>
+                        <div className="price">USD 499</div>
+                        <div className="badge">Active Package</div>
+                      </div>
+                      <div>
+                        <button className="btn rounded-pill fw-bold multi-platform-subscribe-btn">
+                          Subscribed
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -372,11 +467,73 @@ insights and simple answers to your complex questions in real-time.
         </div>
       </div>
 
+      {/*  WHo is AI Lawyer for?  */}
+      <div className="container who-for my-5" id="who-for">
+        <div className="who-wrap" data-aos="fade-up">
+          <h2 className="text-white text-center pt-5 mb-2">Who is AI Lawyer for?</h2>
+          <p className="who-for-p text-center mb-4 mt-4">
+            Explore features that boost your productivity. From document
+            automation <br /> to advanced research, we've got the hard work covered.
+          </p>
+          <div className="row g-3 g-md-4 mt-2">
+            <div className="col-md-3 pe-0">
+              <div className="who-card">
+                <h4>AI for Legal Consumers</h4>
+                <p>
+                  From deciphering complex <br /> terms to understanding <br /> rights, we've
+                  got you <br /> covered.
+                </p>
+                <div className="who-icon">
+                  <img src={ doc } alt="" />
+                </div>
+              </div>
+            </div>
+            <div className="col-md-3">
+              <div className="who-card h-100">
+                <h4>AI for <br /> Lawyers</h4>
+                <p>
+                  From deciphering complex <br /> terms to understanding <br /> rights, we've
+                  got you <br /> covered.
+                </p>
+                <div className="who-icon">
+                  <img src={ lawyer } alt="" />
+                </div>
+              </div>
+            </div>
+            <div className="col-md-3 ps-0">
+              <div className="who-card h-100">
+                <h4>AI for <br /> Law Firms</h4>
+                <p>
+                  From deciphering complex <br /> terms to understanding <br /> rights, we've
+                  got you <br /> covered.
+                </p>
+                <div className="who-icon">
+                  <img src={ law } alt="" />
+                </div>
+              </div>
+            </div>
+            <div className="col-md-3 ps-0">
+              <div className="who-card h-100">
+                <h4>AI for Law <br /> Students</h4>
+                <p>
+                  From deciphering complex <br /> terms to understanding <br /> rights, we've
+                  got you <br /> covered.
+                </p>
+                <div className="who-icon">
+                  <img src={ books } alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* FAQ's */}
       <div className="container my-5" id="faq">
         <div className="faq-wrap p-3 p-md-4">
           <div className="text-center mb-3">
             <h2>Have a question?</h2>
-            <p className="text-muted">
+            <p className="text-muted mb-5">
               Browse through our frequently asked topics.
             </p>
           </div>
@@ -538,7 +695,7 @@ insights and simple answers to your complex questions in real-time.
         </div>
       </div>
 
-      <div className="container my-5">
+      {/* <div className="container my-5">
         <div className="mobile-app-banner p-3 p-md-4">
           <div className="row align-items-center g-4">
             <div className="col-md-5">
@@ -567,9 +724,9 @@ insights and simple answers to your complex questions in real-time.
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="cta-protect text-center my-5">
+      {/* <div className="cta-protect text-center my-5">
         <div className="container py-5">
           <h2 className="text-white">
             AI Lawyer protects your rights and wallet
@@ -578,190 +735,7 @@ insights and simple answers to your complex questions in real-time.
             <button className="btn cta-btn">Try For Free</button>
           </div>
         </div>
-      </div>
-
-      <div className="container who-for my-5" id="who-for">
-        <div className="who-wrap p-4 p-md-5" data-aos="fade-up">
-          <h2 className="text-white text-center mb-2">Who is AI Lawyer for?</h2>
-          <p className="text-center text-muted mb-4">
-            Explore features that boost your productivity. From document
-            automation to advanced research, we've got the hard work covered.
-          </p>
-          <div className="row g-3 g-md-4 mt-2">
-            <div className="col-md-3">
-              <div className="who-card h-100">
-                <h4>AI for Legal Consumers</h4>
-                <p>
-                  From deciphering complex terms to understanding rights, we've
-                  got you covered.
-                </p>
-                <div className="who-icon">
-                  <i className="bi bi-journal"></i>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3">
-              <div className="who-card h-100">
-                <h4>AI for Lawyers</h4>
-                <p>
-                  From deciphering complex terms to understanding rights, we've
-                  got you covered.
-                </p>
-                <div className="who-icon">
-                  <i className="bi bi-scale"></i>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3">
-              <div className="who-card h-100">
-                <h4>AI for Law Firms</h4>
-                <p>
-                  From deciphering complex terms to understanding rights, we've
-                  got you covered.
-                </p>
-                <div className="who-icon">
-                  <i className="bi bi-bank"></i>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3">
-              <div className="who-card h-100">
-                <h4>AI for Law Students</h4>
-                <p>
-                  From deciphering complex terms to understanding rights, we've
-                  got you covered.
-                </p>
-                <div className="who-icon">
-                  <i className="bi bi-book"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Our Mobile App */}
-      <div className="container my-5 top" id="screenshot">
-        <div className="text-center mb-4" data-aos="fade-up">
-          <p className="text-secondary">Our Mobile App</p>
-          <h2>Awesome Screenshots</h2>
-        </div>
-
-        <div className="screenshots-desktop">
-          <div className="row">
-            <div className="col-md-1"></div>
-            <div
-              className="col-md-2 screenshots"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              {/* <img src={screenshot1} style={{ opacity: "55%" }} alt="" /> */}
-            </div>
-            <div
-              className="col-md-2 screenshots"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              {/* <img src={screenshot2} style={{ opacity: "55%" }} alt="" /> */}
-            </div>
-            <div
-              className="col-md-2 screenshots filter mt-4"
-              data-aos="zoom-in"
-              data-aos-delay="400"
-            >
-              {/* <img src={screenshot3} alt="" /> */}
-            </div>
-            <div
-              className="col-md-2 screenshots mt-4"
-              data-aos="fade-up"
-              data-aos-delay="500"
-            >
-              {/* <img src={screenshot4} style={{ opacity: "55%" }} alt="" /> */}
-            </div>
-            <div
-              className="col-md-2 screenshots"
-              data-aos="fade-up"
-              data-aos-delay="600"
-            >
-              {/* <img src={screenshot5} style={{ opacity: "55%" }} alt="" /> */}
-            </div>
-            <div className="col-md-1"></div>
-          </div>
-        </div>
-
-        {/* Mobile Screenshots Auto-Slider */}
-        <div className="screenshots-mobile">
-          <div className="mobile-screenshot-slider">
-            <div className="text-center mb-3">
-              <img
-                // src={screenshots[currentScreenshot].image}
-                // alt={screenshots[currentScreenshot].title}
-                className="mobile-screenshot-img"
-              />
-              <p className="mt-2 text-muted">
-                {/* {screenshots[currentScreenshot].title} */}
-              </p>
-            </div>
-
-            {/* Dot Indicators */}
-            <div className="d-flex justify-content-center">
-              {/* {screenshots.map((screenshot, index) => (
-                <button
-                  key={screenshot.id}
-                  className={`mobile-dot-indicator ${
-                    index === currentScreenshot ? "active" : ""
-                  }`}
-                  onClick={() => setCurrentScreenshot(index)}
-                />
-              ))} */}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Download our App */}
-      <div className="container download-App-main" id="downloadApp">
-        <div className="row downloadApp">
-          <div className="col-md-12" data-aos="fade-up" data-aos-delay="200">
-            <h1 className="fw-light">
-              Download the <span className="fw-bold ps-0">Digits</span> app
-            </h1>
-            <p>
-              Discover, search, and post UAE plate numbers in minutes <br />
-              with the Digits app – your all-in-one plate number marketplace.
-            </p>
-
-            <div
-              className="btn-download-app"
-              style={{ padding: "40px 0 0 141px" }}
-              data-aos="fade-up"
-              data-aos-delay="400"
-            >
-              <a
-                href="https://apps.apple.com/ae/app/digits-hire-car/id6747331842"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  // src={applePlay}
-                  style={{ width: "170px", height: "63x", marginRight: "10px" }}
-                />
-              </a>
-              <a
-                href="https://play.google.com/store/apps/details?id=com.devicebee.digits"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  // src={googlePlay}
-                  style={{ width: "203px", height: "63px" }}
-                />
-              </a>
-            </div>
-          </div>
-          {/* <img src={bannerimg} alt="" className="download-img-section ss" /> */}
-        </div>
-      </div>
+      </div> */}
 
       <Footer />
     </>

@@ -10,7 +10,7 @@ import yt from "../assets/images/yt.png";
 const Footer = () => {
   return (
     <footer className="footer-minimal font-inter">
-      <div className="container py-4">
+      {/* <div className="container py-4">
         <div className="row align-items-center">
           <div className="col-md-6 d-flex align-items-center gap-3">
             <img src={appStore} alt="App Store" style={{ height: 40 }} />
@@ -53,7 +53,7 @@ const Footer = () => {
             <img src={yt} alt="YouTube" style={{ height: 24 }} />
           </div>
         </div>
-      </div>
+      </div> */}
     </footer>
   );
 };
