@@ -1,18 +1,26 @@
 import React, { useState, useEffect, useRef } from "react";
+
 import leftLeaves from "../assets/images/left-leaves.png";
 import rightLeaves from "../assets/images/right-leaves.png";
+
 import portalApp from "../assets/images/portal-app.png";
+
 import appStore from "../assets/images/app-store.png";
 import playStore from "../assets/images/play-store.png";
+
 import benzinga from "../assets/images/benzinga.png";
 import khaleej from "../assets/images/khaleej.png";
 import chronical from "../assets/images/chronical.png";
 import question from "../assets/images/question.png";
 import caseImg from "../assets/images/case.png";
+
 import postSS1 from "../assets/images/postQuestion-ss.png";
 import postSS2 from "../assets/images/postQuestion-ss2.png";
 import postSS3 from "../assets/images/postQuestion-ss3.png";
-import appScreenshot from "../assets/images/ap-ss.png";
+
+import appScreenshot from "../assets/images/download-section/download-app1.png";
+import appScreenshot2 from "../assets/images/download-section/download-app.png";
+
 import doc from "../assets/images/doc.png";
 import lawyer from "../assets/images/lawyer.png";
 import law from "../assets/images/law.png";
@@ -44,6 +52,59 @@ const HomePage = () => {
   const [scrollX, setScrollX] = useState(0);
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
   const [audienceTab, setAudienceTab] = useState("consumers");
+  const [faqTab, setFaqTab] = useState("general");
+  const generalFaq = [
+    {
+      q: "What is AI Lawyer?",
+      a: "AI Lawyer is your personal legal AI assistant that helps draft documents, answer questions, and create cases across web, iOS, and Android.",
+    },
+    {
+      q: "Who is your platform for?",
+      a: "Consumers, lawyers, law firms, and law students — anyone needing fast, clear legal assistance.",
+    },
+    {
+      q: "What countries/languages does it works for?",
+      a: "Our platform works worldwide and in many languages. You can ask questions in your language and get answers in the same language. This makes it easy for people from different places to use it.",
+    },
+    {
+      q: "How to start using AI Lawyer?",
+      a: "Sign up on web or download our mobile app, then start by asking a question or creating a case using templates.",
+    },
+    {
+      q: "How to get \"Students & teachers\" discount?",
+      a: "Verify your academic email and apply the education discount in your account settings.",
+    },
+    {
+      q: "Can I receive a refund if I'm not satisfied?",
+      a: "Yes. Please review our refund policy and contact support; eligible refunds are processed quickly.",
+    },
+  ];
+  const lawyersFaq = [
+    {
+      q: "How does AI Lawyer assist legal professionals?",
+      a: "It accelerates legal research, drafts motions and contracts, and organizes matter notes so you can focus on strategy.",
+    },
+    {
+      q: "Can I integrate it with my existing tools?",
+      a: "You can export work to common formats and share with case management systems; integrations roadmap includes major providers.",
+    },
+    {
+      q: "Is client data secure and compliant?",
+      a: "Data is encrypted in transit and at rest. Access controls and audit trails help maintain confidentiality and compliance.",
+    },
+    {
+      q: "Does it support jurisdiction-specific citations?",
+      a: "It can tailor research summaries to your jurisdiction and include citations where available.",
+    },
+    {
+      q: "Can my team collaborate inside the platform?",
+      a: "You can share drafts, comment, and maintain case folders to collaborate with paralegals and colleagues.",
+    },
+    {
+      q: "How does pricing work for law firms?",
+      a: "Flexible seats for solo, small, and enterprise firms with usage-based tiers. Contact sales for volume discounts.",
+    },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -333,12 +394,13 @@ const HomePage = () => {
                   <input
                     type="text"
                     placeholder="Write a Messages..."
-                    className="rounded-pill"
                   />
-
-                  <button className="send-btn">
-                    <i className="bi bi-send" />
-                  </button>
+                  <div className="input-actions">
+                    <i className="bi bi-paperclip" />
+                    <button className="send-btn">
+                      <i className="bi bi-send-fill" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -537,182 +599,82 @@ const HomePage = () => {
               Browse through our frequently asked topics.
             </p>
           </div>
+          <div className="d-flex justify-content-center mb-4">
+            <div className="faq-tabs">
+              <button
+                className={`faq-tab ${faqTab === "general" ? "active" : ""}`}
+                onClick={() => setFaqTab("general")}
+              >
+                General
+              </button>
+              <button
+                className={`faq-tab ${faqTab === "lawyers" ? "active" : ""}`}
+                onClick={() => setFaqTab("lawyers")}
+              >
+                Lawyers
+              </button>
+            </div>
+          </div>
           <div className="accordion accordion-flush" id="faqAccordion">
-            <div className="accordion-item faq-card">
-              <h2 className="accordion-header" id="faq1h">
-                <button
-                  className="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#faq1"
-                  aria-expanded="false"
-                  aria-controls="faq1"
-                >
-                  What is AI Lawyer?
-                </button>
-              </h2>
-              <div
-                id="faq1"
-                className="accordion-collapse collapse"
-                aria-labelledby="faq1h"
-                data-bs-parent="#faqAccordion"
-              >
-                <div className="accordion-body">
-                  AI Lawyer is your personal legal AI assistant that helps draft
-                  documents, answer questions, and create cases across web, iOS,
-                  and Android.
+            {(faqTab === "general" ? generalFaq : lawyersFaq).map(
+              (item, idx) => (
+                <div className="accordion-item faq-card" key={`${faqTab}-${idx}`}>
+                  <h2 className="accordion-header" id={`faq${idx}h-${faqTab}`}>
+                    <button
+                      className={`accordion-button ${
+                        idx === 0 ? "" : "collapsed"
+                      }`}
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target={`#faq${idx}-${faqTab}`}
+                      aria-expanded={idx === 0 ? "true" : "false"}
+                      aria-controls={`faq${idx}-${faqTab}`}
+                    >
+                      {item.q}
+                    </button>
+                  </h2>
+                  <div
+                    id={`faq${idx}-${faqTab}`}
+                    className={`accordion-collapse collapse ${
+                      idx === 0 ? "show" : ""
+                    }`}
+                    aria-labelledby={`faq${idx}h-${faqTab}`}
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div className="accordion-body">{item.a}</div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="accordion-item faq-card">
-              <h2 className="accordion-header" id="faq2h">
-                <button
-                  className="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#faq2"
-                  aria-expanded="false"
-                  aria-controls="faq2"
-                >
-                  Who is your platform for?
-                </button>
-              </h2>
-              <div
-                id="faq2"
-                className="accordion-collapse collapse"
-                aria-labelledby="faq2h"
-                data-bs-parent="#faqAccordion"
-              >
-                <div className="accordion-body">
-                  Consumers, lawyers, law firms, and law students — anyone
-                  needing fast, clear legal assistance.
-                </div>
-              </div>
-            </div>
-            <div className="accordion-item faq-card">
-              <h2 className="accordion-header" id="faq3h">
-                <button
-                  className="accordion-button"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#faq3"
-                  aria-expanded="true"
-                  aria-controls="faq3"
-                >
-                  What countries/languages does it works for?
-                </button>
-              </h2>
-              <div
-                id="faq3"
-                className="accordion-collapse collapse show"
-                aria-labelledby="faq3h"
-                data-bs-parent="#faqAccordion"
-              >
-                <div className="accordion-body">
-                  Our platform works worldwide and in many languages. You can
-                  ask questions in your language and get answers in the same
-                  language. This makes it easy for people from different places
-                  to use it.
-                </div>
-              </div>
-            </div>
-            <div className="accordion-item faq-card">
-              <h2 className="accordion-header" id="faq4h">
-                <button
-                  className="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#faq4"
-                  aria-expanded="false"
-                  aria-controls="faq4"
-                >
-                  How to start using AI Lawyer?
-                </button>
-              </h2>
-              <div
-                id="faq4"
-                className="accordion-collapse collapse"
-                aria-labelledby="faq4h"
-                data-bs-parent="#faqAccordion"
-              >
-                <div className="accordion-body">
-                  Sign up on web or download our mobile app, then start by
-                  asking a question or creating a case using templates.
-                </div>
-              </div>
-            </div>
-            <div className="accordion-item faq-card">
-              <h2 className="accordion-header" id="faq5h">
-                <button
-                  className="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#faq5"
-                  aria-expanded="false"
-                  aria-controls="faq5"
-                >
-                  How to get "Students & teachers" discount?
-                </button>
-              </h2>
-              <div
-                id="faq5"
-                className="accordion-collapse collapse"
-                aria-labelledby="faq5h"
-                data-bs-parent="#faqAccordion"
-              >
-                <div className="accordion-body">
-                  Verify your academic email and apply the education discount in
-                  your account settings.
-                </div>
-              </div>
-            </div>
-            <div className="accordion-item faq-card">
-              <h2 className="accordion-header" id="faq6h">
-                <button
-                  className="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#faq6"
-                  aria-expanded="false"
-                  aria-controls="faq6"
-                >
-                  Can I receive a refund if I'm not satisfied?
-                </button>
-              </h2>
-              <div
-                id="faq6"
-                className="accordion-collapse collapse"
-                aria-labelledby="faq6h"
-                data-bs-parent="#faqAccordion"
-              >
-                <div className="accordion-body">
-                  Yes. Please review our refund policy and contact support;
-                  eligible refunds are processed quickly.
-                </div>
-              </div>
-            </div>
+              )
+            )}
           </div>
         </div>
       </div>
 
-      {/* <div className="container my-5">
+      <div className="container my-5" id="download-app">
         <div className="mobile-app-banner p-3 p-md-4">
-          <div className="row align-items-center g-4">
-            <div className="col-md-5">
-              <img
-                src={appScreenshot}
-                alt="AI Lawyer mobile app"
-                className="mobile-app-img"
-              />
+          <div className="row align-items-center g-4 h-100">
+            <div className="col-md-6">
+              <div className="download-phones">
+                <img
+                  src={appScreenshot}
+                  alt="App preview 1"
+                  className="phone-1"
+                />
+                <img
+                  src={appScreenshot2}
+                  alt="App preview 2"
+                  className="phone-2"
+                />
+              </div>
             </div>
-            <div className="col-md-7">
+            <div className="col-md-6 h-100 d-flex flex-column justify-content-center align-items-center">
               <div className="text-white">
-                <h2 className="mb-2">AI Lawyer mobile app</h2>
-                <p className="text-muted">
-                  Stay connected with your guide on iOS & Android. Handle
-                  documents, track cases, and receive guidance on the go.
+                <h2 className="mb-2 download-app-title text-center">Start Your Legal Journey Now!</h2>
+                <p className="download-app-desc text-center">
+                  Stay connected with your guide on iOS & <br /> Android. Handle
+                  documents, track cases, <br /> and receive guidance on the go.
                 </p>
-                <div className="d-flex align-items-center gap-3 mt-3">
+                <div className="d-flex align-items-center justify-content-center gap-3 mt-3">
                   <img src={appStore} alt="App Store" className="store-badge" />
                   <img
                     src={playStore}
@@ -724,18 +686,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </div> */}
-
-      {/* <div className="cta-protect text-center my-5">
-        <div className="container py-5">
-          <h2 className="text-white">
-            AI Lawyer protects your rights and wallet
-          </h2>
-          <div className="mt-3">
-            <button className="btn cta-btn">Try For Free</button>
-          </div>
-        </div>
-      </div> */}
+      </div>
 
       <Footer />
     </>
