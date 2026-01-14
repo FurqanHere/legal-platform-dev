@@ -1064,10 +1064,10 @@ html {
 }
 
 /* How it Work */
-.icon-1 i {
+/* .icon-1 i {
 }
 .deals p {
-}
+} */
 .bi-calendar2-range-fill {
   background-color: black;
   color: white;
@@ -1288,7 +1288,7 @@ html {
 
 /* Footer */
 .footer-minimal {
-  background: radial-gradient(120% 120% at 10% 0%, #1b1e23 0%, #0f1114 70%);
+  background: url(../images/footer-bg.png);
   color: #fff;
 }
 .footer-links .btn-link {
@@ -1343,4 +1343,32 @@ html {
   height: 70px;
   margin-top: 30px;
   border-radius: 12px;
+}
+
+.scroll-top-btn {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1050;
+}
+.scroll-top-btn .scroll-top-ring {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+}
+.scroll-top-btn i {
+  position: relative;
+  font-size: 22px;
 }

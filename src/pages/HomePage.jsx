@@ -669,7 +669,9 @@ const HomePage = () => {
             </div>
             <div className="col-md-6 h-100 d-flex flex-column justify-content-center align-items-center">
               <div className="text-white">
-                <h2 className="mb-2 download-app-title text-center">Start Your Legal Journey Now!</h2>
+                <h2 className="mb-2 download-app-title text-center">
+                  Start Your Legal Journey Now!
+                </h2>
                 <p className="download-app-desc text-center">
                   Stay connected with your guide on iOS & <br /> Android. Handle
                   documents, track cases, <br /> and receive guidance on the go.
@@ -687,6 +689,15 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+
+      <button
+        className="scroll-top-btn"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        aria-label="Scroll to top"
+      >
+        <span className="scroll-top-ring" />
+        <i className="bi bi-arrow-up-short" />
+      </button>
 
       <Footer />
     </>
