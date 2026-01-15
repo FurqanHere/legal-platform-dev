@@ -6,6 +6,9 @@ import Privacy from '../pages/PrivacyPolicy';
 import CancellationPolicy from "../pages/CancellationPolicy";
 import Support from "../pages/Support";
 import BecomePartner from "../pages/BecomePartner";
+import PostYourLegalIssue from "../pages/PostYourLegalIssue";
+import ChatWithLawyers from "../pages/ChatWithLawyers";
+import AboutLegalCompany from "../pages/AboutLegalCompany";
 
 const AppRouter = () => {
     const basePath = process.env.REACT_APP_BASE_PATH;
@@ -19,6 +22,9 @@ const AppRouter = () => {
           <Route path="/support" element={<Support />} />
           <Route path="/become-a-partner" element={<BecomePartner />} />
           <Route path="/cancellation-policy" element={<CancellationPolicy />} />
+          <Route path="/post-your-legal-issue" element={<PostYourLegalIssue />} />
+          <Route path="/chat-with-lawyers" element={<ChatWithLawyers />} />
+          <Route path="/about-legal-company" element={<AboutLegalCompany />} />
         </Routes>
       </Router>
     );

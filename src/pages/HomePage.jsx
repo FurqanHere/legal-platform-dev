@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 
-import leftLeaves from "../assets/images/left-leaves.png";
-import rightLeaves from "../assets/images/right-leaves.png";
-
-import portalApp from "../assets/images/portal-app.png";
-
 import appStore from "../assets/images/app-store.png";
 import playStore from "../assets/images/play-store.png";
+
+import sendButton from "../assets/images/send-button.png";
+import attachmentPin from "../assets/images/attachment-pin.png";
 
 import benzinga from "../assets/images/benzinga.png";
 import khaleej from "../assets/images/khaleej.png";
@@ -14,27 +12,27 @@ import chronical from "../assets/images/chronical.png";
 import question from "../assets/images/question.png";
 import caseImg from "../assets/images/case.png";
 
-import postSS1 from "../assets/images/postQuestion-ss.png";
-import postSS2 from "../assets/images/postQuestion-ss2.png";
-import postSS3 from "../assets/images/postQuestion-ss3.png";
-
 import appScreenshot from "../assets/images/download-section/download-app1.png";
 import appScreenshot2 from "../assets/images/download-section/download-app.png";
 
-import doc from "../assets/images/doc.png";
-import lawyer from "../assets/images/lawyer.png";
-import law from "../assets/images/law.png";
-import books from "../assets/images/books.png";
-import stores from "../assets/images/stores.png";
+import businessPortal from "../assets/images/businessPortal.png";
+import hireMultipleLawyers from "../assets/images/hireMultipleLawyers.png";
+
+import contractor from "../assets/images/contractor.png";
+import corporate from "../assets/images/corporate.png";
+import user from "../assets/images/user.png";
+import firmLaw from "../assets/images/firm-law.png";
+import forLawyer from "../assets/images/for-lawyer.png";
 
 import { useNavigate } from "react-router-dom";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import PostQuestion from "../components/PostQuestion";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
-import { Users, GaugeCircle, Wind, DoorOpen as Door } from "lucide-react";
+
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -53,6 +51,9 @@ const HomePage = () => {
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
   const [audienceTab, setAudienceTab] = useState("consumers");
   const [faqTab, setFaqTab] = useState("general");
+  const [showPostQuestion, setShowPostQuestion] = useState(false);
+  const [showTop, setShowTop] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const generalFaq = [
     {
       q: "What is AI Lawyer?",
@@ -71,7 +72,7 @@ const HomePage = () => {
       a: "Sign up on web or download our mobile app, then start by asking a question or creating a case using templates.",
     },
     {
-      q: "How to get \"Students & teachers\" discount?",
+      q: 'How to get "Students & teachers" discount?',
       a: "Verify your academic email and apply the education discount in your account settings.",
     },
     {
@@ -115,6 +116,19 @@ const HomePage = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setShowTop(window.pageYOffset > 400);
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      const p = max > 0 ? doc.scrollTop / max : 0;
+      setScrollProgress(p);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const svgRef = useRef(null);
@@ -169,87 +183,79 @@ const HomePage = () => {
     });
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
       <div className="img1 font-inter">
         <Header />
         <div className="header-banner" id="home">
           <div className="container position-relative">
-            <div className="row g-4 align-items-stretch">
+            <div className="row g-4 align-items-stretch home-hero-row">
               <div className="col-lg-6">
                 <div
-                  className="hero-card text-center "
+                  className="home-hero-main-card hp-hero-clickable"
                   data-aos="fade-up"
                   data-aos-delay="150"
+                  onClick={() => navigate("/post-your-legal-issue")}
                 >
-                  <h1 className="hero-title">
-                    AI Lawyer: your <br /> personal legal AI <br /> assistant
+                  <h1 className="home-hero-title text-center">
+                    Post Your Legal <br className="br" /> Issue Today
                   </h1>
-                  <div className="mt-3">
-                    <button className="btn hero-btn">Try For Free</button>
-                  </div>
-                  <div className="d-flex align-items-center justify-content-center gap-4 mt-4 hero-tabs">
-                    <span
-                      className={audienceTab === "consumers" ? "active" : ""}
-                      onClick={() => setAudienceTab("consumers")}
-                    >
-                      For consumers
-                    </span>
-                    <span
-                      className={audienceTab === "lawyers" ? "active" : ""}
-                      onClick={() => {
-                        setAudienceTab("lawyers");
-                        scroller.scrollTo("who-for", {
-                          duration: 600,
-                          smooth: "easeInOutQuart",
-                          offset: -80,
-                        });
-                      }}
-                    >
-                      For lawyers
-                    </span>
-                  </div>
-                  <p className="hero-sub">
-                    Say goodbye to expensive legal consultation, long waits{" "}
-                    <br />
-                    for appointments, and confusing legal texts.
+                  <p className="home-hero-text text-center">
+                    Post your legal issue today & connect with trusted
+                    <br className="br" />
+                    professionals ready to help. Share your situation
+                    <br className="br" />
+                    securely, receive clear guidance, & explore practical
+                    <br className="br" />
+                    solutions quickly. From family matters to business
+                    <br className="br" />
+                    disputes, get timely answers, save time & money,
+                    <br className="br" />
+                    and move forward with confidence through an
+                    <br className="br" />
+                    easy, confidential online platform today.
                   </p>
-                  <div className="d-flex align-items-center justify-content-center gap-3 hero-stores ">
-                    {/* <img src={appStore} alt="Apple Store" />
-                    <img src={playStore} alt="Google Play" /> */}
-                    <img src={stores} alt="Stores" className="w-75 h-75" />
+                  <div className="d-flex justify-content-center align-items-center">
+                    <button
+                      className="btn home-hero-main-btn"
+                      onClick={() => setShowPostQuestion(true)}
+                    >
+                      Post Question
+                    </button>
                   </div>
                 </div>
               </div>
               <div className="col-lg-6">
-                <div
-                  className="hero-media"
-                  data-aos="fade-left"
-                  data-aos-delay="200"
-                >
-                  <img
-                    src={leftLeaves}
-                    alt=""
-                    className="hero-leaf hero-leaf-left"
-                  />
+                <div className="d-flex flex-column gap-4 home-hero-side">
                   <div
-                    className="text-center pt-3"
-                    style={{ marginTop: "30px" }}
+                    className="home-hero-card home-hero-card-light"
+                    data-aos="fade-left"
+                    data-aos-delay="200"
                   >
-                    <div className="hero-producthunt">Product hunt</div>
-                    <div className="hero-producthunt-sub">
-                      Product of the day
-                    </div>
-                    <div className="hero-producthunt-rank">1st</div>
+                    <h3 className="home-hero-card-title">Hire a Lawyer</h3>
+                    <p className="home-hero-card-text">
+                      Say goodbye to expensive legal consultation, br long waits
+                      for appointments, & confusing <br />
+                      legal texts.
+                    </p>
                   </div>
-                  <div className="hero-media-img">
-                    <img src={portalApp} alt="Portal app" />
+                  <div
+                    className="home-hero-card home-hero-card-dark hp-hero-clickable"
+                    data-aos="fade-left"
+                    data-aos-delay="250"
+                    onClick={() => navigate("/chat-with-lawyers")}
+                  >
+                    <h3 className="home-hero-card-title">Chat with Lawyers</h3>
+                    <p className="home-hero-card-text text-white">
+                      Say goodbye to expensive legal consultation, <br />
+                      long waits for appointments, & confusing <br />
+                      legal texts.
+                    </p>
                   </div>
-                  <img
-                    src={rightLeaves}
-                    alt=""
-                    className="hero-leaf hero-leaf-right"
-                  />
                 </div>
               </div>
             </div>
@@ -257,7 +263,12 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="container brands-slider">
+      {/* Brand Slider */}
+      <div
+        className="container brands-slider"
+        data-aos="fade-in"
+        data-aos-duration="1200"
+      >
         <div className="press-slider">
           <Swiper
             modules={[Autoplay]}
@@ -274,131 +285,243 @@ const HomePage = () => {
             }}
           >
             <SwiperSlide>
-              <img src={benzinga} alt="Benzinga" className="press-logo" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={khaleej} alt="Khaleej Times" className="press-logo" />
-            </SwiperSlide>
-            <SwiperSlide>
               <img
-                src={chronical}
-                alt="The Chronicle Journal"
-                className="press-logo"
+                src={benzinga}
+                alt="Benzinga"
+                className="press-logo hover-scale"
               />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={benzinga} alt="Benzinga" className="press-logo" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={khaleej} alt="Khaleej Times" className="press-logo" />
+              <img
+                src={khaleej}
+                alt="Khaleej Times"
+                className="press-logo hover-scale"
+              />
             </SwiperSlide>
             <SwiperSlide>
               <img
                 src={chronical}
                 alt="The Chronicle Journal"
-                className="press-logo"
+                className="press-logo hover-scale"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={benzinga}
+                alt="Benzinga"
+                className="press-logo hover-scale"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={khaleej}
+                alt="Khaleej Times"
+                className="press-logo hover-scale"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={chronical}
+                alt="The Chronicle Journal"
+                className="press-logo hover-scale"
               />
             </SwiperSlide>
           </Swiper>
         </div>
       </div>
 
+      {/*  What is Legal Platform  */}
+      <div className="container who-for my-5" id="who-for">
+        <div className="who-wrap" data-aos="fade-up">
+          <h2
+            className="text-white text-center pt-5 mb-2"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            What is Legal Platform
+          </h2>
+          <p
+            className="who-for-p text-center mb-4 mt-4"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            Explore features that boost your productivity. From document
+            automation <br className="br" />
+            to advanced research, we've got the hard work covered.
+          </p>
+          <div className="row g-3 g-md-4 mt-2">
+            <div
+              className="col-md-3 pe-0"
+              data-aos="flip-left"
+              data-aos-delay="300"
+            >
+              <div className="who-card hover-lift">
+                <h4>
+                  For <br className="br" /> Corporate
+                </h4>
+                <p>
+                  From deciphering complex <br className="br" />
+                  terms to understanding <br className="br" />
+                  rights, we've got you <br className="br" />
+                  covered.
+                </p>
+                <div className="who-icon hover-rotate">
+                  <img src={corporate} alt="Corporate" style={{ width: "32px", height: "32px" }} />
+                </div>
+              </div>
+            </div>
+            <div className="col-md-3" data-aos="flip-left" data-aos-delay="400">
+              <div className="who-card h-100 hover-lift">
+                <h4>
+                  For <br className="br" /> Users
+                </h4>
+                <p>
+                  Ask questions in plain language, upload documents, and get
+                  step‑by‑step guidance on everyday legal issues.
+                </p>
+                <div className="who-icon hover-rotate">
+                  <img src={user} alt="Users" style={{ width: "32px", height: "32px" }} />
+                </div>
+              </div>
+            </div>
+            <div
+              className="col-md-3 ps-0"
+              data-aos="flip-left"
+              data-aos-delay="500"
+            >
+              <div className="who-card h-100 hover-lift">
+                <h4>
+                  For <br className="br" /> Law Firms
+                </h4>
+                <p>
+                  Streamline research, drafting, and client communication while
+                  keeping every matter and document organised.
+                </p>
+                <div className="who-icon hover-rotate">
+                  <img src={firmLaw} alt="Law Firms" style={{ width: "32px", height: "32px" }} />
+                </div>
+              </div>
+            </div>
+            <div
+              className="col-md-3 ps-0"
+              data-aos="flip-left"
+              data-aos-delay="600"
+            >
+              <div className="who-card h-100 hover-lift">
+                <h4>
+                  For <br className="br" /> Lawyers
+                </h4>
+                <p>
+                  Build a modern digital practice, manage clients, and respond
+                  to matters from web or mobile—on your schedule.
+                </p>
+                <div className="who-icon hover-rotate">
+                  <img src={forLawyer} alt="Lawyers" style={{ width: "32px", height: "32px" }} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Features of AI Lawyer */}
       <div className="container features-legal" id="howitwork">
         <div className="text-center mb-3" data-aos="fade-up">
-          <h2>Features of legal AI</h2>
-          <p className="text-muted mt-4 mb-5">
-            Explore features that boost your productivity. From document
-            automation <br /> to advanced research, we've got the hard work
-            covered.
+          <h2 data-aos="zoom-in" data-aos-delay="100">
+            Features of Legal Platform
+          </h2>
+          <p
+            className="text-muted mt-4 mb-5"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            Explore features that boost your productivity. From document automation <br />
+to advanced research, we've got the hard work covered.
           </p>
         </div>
         <div className="row g-4 align-items-stretch">
-          <div className="col-md-3" data-aos="fade-up" data-aos-delay="100">
-            <div className="feature-tile feature-question text-center">
-              <h4 className="mt-1 fw-bold">Create a Question</h4>
+          <div className="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div className="feature-tile feature-question text-center hover-lift">
+              <h4 className="mt-1 fw-bold">Post Question</h4>
               <img
                 src={question}
                 alt="Create a Question"
-                className="feature-icon my-3"
+                className="feature-icon my-4 hover-scale"
               />
               <p className="feature-desc">
-                Explore features that boost your productivity. From document
-                automation advanced.
+                Explore features that boost your productivity. <br /> 
+From document automation advanced.
               </p>
             </div>
 
             <div
-              className="mt-4 case-card"
+              className="mt-3 case-card hover-lift"
               data-aos="fade-up"
               data-aos-delay="300"
             >
               <div className="feature-tile feature-case text-center">
-                <h4 className="mt-1 fw-bold text-white">Create a Case</h4>
+                <h4 className="mt-1 fw-bold text-white">Hire a Lawyer</h4>
                 <img
                   src={caseImg}
                   alt="Create a Case"
-                  className="feature-icon case-img my-3"
+                  className="feature-icon case-img my-4 hover-scale"
                 />
                 <p className="feature-desc">
-                  Explore features that boost your productivity. From document
-                  automation advanced.
+                  Explore features that boost your productivity. <br />
+From document automation advanced.
                 </p>
               </div>
             </div>
           </div>
-          <div className="col-md-9" data-aos="fade-up" data-aos-delay="200">
-            <div className="chat-card">
-              <div className="mini-chat-card m-3 bg-white p-4">
-                <div className="chat-header text-black">Hello Williams 👋</div>
-                <p className="chat-intro">
-                  Sed ut perspiciatis unde omnis iste natus error sit <br />{" "}
-                  voluptatem accusantium doloremque laudantium, <br /> totam rem
-                  aperiam, eaque ipsa quae ab ill.
-                </p>
-                <button className="btn chat-add">+ Add</button>
+          <div className="col-md-8" data-aos="fade-up" data-aos-delay="200">
+            <div className="chat-card hover-lift">
+              <div className="mini-chat-card m-3 p-4">
+                <img
+                  src={contractor}
+                  alt=""
+                  className="contractor hover-scale"
+                />
               </div>
               <div className="chat-bubbles">
                 <div
-                  className="bubble dark align-self-end"
-                  style={{ height: "68px", width: "fit-content" }}
+                  className="bubble dark align-self-end hp-dark-bubble"
+                  data-aos="fade-left"
+                  data-aos-delay="400"
                 >
-                  accusantium doloremque laudantium, totam.
+                  I need help reviewing a service contract for my business.
                   <span className="time ms-2">02:14 PM</span>
                 </div>
                 <div
-                  className="bubble light d-flex align-items-center justify-content-center"
-                  style={{
-                    height: "68px",
-                    width: "fit-content",
-                    borderRadius: "30px",
-                  }}
+                  className="bubble light d-flex align-items-center justify-content-center hp-light-bubble"
+                  data-aos="fade-right"
+                  data-aos-delay="500"
                 >
-                  Ok Thanks Bro!
+                  Thank you, this makes everything much clearer.
                 </div>
               </div>
               <div className="chat-footer mt-3">
-                <h6
-                  className="fw-semibold my-4"
-                  style={{ fontSize: "22px", fontWeight: "500" }}
-                >
+                <h6 className="fw-semibold my-4 hp-ask-ai-heading">
                   Ask AI Lawyer
                 </h6>
-                <p className="text-white" style={{ fontSize: "18px" }}>
-                  Legal research never been easier. Have a conversation with
-                  your virtual assistant, gain <br />
-                  insights and simple answers to your complex questions in
-                  real-time.
+                <p className="text-white hp-ask-ai-text">
+                  Legal research never been easier. Have a conversation with your virtual assistant, gain <br /> 
+insights and simple answers to your complex questions in real-time.
+
                 </p>
                 <div className="input-wrap">
-                  <input
-                    type="text"
-                    placeholder="Write a Messages..."
-                  />
+                  <input type="text" placeholder="Write a Messages..." />
                   <div className="input-actions">
-                    <i className="bi bi-paperclip" />
-                    <button className="send-btn">
-                      <i className="bi bi-send-fill" />
+                    <img
+                      src={attachmentPin}
+                      alt=""
+                      className="hover-scale hp-attachment-icon"
+                    />
+                    <button className="send-btn hover-scale">
+                      <img
+                        src={sendButton}
+                        alt=""
+                        className="hp-send-button-icon"
+                      />
                     </button>
                   </div>
                 </div>
@@ -409,180 +532,37 @@ const HomePage = () => {
 
         <div className="row g-4 mt-2">
           <div className="col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div className="multi-panel p-3">
-              <h6 className="fw-semibold mb-3">Multi-platform</h6>
+            <div className="multi-panel p-3 hover-lift hp-multi-panel-auto-height">
+              <h6 className="fw-semibold mb-3">Business Portal</h6>
               <p>
-                Access our platform with a simple tap on the web, iOS, or
-                Android.
+                Access our platform with a simple tapon the web, iOS, or Android.
               </p>
               <div className="row g-3 mt-1 px-3 pb-4">
-                <div className="col-6">
-                  <div className="service-card selected">
-                    <div className="title mb-3 mb-3">
-                      Professional Business <br />
-                      Consultation Service
-                    </div>
-                    <div className="d-flex justify-content-between align-items-center">
-                      <div>
-                        <div className="price">USD 499</div>
-                        <div className="badge">Active Package</div>
-                      </div>
-                      <div>
-                        <button
-                          className="btn rounded-pill bg-white fw-bold"
-                          style={{
-                            color: "#424242",
-                            fontSize: "12.5px",
-                            width: "112px",
-                            height: "39px",
-                          }}
-                        >
-                          Subscribed
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-6">
-                  <div className="service-card">
-                    <div className="title mb-3">
-                      Professional Business <br /> Consultation Service
-                    </div>
-                    <div className="d-flex justify-content-between align-items-center">
-                      <div>
-                        <div className="price">USD 499</div>
-                        <div className="badge">Active Package</div>
-                      </div>
-                      <div>
-                        <button className="btn rounded-pill fw-bold multi-platform-subscribe-btn">
-                          Subscribed
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-6">
-                  <div className="service-card">
-                    <div className="title mb-3">
-                      Professional Business <br /> Consultation Service
-                    </div>
-                    <div className="d-flex justify-content-between align-items-center">
-                      <div>
-                        <div className="price">USD 499</div>
-                        <div className="badge">Active Package</div>
-                      </div>
-                      <div>
-                        <button className="btn rounded-pill fw-bold multi-platform-subscribe-btn">
-                          Subscribed
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-6">
-                  <div className="service-card">
-                    <div className="title mb-3">
-                      Professional Business <br /> Consultation Service
-                    </div>
-                    <div className="d-flex justify-content-between align-items-center">
-                      <div>
-                        <div className="price">USD 499</div>
-                        <div className="badge">Active Package</div>
-                      </div>
-                      <div>
-                        <button className="btn rounded-pill fw-bold multi-platform-subscribe-btn">
-                          Subscribed
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                <div className="col-12 d-flex justify-content-center align-items-center">
+                  <img
+                    src={businessPortal}
+                    alt=""
+                    className="hover-scale hp-business-portal-image"
+                  />
                 </div>
               </div>
             </div>
           </div>
           <div className="col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div className="multi-panel p-3">
-              <h6 className="fw-semibold mb-3">Multi-platform</h6>
+            <div className="multi-panel p-3 hover-lift hp-multi-panel-auto-height">
+              <h6 className="fw-semibold mb-3">
+                Hire Multiple Lawyers for Your Business
+              </h6>
               <p className="text-muted">
-                Access our platform with a simple tap on the web, iOS, or
-                Android.
+                Access our platform with a simple tapon the web, iOS, or Android.
               </p>
-              <div className="mobile-stack mt-2">
-                <img
-                  src={postSS1}
-                  alt="Post Question 1"
-                  className="mobile-img mobile-1"
-                />
-                <img
-                  src={postSS2}
-                  alt="Post Question 2"
-                  className="mobile-img mobile-2"
-                />
-                <img
-                  src={postSS3}
-                  alt="Post Question 3"
-                  className="mobile-img mobile-3"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/*  WHo is AI Lawyer for?  */}
-      <div className="container who-for my-5" id="who-for">
-        <div className="who-wrap" data-aos="fade-up">
-          <h2 className="text-white text-center pt-5 mb-2">Who is AI Lawyer for?</h2>
-          <p className="who-for-p text-center mb-4 mt-4">
-            Explore features that boost your productivity. From document
-            automation <br /> to advanced research, we've got the hard work covered.
-          </p>
-          <div className="row g-3 g-md-4 mt-2">
-            <div className="col-md-3 pe-0">
-              <div className="who-card">
-                <h4>AI for Legal Consumers</h4>
-                <p>
-                  From deciphering complex <br /> terms to understanding <br /> rights, we've
-                  got you <br /> covered.
-                </p>
-                <div className="who-icon">
-                  <img src={ doc } alt="" />
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3">
-              <div className="who-card h-100">
-                <h4>AI for <br /> Lawyers</h4>
-                <p>
-                  From deciphering complex <br /> terms to understanding <br /> rights, we've
-                  got you <br /> covered.
-                </p>
-                <div className="who-icon">
-                  <img src={ lawyer } alt="" />
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 ps-0">
-              <div className="who-card h-100">
-                <h4>AI for <br /> Law Firms</h4>
-                <p>
-                  From deciphering complex <br /> terms to understanding <br /> rights, we've
-                  got you <br /> covered.
-                </p>
-                <div className="who-icon">
-                  <img src={ law } alt="" />
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 ps-0">
-              <div className="who-card h-100">
-                <h4>AI for Law <br /> Students</h4>
-                <p>
-                  From deciphering complex <br /> terms to understanding <br /> rights, we've
-                  got you <br /> covered.
-                </p>
-                <div className="who-icon">
-                  <img src={ books } alt="" />
+              <div className="row g-3 mt-1 px-3 pb-4">
+                <div className="col-12 d-flex justify-content-center align-items-center">
+                  <img
+                    src={hireMultipleLawyers}
+                    alt=""
+                    className="hover-scale hp-hire-lawyers-image"
+                  />
                 </div>
               </div>
             </div>
@@ -592,14 +572,22 @@ const HomePage = () => {
 
       {/* FAQ's */}
       <div className="container my-5" id="faq">
-        <div className="faq-wrap p-3 p-md-4">
+        <div className="faq-wrap p-3 p-md-4" data-aos="fade-up">
           <div className="text-center mb-3">
-            <h2>Have a question?</h2>
-            <p className="text-muted mb-5">
+            <h2 data-aos="zoom-in">Have a question?</h2>
+            <p
+              className="text-muted mb-5"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
               Browse through our frequently asked topics.
             </p>
           </div>
-          <div className="d-flex justify-content-center mb-4">
+          <div
+            className="d-flex justify-content-center mb-4"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <div className="faq-tabs">
               <button
                 className={`faq-tab ${faqTab === "general" ? "active" : ""}`}
@@ -618,27 +606,28 @@ const HomePage = () => {
           <div className="accordion accordion-flush" id="faqAccordion">
             {(faqTab === "general" ? generalFaq : lawyersFaq).map(
               (item, idx) => (
-                <div className="accordion-item faq-card" key={`${faqTab}-${idx}`}>
-                  <h2 className="accordion-header" id={`faq${idx}h-${faqTab}`}>
+                <div
+                  className="accordion-item faq-card hover-lift"
+                  key={idx}
+                  data-aos="fade-up"
+                  data-aos-delay={idx * 50}
+                >
+                  <h2 className="accordion-header" id={`flush-heading${idx}`}>
                     <button
-                      className={`accordion-button ${
-                        idx === 0 ? "" : "collapsed"
-                      }`}
+                      className="accordion-button collapsed"
                       type="button"
                       data-bs-toggle="collapse"
-                      data-bs-target={`#faq${idx}-${faqTab}`}
-                      aria-expanded={idx === 0 ? "true" : "false"}
-                      aria-controls={`faq${idx}-${faqTab}`}
+                      data-bs-target={`#flush-collapse${idx}`}
+                      aria-expanded="false"
+                      aria-controls={`flush-collapse${idx}`}
                     >
                       {item.q}
                     </button>
                   </h2>
                   <div
-                    id={`faq${idx}-${faqTab}`}
-                    className={`accordion-collapse collapse ${
-                      idx === 0 ? "show" : ""
-                    }`}
-                    aria-labelledby={`faq${idx}h-${faqTab}`}
+                    id={`flush-collapse${idx}`}
+                    className="accordion-collapse collapse"
+                    aria-labelledby={`flush-heading${idx}`}
                     data-bs-parent="#faqAccordion"
                   >
                     <div className="accordion-body">{item.a}</div>
@@ -651,9 +640,13 @@ const HomePage = () => {
       </div>
 
       <div className="container my-5" id="download-app">
-        <div className="mobile-app-banner p-3 p-md-4">
+        <div
+          className="mobile-app-banner p-3 p-md-4 hover-lift"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           <div className="row align-items-center g-4 h-100">
-            <div className="col-md-6">
+            <div className="col-md-6" data-aos="fade-right" data-aos-delay="150">
               <div className="download-phones">
                 <img
                   src={appScreenshot}
@@ -668,20 +661,29 @@ const HomePage = () => {
               </div>
             </div>
             <div className="col-md-6 h-100 d-flex flex-column justify-content-center align-items-center">
-              <div className="text-white">
+              <div
+                className="text-white"
+                data-aos="fade-left"
+                data-aos-delay="200"
+              >
                 <h2 className="mb-2 download-app-title text-center">
                   Start Your Legal Journey Now!
                 </h2>
                 <p className="download-app-desc text-center">
-                  Stay connected with your guide on iOS & <br /> Android. Handle
-                  documents, track cases, <br /> and receive guidance on the go.
+                  Stay connected with your guide on iOS & <br className="br" />
+                  Android. Handle documents, track cases, <br className="br" />
+                  and receive guidance on the go.
                 </p>
                 <div className="d-flex align-items-center justify-content-center gap-3 mt-3">
-                  <img src={appStore} alt="App Store" className="store-badge" />
+                  <img
+                    src={appStore}
+                    alt="App Store"
+                    className="store-badge hover-scale"
+                  />
                   <img
                     src={playStore}
                     alt="Google Play"
-                    className="store-badge"
+                    className="store-badge hover-scale"
                   />
                 </div>
               </div>
@@ -690,16 +692,24 @@ const HomePage = () => {
         </div>
       </div>
 
-      <button
-        className="scroll-top-btn"
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        aria-label="Scroll to top"
-      >
-        <span className="scroll-top-ring" />
-        <i className="bi bi-arrow-up-short" />
-      </button>
+      {showTop && (
+        <button
+          type="button"
+          className="scroll-top-btn"
+          onClick={scrollToTop}
+          aria-label="Scroll to top"
+          style={{ "--progress": `${Math.round(scrollProgress * 100)}%` }}
+        >
+          <span className="scroll-top-ring" />
+          <i className="bi bi-arrow-up-short" />
+        </button>
+      )}
 
       <Footer />
+      <PostQuestion
+        isOpen={showPostQuestion}
+        onClose={() => setShowPostQuestion(false)}
+      />
     </>
   );
 };
