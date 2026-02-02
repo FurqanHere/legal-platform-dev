@@ -63,6 +63,10 @@ const Footer = () => {
               <li className="footer-text hover-text-theme"><AnimatedText text="Law Firm Portal" /></li>
               <li className="footer-text hover-text-theme"><AnimatedText text="User App Dashboard" /></li>
             </ul>
+            {/* Mobile Logo Position (Left Column) */}
+            <div className="footer-logo-wrap mt-4 d-block d-md-none" data-aos="fade-in" data-aos-delay="500">
+              <img src={logo} alt="Legal Platform" className="footer-logo hover-scale" />
+            </div>
           </div>
 
           <div className="col-md-3 col-6">
@@ -73,7 +77,8 @@ const Footer = () => {
               <li className="footer-text hover-text-theme"><AnimatedText text="Chat Box" /></li>
               <li className="footer-text hover-text-theme"><AnimatedText text="Create a Case" /></li>
             </ul>
-            <div className="footer-logo-wrap mt-4" data-aos="fade-in" data-aos-delay="500">
+            {/* Desktop Logo Position (Right Column) */}
+            <div className="footer-logo-wrap mt-4 d-none d-md-block" data-aos="fade-in" data-aos-delay="500">
               <img src={logo} alt="Legal Platform" className="footer-logo hover-scale" />
             </div>
           </div>

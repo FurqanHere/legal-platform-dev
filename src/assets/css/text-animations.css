@@ -1,7 +1,7 @@
 
 /* Animated Text Styles */
 .animated-text-wrapper {
-  display: inline-block;
+  display: inline;
 }
 
 .animated-char {

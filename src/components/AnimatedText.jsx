@@ -16,7 +16,14 @@ const AnimatedText = ({
   let charIndex = baseIndex;
 
   return (
-    <Tag className={`animated-text-wrapper ${className}`} data-aos={aosType}>
+    <Tag 
+      className={`animated-text-wrapper ${className}`} 
+      data-aos={aosType}
+      style={{ 
+        display: 'inline', 
+        ...((Tag === 'div' || Tag === 'p') ? { display: 'block' } : {}) 
+      }}
+    >
       {parts.map((part, partIndex) => {
         if (part.match(/\s+/)) {
           return part.split('').map((char, i) => {

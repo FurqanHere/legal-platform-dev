@@ -234,10 +234,6 @@ html {
     padding: 0 15px;
   }
 
-  br {
-    display: none !important;
-  }
-
   /* Ensure full width on mobile */
   .row {
     margin: 0;
@@ -298,13 +294,11 @@ html {
     text-align: start !important;
   }
 
-  /* Touch-friendly buttons */
   .btn {
     min-height: 44px;
     min-width: 44px;
   }
 
-  /* Better spacing for mobile */
   .my-5 {
     margin: 2rem 0 !important;
   }
@@ -313,21 +307,14 @@ html {
     margin-top: 2rem !important;
   }
 
-  /* Mobile carousel improvements */
   .car-swiper {
     padding: 10px 0 30px !important;
-  }
-
-  /* Mobile header improvements */
-  .header-banner {
-    padding: 20px 0 60px 0 !important;
   }
 
   .header-txt1 {
     text-align: center;
   }
 
-  /* Mobile banner section centering */
   .header-banner .row {
     text-align: center;
   }
@@ -947,10 +934,13 @@ html {
     height: auto !important;
   }
   .brands-slider {
-    margin-top: 40px;
+    margin-top: 80px;
   }
   .who-for {
     margin-top: 40px;
+  }
+  .hire-a-lawyer-mob-res {
+    margin-top: 140px;
   }
   .features-legal {
     margin-top: 60px;
@@ -966,7 +956,7 @@ html {
     margin-bottom: 16px;
   }
   .mini-chat-card {
-    width: 100%;
+    width: auto;
     height: auto;
   }
   .chat-card {
@@ -975,8 +965,16 @@ html {
   .who-for h2 {
     font-size: 32px;
   }
+  .who-wrap {
+    border-radius: 12px;
+    background: linear-gradient(180deg, #1b1b1b 0%, #0c0d0f 100%) !important;
+    background-size: cover !important;
+  }
   .who-for-p {
     font-size: 16px;
+  }
+  .footer-logo {
+    margin-top: 30px;
   }
   .who-card {
     height: auto !important;
@@ -991,26 +989,21 @@ html {
   .faq-tabs {
     width: 100%;
     justify-content: space-between;
-    padding: 6px;
+    /* padding: 6px; */
     height: auto;
   }
   .faq-tab {
     width: 50%;
     font-size: 14px;
+    height: 60px;
   }
   .mobile-app-banner {
     height: auto;
     padding: 24px 16px;
+    border-radius: 12px;
   }
   .download-phones {
-    margin-top: 0;
-    margin-bottom: 24px;
-    height: auto;
-  }
-  .download-phones img {
-    position: static;
-    width: 48%;
-    height: auto;
+    display: none;
   }
   .download-app-title {
     font-size: 32px;
@@ -1020,7 +1013,7 @@ html {
   }
   .store-badge {
     width: 160px;
-    height: 48px;
+    height: 60px;
   }
   .input-wrap {
     height: 56px;
@@ -1038,17 +1031,27 @@ html {
   .scroll-top-btn i {
     font-size: 18px;
   }
-  .scroll-top-btn .scroll-top-ring {
+  /* .scroll-top-btn .scroll-top-ring {
     width: 12px;
     height: 12px;
-  }
+  } */
+   .business-portal-mob-res {
+    margin-top: 60px !important;
+   }
+   .hp-business-portal-image,
+   .hp-hire-lawyers-image {
+    width: 100% !important;
+   }
   .who-wrap {
-    margin-top: 1000px;
+    margin-top: 700px;
+  }
+  .hp-send-button-icon {
+    width: 25px;
+    height: 25px;
   }
 }
 
 .img1 {
-  /* background-image: url("../images/bg-img.png"); */
   background-repeat: no-repeat;
   background-position: 100% 60%;
   background-size: contain;
@@ -1152,7 +1155,8 @@ html {
   padding: 12px 26px;
   font-size: 22px;
   font-weight: 600;
-  width: 280px;
+  width: 100%;
+  max-width: 280px;
   height: 74px;
   transition: background-color 0.25s ease, color 0.25s ease,
     box-shadow 0.25s ease, transform 0.25s ease;
@@ -1220,20 +1224,27 @@ html {
   }
 
   .home-hero-text {
-    font-size: 14px;
+    font-size: 17px;
+    line-height: 1.6;
   }
 
   .home-hero-card {
     border-radius: 22px;
     padding: 20px 22px;
   }
+  .home-hero-main-btn {
+    max-width: 245px;
+    height: 65px;
+    font-size: 20px;
+  }
+  .home-hero-main-card {
+    height: 570px;
+  }
+  .brands-slider {
+    margin-top: -40px !important;
+  }
 }
 
-/* How it Work */
-/* .icon-1 i {
-}
-.deals p {
-} */
 .bi-calendar2-range-fill {
   background-color: black;
   color: white;
@@ -1387,4 +1398,24 @@ html {
   );
   box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .scroll-top-btn {
+    right: 16px;
+    bottom: 16px;
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    --ring: 13px;
+  }
+  html, body {
+    overflow-x: hidden;
+  }
+  .home-hero-card-text {
+    font-size: 20px;
+  }
+  .footer-logo-wrap {
+    justify-content: flex-start !important;
+  }
 }

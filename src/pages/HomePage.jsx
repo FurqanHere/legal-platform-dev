@@ -203,23 +203,31 @@ const HomePage = () => {
                   onClick={() => navigate("/post-your-legal-issue")}
                 >
                   <h1 className="home-hero-title text-center">
-                    <AnimatedText text="Post Your Legal" tag="span" />
-                    <br className="br" />
+                    <AnimatedText text="Post Your" tag="span" /> <span className="d-md-none"> </span>
+                    <AnimatedText text="Legal" tag="span" />
+                    <br className="d-none d-md-block" />
+                    <span className="d-md-none"><br /></span>
                     <AnimatedText text="Issue Today" tag="span" />
                   </h1>
                   <div className="home-hero-text text-center">
                     <AnimatedText text="Post your legal issue today & connect with trusted" tag="span" />
-                    <br className="br" />
+                    <span className="d-md-none"> </span>
+                    <br className="d-none d-md-block" />
                     <AnimatedText text="professionals ready to help. Share your situation" tag="span" />
-                    <br className="br" />
+                    <span className="d-md-none"> </span>
+                    <br className="d-none d-md-block" />
                     <AnimatedText text="securely, receive clear guidance, & explore practical" tag="span" />
-                    <br className="br" />
+                    <span className="d-md-none"> </span>
+                    <br className="d-none d-md-block" />
                     <AnimatedText text="solutions quickly. From family matters to business" tag="span" />
-                    <br className="br" />
+                    <span className="d-md-none"> </span>
+                    <br className="d-none d-md-block" />
                     <AnimatedText text="disputes, get timely answers, save time & money," tag="span" />
-                    <br className="br" />
+                    <span className="d-md-none"> </span>
+                    <br className="d-none d-md-block" />
                     <AnimatedText text="and move forward with confidence through an" tag="span" />
-                    <br className="br" />
+                    <span className="d-md-none"> </span>
+                    <br className="d-none d-md-block" />
                     <AnimatedText text="easy, confidential online platform today." tag="span" />
                   </div>
                   <div className="d-flex justify-content-center align-items-center">
@@ -232,7 +240,7 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-6">
+              <div className="col-lg-6 hire-a-lawyer-mob-res">
                 <div className="d-flex flex-column gap-4 home-hero-side">
                   <div
                     className="home-hero-card home-hero-card-light"
@@ -242,9 +250,11 @@ const HomePage = () => {
                     <h3 className="home-hero-card-title"><AnimatedText text="Hire a Lawyer" /></h3>
                     <div className="home-hero-card-text">
                       <AnimatedText text="Say goodbye to expensive legal consultation," tag="span" />
-                      <br />
+                      <span className="d-md-none"> </span>
+                      <br className="d-none d-md-block" />
                       <AnimatedText text="long waits for appointments, & confusing" tag="span" />
-                      <br />
+                      <span className="d-md-none"> </span>
+                      <br className="d-none d-md-block" />
                       <AnimatedText text="legal texts." tag="span" />
                     </div>
                   </div>
@@ -256,8 +266,12 @@ const HomePage = () => {
                   >
                     <h3 className="home-hero-card-title"><AnimatedText text="Chat with Lawyers" /></h3>
                     <div className="home-hero-card-text text-white">
-                      <AnimatedText text="Say goodbye to expensive legal consultation," tag="span" /> <br />
-                      <AnimatedText text="long waits for appointments, & confusing" tag="span" /> <br />
+                      <AnimatedText text="Say goodbye to expensive legal consultation," tag="span" />
+                      <span className="d-md-none"> </span>
+                      <br className="d-none d-md-block" />
+                      <AnimatedText text="long waits for appointments, & confusing" tag="span" />
+                      <span className="d-md-none"> </span>
+                      <br className="d-none d-md-block" />
                       <AnimatedText text="legal texts." tag="span" />
                     </div>
                   </div>
@@ -351,7 +365,9 @@ const HomePage = () => {
             data-aos-delay="200"
           >
             <AnimatedText text="Explore features that boost your productivity. From document" tag="span" />
-            <AnimatedText text="automation" tag="span" /> <br className="br" />
+            <AnimatedText text="automation" tag="span" />
+            <span className="d-md-none"> </span>
+            <br className="d-none d-md-block" />
             <AnimatedText text="to advanced research, we've got the hard work covered." tag="span" />
           </div>
           <div className="row g-3 g-md-4 mt-2">
@@ -440,7 +456,9 @@ const HomePage = () => {
           <div
             className="text-muted mt-4 mb-5"
           >
-            <AnimatedText text="Explore features that boost your productivity. From document automation" tag="span" /> <br className="br" />
+            <AnimatedText text="Explore features that boost your productivity. From document automation" tag="span" />
+            <span className="d-md-none"> </span>
+            <br className="d-none d-md-block" />
             <AnimatedText text="to advanced research, we've got the hard work covered." tag="span" />
           </div>
         </div>
@@ -454,7 +472,9 @@ const HomePage = () => {
                 className="feature-icon my-4 hover-scale"
               />
               <div className="feature-desc">
-                <AnimatedText text="Explore features that boost your productivity." tag="span" /> <br /> 
+                <AnimatedText text="Explore features that boost your productivity." tag="span" />
+                <span className="d-md-none"> </span>
+                <br className="d-none d-md-block" />
                 <AnimatedText text="From document automation to advanced research." tag="span" />
               </div>
             </div>
@@ -480,7 +500,7 @@ const HomePage = () => {
           </div>
           <div className="col-md-8" data-aos="fade-up" data-aos-delay="200">
             <div className="chat-card hover-lift">
-              <div className="mini-chat-card m-3 p-4">
+              <div className="mini-chat-card m-3 p-4 d-flex justify-content-center">
                 <img
                   src={contractor}
                   alt=""
@@ -534,7 +554,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="row g-4 mt-2">
+        <div className="row g-4 mt-2 business-portal-mob-res">
           <div className="col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div className="multi-panel p-3 hover-lift hp-multi-panel-auto-height">
               <h6 className="fw-semibold mb-3"><AnimatedText text="Business Portal" /></h6>
