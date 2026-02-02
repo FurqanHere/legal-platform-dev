@@ -61,7 +61,7 @@ export default function Header() {
           <div className="header-segment-group d-flex align-items-center">
             <button 
               type="button" 
-              className="header-segment-btn header-segment-law hover-lift"
+              className="header-segment-btn header-segment-law"
               data-aos="fade-down"
               data-aos-delay="400"
             >
@@ -69,7 +69,7 @@ export default function Header() {
             </button>
             <button 
               type="button" 
-              className="header-segment-btn header-segment-corp hover-lift"
+              className="header-segment-btn header-segment-corp"
               data-aos="fade-down"
               data-aos-delay="500"
             >
