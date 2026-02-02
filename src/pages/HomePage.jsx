@@ -29,6 +29,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PostQuestion from "../components/PostQuestion";
+import AnimatedText from "../components/AnimatedText";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
@@ -202,23 +203,25 @@ const HomePage = () => {
                   onClick={() => navigate("/post-your-legal-issue")}
                 >
                   <h1 className="home-hero-title text-center">
-                    Post Your Legal <br className="br" /> Issue Today
+                    <AnimatedText text="Post Your Legal" tag="span" />
+                    <br className="br" />
+                    <AnimatedText text="Issue Today" tag="span" />
                   </h1>
-                  <p className="home-hero-text text-center">
-                    Post your legal issue today & connect with trusted
+                  <div className="home-hero-text text-center">
+                    <AnimatedText text="Post your legal issue today & connect with trusted" tag="span" />
                     <br className="br" />
-                    professionals ready to help. Share your situation
+                    <AnimatedText text="professionals ready to help. Share your situation" tag="span" />
                     <br className="br" />
-                    securely, receive clear guidance, & explore practical
+                    <AnimatedText text="securely, receive clear guidance, & explore practical" tag="span" />
                     <br className="br" />
-                    solutions quickly. From family matters to business
+                    <AnimatedText text="solutions quickly. From family matters to business" tag="span" />
                     <br className="br" />
-                    disputes, get timely answers, save time & money,
+                    <AnimatedText text="disputes, get timely answers, save time & money," tag="span" />
                     <br className="br" />
-                    and move forward with confidence through an
+                    <AnimatedText text="and move forward with confidence through an" tag="span" />
                     <br className="br" />
-                    easy, confidential online platform today.
-                  </p>
+                    <AnimatedText text="easy, confidential online platform today." tag="span" />
+                  </div>
                   <div className="d-flex justify-content-center align-items-center">
                     <button
                       className="btn home-hero-main-btn"
@@ -236,12 +239,14 @@ const HomePage = () => {
                     data-aos="fade-left"
                     data-aos-delay="200"
                   >
-                    <h3 className="home-hero-card-title">Hire a Lawyer</h3>
-                    <p className="home-hero-card-text">
-                      Say goodbye to expensive legal consultation, br long waits
-                      for appointments, & confusing <br />
-                      legal texts.
-                    </p>
+                    <h3 className="home-hero-card-title"><AnimatedText text="Hire a Lawyer" /></h3>
+                    <div className="home-hero-card-text">
+                      <AnimatedText text="Say goodbye to expensive legal consultation," tag="span" />
+                      <br />
+                      <AnimatedText text="long waits for appointments, & confusing" tag="span" />
+                      <br />
+                      <AnimatedText text="legal texts." tag="span" />
+                    </div>
                   </div>
                   <div
                     className="home-hero-card home-hero-card-dark hp-hero-clickable"
@@ -249,12 +254,12 @@ const HomePage = () => {
                     data-aos-delay="250"
                     onClick={() => navigate("/chat-with-lawyers")}
                   >
-                    <h3 className="home-hero-card-title">Chat with Lawyers</h3>
-                    <p className="home-hero-card-text text-white">
-                      Say goodbye to expensive legal consultation, <br />
-                      long waits for appointments, & confusing <br />
-                      legal texts.
-                    </p>
+                    <h3 className="home-hero-card-title"><AnimatedText text="Chat with Lawyers" /></h3>
+                    <div className="home-hero-card-text text-white">
+                      <AnimatedText text="Say goodbye to expensive legal consultation," tag="span" /> <br />
+                      <AnimatedText text="long waits for appointments, & confusing" tag="span" /> <br />
+                      <AnimatedText text="legal texts." tag="span" />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -338,17 +343,17 @@ const HomePage = () => {
             data-aos="zoom-in"
             data-aos-delay="100"
           >
-            What is Legal Platform
+            <AnimatedText text="What is Legal Platform" />
           </h2>
-          <p
+          <div
             className="who-for-p text-center mb-4 mt-4"
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Explore features that boost your productivity. From document
-            automation <br className="br" />
-            to advanced research, we've got the hard work covered.
-          </p>
+            <AnimatedText text="Explore features that boost your productivity. From document" tag="span" />
+            <AnimatedText text="automation" tag="span" /> <br className="br" />
+            <AnimatedText text="to advanced research, we've got the hard work covered." tag="span" />
+          </div>
           <div className="row g-3 g-md-4 mt-2">
             <div
               className="col-md-3 pe-0"
@@ -357,14 +362,13 @@ const HomePage = () => {
             >
               <div className="who-card hover-lift">
                 <h4>
-                  For <br className="br" /> Corporate
+                  <AnimatedText text="For" tag="span" /> <br className="br" /> <AnimatedText text="Corporate" tag="span" />
                 </h4>
-                <p>
-                  From deciphering complex <br className="br" />
-                  terms to understanding <br className="br" />
-                  rights, we've got you <br className="br" />
-                  covered.
-                </p>
+                <div>
+                  <p>
+                    <AnimatedText text="From deciphering complex terms to understanding rights, we've got you covered." tag="span" />
+                  </p>
+                </div>
                 <div className="who-icon hover-rotate">
                   <img src={corporate} alt="Corporate" style={{ width: "32px", height: "32px" }} />
                 </div>
@@ -373,12 +377,13 @@ const HomePage = () => {
             <div className="col-md-3" data-aos="flip-left" data-aos-delay="400">
               <div className="who-card h-100 hover-lift">
                 <h4>
-                  For <br className="br" /> Users
+                  <AnimatedText text="For" tag="span" /> <br className="br" /> <AnimatedText text="Users" tag="span" />
                 </h4>
-                <p>
-                  Ask questions in plain language, upload documents, and get
-                  step‑by‑step guidance on everyday legal issues.
-                </p>
+                <div>
+                  <p>
+                    <AnimatedText text="Ask questions in plain language, upload documents, and get step‑by‑step guidance on everyday legal issues." tag="span" />
+                  </p>
+                </div>
                 <div className="who-icon hover-rotate">
                   <img src={user} alt="Users" style={{ width: "32px", height: "32px" }} />
                 </div>
@@ -391,12 +396,13 @@ const HomePage = () => {
             >
               <div className="who-card h-100 hover-lift">
                 <h4>
-                  For <br className="br" /> Law Firms
+                  <AnimatedText text="For" tag="span" /> <br className="br" /> <AnimatedText text="Law Firms" tag="span" />
                 </h4>
-                <p>
-                  Streamline research, drafting, and client communication while
-                  keeping every matter and document organised.
-                </p>
+                <div>
+                  <p>
+                    <AnimatedText text="Streamline research, drafting, and client communication while keeping every matter and document organised." tag="span" />
+                  </p>
+                </div>
                 <div className="who-icon hover-rotate">
                   <img src={firmLaw} alt="Law Firms" style={{ width: "32px", height: "32px" }} />
                 </div>
@@ -409,12 +415,13 @@ const HomePage = () => {
             >
               <div className="who-card h-100 hover-lift">
                 <h4>
-                  For <br className="br" /> Lawyers
+                  <AnimatedText text="For" tag="span" /> <br className="br" /> <AnimatedText text="Lawyers" tag="span" />
                 </h4>
-                <p>
-                  Build a modern digital practice, manage clients, and respond
-                  to matters from web or mobile—on your schedule.
-                </p>
+                <div>
+                  <p>
+                    <AnimatedText text="Build a modern digital practice, manage clients, and respond to matters from web or mobile—on your schedule." tag="span" />
+                  </p>
+                </div>
                 <div className="who-icon hover-rotate">
                   <img src={forLawyer} alt="Lawyers" style={{ width: "32px", height: "32px" }} />
                 </div>
@@ -426,32 +433,30 @@ const HomePage = () => {
 
       {/* Features of AI Lawyer */}
       <div className="container features-legal" id="howitwork">
-        <div className="text-center mb-3" data-aos="fade-up">
-          <h2 data-aos="zoom-in" data-aos-delay="100">
-            Features of Legal Platform
+        <div className="text-center mb-3">
+          <h2>
+            <AnimatedText text="Features of Legal Platform" />
           </h2>
-          <p
+          <div
             className="text-muted mt-4 mb-5"
-            data-aos="fade-up"
-            data-aos-delay="200"
           >
-            Explore features that boost your productivity. From document automation <br />
-to advanced research, we've got the hard work covered.
-          </p>
+            <AnimatedText text="Explore features that boost your productivity. From document automation" tag="span" /> <br className="br" />
+            <AnimatedText text="to advanced research, we've got the hard work covered." tag="span" />
+          </div>
         </div>
         <div className="row g-4 align-items-stretch">
           <div className="col-md-4" data-aos="fade-up" data-aos-delay="100">
             <div className="feature-tile feature-question text-center hover-lift">
-              <h4 className="mt-1 fw-bold">Post Question</h4>
+              <h4 className="mt-1 fw-bold"><AnimatedText text="Post Question" /></h4>
               <img
                 src={question}
                 alt="Create a Question"
                 className="feature-icon my-4 hover-scale"
               />
-              <p className="feature-desc">
-                Explore features that boost your productivity. <br /> 
-From document automation advanced.
-              </p>
+              <div className="feature-desc">
+                <AnimatedText text="Explore features that boost your productivity." tag="span" /> <br /> 
+                <AnimatedText text="From document automation to advanced research." tag="span" />
+              </div>
             </div>
 
             <div
@@ -460,16 +465,16 @@ From document automation advanced.
               data-aos-delay="300"
             >
               <div className="feature-tile feature-case text-center">
-                <h4 className="mt-1 fw-bold text-white">Hire a Lawyer</h4>
+                <h4 className="mt-1 fw-bold text-white"><AnimatedText text="Hire a Lawyer" /></h4>
                 <img
                   src={caseImg}
                   alt="Create a Case"
                   className="feature-icon case-img my-4 hover-scale"
                 />
-                <p className="feature-desc">
-                  Explore features that boost your productivity. <br />
-From document automation advanced.
-                </p>
+                <div className="feature-desc">
+                  <AnimatedText text="Explore features that boost your productivity." tag="span" /> <br />
+                  <AnimatedText text="From document automation to advanced research." tag="span" />
+                </div>
               </div>
             </div>
           </div>
@@ -484,30 +489,29 @@ From document automation advanced.
               </div>
               <div className="chat-bubbles">
                 <div
-                  className="bubble dark align-self-end hp-dark-bubble"
+                  className="bubble dark align-self-end hp-dark-bubble d-flex flex-column"
                   data-aos="fade-left"
                   data-aos-delay="400"
                 >
-                  I need help reviewing a service contract for my business.
-                  <span className="time ms-2">02:14 PM</span>
+                  <AnimatedText text="I need help reviewing a service contract for my business." tag="span" />
+                  <span className="time align-self-end mt-1" style={{ lineHeight: '1' }}>02:14 PM</span>
                 </div>
                 <div
                   className="bubble light d-flex align-items-center justify-content-center hp-light-bubble"
                   data-aos="fade-right"
                   data-aos-delay="500"
                 >
-                  Thank you, this makes everything much clearer.
+                  <AnimatedText text="Thank you, this makes everything much clearer." tag="span" />
                 </div>
               </div>
               <div className="chat-footer mt-3">
                 <h6 className="fw-semibold my-4 hp-ask-ai-heading">
-                  Ask AI Lawyer
+                  <AnimatedText text="Ask AI Lawyer" />
                 </h6>
-                <p className="text-white hp-ask-ai-text">
-                  Legal research never been easier. Have a conversation with your virtual assistant, gain <br /> 
-insights and simple answers to your complex questions in real-time.
-
-                </p>
+                <div className="text-white hp-ask-ai-text">
+                  <AnimatedText text="Legal research never been easier. Have a conversation with your virtual assistant, gain" tag="span" /> <br /> 
+                  <AnimatedText text="insights and simple answers to your complex questions in real-time." tag="span" />
+                </div>
                 <div className="input-wrap">
                   <input type="text" placeholder="Write a Messages..." />
                   <div className="input-actions">
@@ -533,9 +537,9 @@ insights and simple answers to your complex questions in real-time.
         <div className="row g-4 mt-2">
           <div className="col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div className="multi-panel p-3 hover-lift hp-multi-panel-auto-height">
-              <h6 className="fw-semibold mb-3">Business Portal</h6>
+              <h6 className="fw-semibold mb-3"><AnimatedText text="Business Portal" /></h6>
               <p>
-                Access our platform with a simple tapon the web, iOS, or Android.
+                <AnimatedText text="Access our platform with a simple tapon the web, iOS, or Android." />
               </p>
               <div className="row g-3 mt-1 px-3 pb-4">
                 <div className="col-12 d-flex justify-content-center align-items-center">
@@ -551,10 +555,10 @@ insights and simple answers to your complex questions in real-time.
           <div className="col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div className="multi-panel p-3 hover-lift hp-multi-panel-auto-height">
               <h6 className="fw-semibold mb-3">
-                Hire Multiple Lawyers for Your Business
+                <AnimatedText text="Hire Multiple Lawyers for Your Business" />
               </h6>
               <p className="text-muted">
-                Access our platform with a simple tapon the web, iOS, or Android.
+                <AnimatedText text="Access our platform with a simple tapon the web, iOS, or Android." />
               </p>
               <div className="row g-3 mt-1 px-3 pb-4">
                 <div className="col-12 d-flex justify-content-center align-items-center">
@@ -574,14 +578,12 @@ insights and simple answers to your complex questions in real-time.
       <div className="container my-5" id="faq">
         <div className="faq-wrap p-3 p-md-4" data-aos="fade-up">
           <div className="text-center mb-3">
-            <h2 data-aos="zoom-in">Have a question?</h2>
-            <p
+            <h2><AnimatedText text="Have a question?" /></h2>
+            <div
               className="text-muted mb-5"
-              data-aos="fade-up"
-              data-aos-delay="100"
             >
-              Browse through our frequently asked topics.
-            </p>
+              <AnimatedText text="Browse through our frequently asked topics." />
+            </div>
           </div>
           <div
             className="d-flex justify-content-center mb-4"
@@ -621,7 +623,7 @@ insights and simple answers to your complex questions in real-time.
                       aria-expanded="false"
                       aria-controls={`flush-collapse${idx}`}
                     >
-                      {item.q}
+                      <AnimatedText text={item.q} />
                     </button>
                   </h2>
                   <div
@@ -663,17 +665,16 @@ insights and simple answers to your complex questions in real-time.
             <div className="col-md-6 h-100 d-flex flex-column justify-content-center align-items-center">
               <div
                 className="text-white"
-                data-aos="fade-left"
-                data-aos-delay="200"
               >
                 <h2 className="mb-2 download-app-title text-center">
-                  Start Your Legal Journey Now!
+                  <AnimatedText text="Start Your Legal" /> <br />
+                  <AnimatedText text="Journey Now!" baseIndex={16} />
                 </h2>
-                <p className="download-app-desc text-center">
-                  Stay connected with your guide on iOS & <br className="br" />
-                  Android. Handle documents, track cases, <br className="br" />
-                  and receive guidance on the go.
-                </p>
+                <div className="download-app-desc text-center">
+                  <AnimatedText text="Stay connected with your guide on iOS &" tag="span" /> <br className="br" />
+                  <AnimatedText text="Android. Handle documents, track cases," tag="span" /> <br className="br" />
+                  <AnimatedText text="and receive guidance on the go." tag="span" />
+                </div>
                 <div className="d-flex align-items-center justify-content-center gap-3 mt-3">
                   <img
                     src={appStore}

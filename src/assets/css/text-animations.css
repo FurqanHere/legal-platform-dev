@@ -1,0 +1,30 @@
+
+/* Animated Text Styles */
+.animated-text-wrapper {
+  display: inline-block;
+}
+
+.animated-char {
+  display: inline-block;
+  opacity: 0;
+  transition: opacity 0s;
+  white-space: pre;
+}
+
+/* When AOS triggers the animation on the wrapper */
+.animated-text-wrapper.aos-animate .animated-char {
+  animation: charFadeIn 0.5s ease-out forwards;
+  animation-delay: var(--char-delay, 0s);
+  animation-delay: calc(var(--char-index) * var(--char-delay));
+}
+
+@keyframes charFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
