@@ -3,9 +3,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 export default function PostQuestion({ isOpen, onClose }) {
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("");
   const [question, setQuestion] = useState("");
-  const [jurisdiction, setJurisdiction] = useState("");
   const [fileName, setFileName] = useState("");
+  const [budget, setBudget] = useState("");
 
   if (!isOpen) return null;
 
@@ -26,36 +28,72 @@ export default function PostQuestion({ isOpen, onClose }) {
         </div>
 
         <div className="postq-body">
-          <textarea
-            className="form-control postq-textarea"
-            placeholder="Explain Your Question"
-            value={question}
-            onChange={(e) => setQuestion(e.target.value)}
-          />
+          {/* Title */}
+          <div className="mb-3">
+            <input
+              type="text"
+              className="form-control postq-input"
+              placeholder="Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
 
-          <div className="row g-3 align-items-center mt-3">
+          {/* Category */}
+          <div className="mb-3">
+            <div className="postq-select-wrap">
+              <select
+                className="form-select postq-select"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              >
+                <option value="">Choose Category</option>
+                <option value="family">Family Law</option>
+                <option value="criminal">Criminal Defense</option>
+                <option value="business">Business Law</option>
+                <option value="intellectual">Intellectual Property</option>
+                <option value="immigration">Immigration</option>
+                <option value="real_estate">Real Estate</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Question */}
+          <div className="mb-3">
+            <div className="postq-textarea-wrapper">
+              <textarea
+                className="form-control postq-textarea"
+                placeholder="Write your question..."
+                value={question}
+                onChange={(e) => setQuestion(e.target.value)}
+              />
+            </div>
+          </div>
+
+          {/* Attach File & Budget */}
+          <div className="row g-3 align-items-center">
+            <div className="col-md-6">
+              <label className="postq-attach d-flex align-items-center gap-2">
+                <i className="bi bi-paperclip" />
+                <span>{fileName || "Attach File"}</span>
+                <input type="file" className="d-none" onChange={handleFileChange} />
+              </label>
+            </div>
             <div className="col-md-6">
               <div className="postq-select-wrap">
                 <select
                   className="form-select postq-select"
-                  value={jurisdiction}
-                  onChange={(e) => setJurisdiction(e.target.value)}
+                  value={budget}
+                  onChange={(e) => setBudget(e.target.value)}
                 >
-                  <option value="">Jurisdiction</option>
-                  <option value="usa">USA</option>
-                  <option value="uk">UK</option>
-                  <option value="eu">EU</option>
-                  <option value="uae">UAE</option>
-                  <option value="india">India</option>
+                  <option value="">Select Budget</option>
+                  <option value="50-100">$50 - $100</option>
+                  <option value="100-300">$100 - $300</option>
+                  <option value="300-500">$300 - $500</option>
+                  <option value="500+">$500+</option>
                 </select>
               </div>
-            </div>
-            <div className="col-md-6">
-              <label className="postq-attach d-flex align-items-center gap-2">
-                <i className="bi bi-paperclip" />
-                <span>{fileName || "Attach Document"}</span>
-                <input type="file" className="d-none" onChange={handleFileChange} />
-              </label>
             </div>
           </div>
 
@@ -85,7 +123,7 @@ export default function PostQuestion({ isOpen, onClose }) {
 
           <div className="mt-4">
             <button type="button" className="btn btn-dark rounded-pill w-100 postq-submit">
-              Post Your Legal Issues
+              Post Question
             </button>
           </div>
         </div>

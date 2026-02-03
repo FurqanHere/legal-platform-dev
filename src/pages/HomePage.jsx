@@ -165,11 +165,14 @@ const HomePage = () => {
   useEffect(() => {
     if (location.hash) {
       const section = location.hash.replace("#", "");
-      scroller.scrollTo(section, {
-        duration: 500,
-        delay: 0,
-        smooth: "easeInOutQuart",
-      });
+      setTimeout(() => {
+        scroller.scrollTo(section, {
+          duration: 500,
+          delay: 0,
+          smooth: "easeInOutQuart",
+          offset: -100,
+        });
+      }, 300);
     }
   }, [location]);
 
@@ -233,7 +236,10 @@ const HomePage = () => {
                   <div className="d-flex justify-content-center align-items-center">
                     <button
                       className="btn home-hero-main-btn"
-                      onClick={() => setShowPostQuestion(true)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setShowPostQuestion(true);
+                      }}
                     >
                       Post Question
                     </button>
@@ -533,7 +539,7 @@ const HomePage = () => {
                   <AnimatedText text="insights and simple answers to your complex questions in real-time." tag="span" />
                 </div>
                 <div className="input-wrap">
-                  <input type="text" placeholder="Write a Messages..." />
+                  <input type="text" placeholder="Write a Messages..." readOnly />
                   <div className="input-actions">
                     <img
                       src={attachmentPin}
@@ -668,7 +674,7 @@ const HomePage = () => {
           data-aos-delay="100"
         >
           <div className="row align-items-center g-4 h-100">
-            <div className="col-md-6" data-aos="fade-right" data-aos-delay="150">
+            <div className="col-md-6 d-none d-md-block" data-aos="fade-right" data-aos-delay="150">
               <div className="download-phones">
                 <img
                   src={appScreenshot}
@@ -700,12 +706,28 @@ const HomePage = () => {
                     src={appStore}
                     alt="App Store"
                     className="store-badge hover-scale"
+                    data-aos="fade-up"
+                    data-aos-delay="200"
                   />
                   <img
                     src={playStore}
                     alt="Google Play"
                     className="store-badge hover-scale"
+                    data-aos="fade-up"
+                    data-aos-delay="300"
                   />
+                </div>
+                
+                {/* Mobile-only images shown after buttons */}
+                <div className="d-block d-md-none mt-5 text-center">
+                  <div className="download-phones position-relative d-inline-block">
+                    <img
+                      src={appScreenshot2}
+                      alt="App preview 2"
+                      className="phone-2"
+                      style={{ transform: "none", position: "relative", left: "auto", top: "auto" }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

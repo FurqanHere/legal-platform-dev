@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import AnimatedText from "../components/AnimatedText";
 
 const PostYourLegalIssue = () => {
+  const [showTop, setShowTop] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const onScroll = () => {
+      setShowTop(window.pageYOffset > 400);
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      const p = max > 0 ? doc.scrollTop / max : 0;
+      setScrollProgress(p);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="info-page-wrapper font-inter">
       <Header />
@@ -13,14 +35,11 @@ const PostYourLegalIssue = () => {
           data-aos-delay="100"
         >
           <h1 className="home-hero-title text-center">
-            Post Your Legal Issue Today
+            <AnimatedText text="Post Your Legal Issue Today" />
           </h1>
-          <p className="home-hero-text text-center">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae ab illo inventore veritatis et quasi architecto beatae vitae
-            dicta sunt explicabo.
-          </p>
+          <div className="home-hero-text text-center">
+            <AnimatedText text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo." />
+          </div>
         </div>
 
         <div className="info-page-list">
@@ -30,15 +49,11 @@ const PostYourLegalIssue = () => {
             data-aos-delay="150"
           >
             <h3 className="info-page-block-title">
-              Create New account for Post Question.
+              <AnimatedText text="Create New account for Post Question." />
             </h3>
-            <p className="info-page-block-text">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-              aspernatur aut odit aut fugit.
-            </p>
+            <div className="info-page-block-text">
+              <AnimatedText text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." />
+            </div>
           </div>
 
           <div
@@ -46,14 +61,10 @@ const PostYourLegalIssue = () => {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            <h3 className="info-page-block-title">Find Professional Lawyer</h3>
-            <p className="info-page-block-text">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-              aspernatur aut odit aut fugit.
-            </p>
+            <h3 className="info-page-block-title"><AnimatedText text="Find Professional Lawyer" /></h3>
+            <div className="info-page-block-text">
+              <AnimatedText text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." />
+            </div>
           </div>
 
           <div
@@ -61,14 +72,10 @@ const PostYourLegalIssue = () => {
             data-aos="fade-up"
             data-aos-delay="250"
           >
-            <h3 className="info-page-block-title">Lawyer Profile Detail</h3>
-            <p className="info-page-block-text">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-              aspernatur aut odit aut fugit.
-            </p>
+            <h3 className="info-page-block-title"><AnimatedText text="Lawyer Profile Detail" /></h3>
+            <div className="info-page-block-text">
+              <AnimatedText text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." />
+            </div>
           </div>
 
           <div
@@ -76,17 +83,25 @@ const PostYourLegalIssue = () => {
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            <h3 className="info-page-block-title">Hire Now Best Lawyer</h3>
-            <p className="info-page-block-text">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-              aspernatur aut odit aut fugit.
-            </p>
+            <h3 className="info-page-block-title"><AnimatedText text="Hire Now Best Lawyer" /></h3>
+            <div className="info-page-block-text">
+              <AnimatedText text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." />
+            </div>
           </div>
         </div>
       </main>
+      {showTop && (
+        <button
+          type="button"
+          className="scroll-top-btn"
+          onClick={scrollToTop}
+          aria-label="Scroll to top"
+          style={{ "--progress": `${Math.round(scrollProgress * 100)}%` }}
+        >
+          <span className="scroll-top-ring" />
+          <i className="bi bi-arrow-up-short" />
+        </button>
+      )}
       <Footer />
     </div>
   );

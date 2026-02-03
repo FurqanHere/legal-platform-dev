@@ -11,6 +11,40 @@ html {
   overflow-x: hidden;
 } */
 
+/* Sticky Header Wrapper */
+.sticky-header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1020;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  background-color: transparent; /* Default transparent at top */
+}
+
+.sticky-header-wrapper.scrolled {
+  background-color: #fff; /* White when scrolled */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hide when scrolling down */
+.sticky-header-wrapper.hidden {
+  transform: translateY(-100%);
+}
+
+/* Show when scrolling up */
+.sticky-header-wrapper.visible {
+  transform: translateY(0);
+}
+
+/* Adjust navbar margin when inside sticky wrapper if needed */
+.sticky-header-wrapper .navbar {
+  margin-top: 0; /* Remove top margin for flush look */
+  padding-top: 15px; /* Ensure padding is consistent */
+  padding-bottom: 15px;
+}
+
 /* Navbar container */
 
 .navbar {
@@ -79,7 +113,7 @@ html {
 }
 
 .header-offcanvas-logo {
-  height: 32px;
+  height: 50px;
   width: auto;
 }
 
@@ -200,6 +234,7 @@ html {
 }
 
 @media (max-width: 991px) {
+  
   .navbar-nav {
     flex-direction: column;
     gap: 12px;
@@ -266,6 +301,7 @@ html {
   }
 
   .logo {
+    width: 50px;
     height: auto;
   }
   .active {
@@ -274,18 +310,19 @@ html {
   .nav-link.active {
     width: 100% !important;
   }
+  .sticky-header-wrapper .navbar {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 
-  /* Card improvements for mobile */
   .card {
     margin-bottom: 20px;
   }
 
-  /* Why Choose Us section mobile */
   .starMap-img {
     margin-bottom: 30px;
   }
 
-  /* Download app section mobile */
   .downloadApp {
     height: auto !important;
     padding: 30px 20px !important;
@@ -527,7 +564,7 @@ html {
 
 /* Mobile app banner */
 .mobile-app-banner {
-  border-radius: 28px;
+  border-radius: 60px;
   background: url(../images/download-section/download-bg.png) no-repeat;
   background-size: cover;
   height: 704px;
@@ -632,7 +669,7 @@ html {
 }
 
 .case-card .feature-tile.feature-case .feature-desc {
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 500;
   margin-top: 20px;
 }
@@ -782,8 +819,8 @@ html {
 }
 
 .hp-attachment-icon {
-  width: 20.04px;
-  height: 33.46px;
+  width: 18.04px;
+  height: 29.46px;
 }
 
 /* Post Question Modal */
@@ -817,14 +854,54 @@ html {
 .postq-body {
   padding: 20px 24px 24px 24px;
 }
+.postq-textarea-wrapper {
+  position: relative;
+  border-radius: 14px;
+  padding: 2px;
+  background: #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.postq-textarea-wrapper:focus-within {
+  background: linear-gradient(60deg, #000000, #808080, #d3d3d3, #000000);
+  background-size: 300% 300%;
+  animation: borderAnimation 3s ease infinite;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
 .postq-textarea {
   height: 120px;
   border-radius: 12px;
+  border: none !important;
+  width: 100%;
+  display: block;
+  resize: none;
+}
+
+.postq-textarea:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+@keyframes borderAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 .postq-select-wrap {
   position: relative;
 }
 .postq-select {
+  height: 50px;
+  border-radius: 12px;
+}
+.postq-input {
   height: 50px;
   border-radius: 12px;
 }
@@ -936,6 +1013,10 @@ html {
   .home-hero-main-card {
     height: auto;
   }
+  .info-page-main-card {
+    width: 360px;
+    border-radius: 12px;
+  }
   .home-hero-card-light,
   .home-hero-card-dark {
     height: auto !important;
@@ -947,7 +1028,7 @@ html {
     margin-top: 40px;
   }
   .hire-a-lawyer-mob-res {
-    margin-top: 140px;
+    margin-top: 220px;
   }
   .features-legal {
     margin-top: 60px;
@@ -1007,7 +1088,7 @@ html {
   .mobile-app-banner {
     height: auto;
     padding: 24px 16px;
-    border-radius: 12px;
+    /* border-radius: 12px !important; */
   }
   .download-phones {
     display: none;
@@ -1019,15 +1100,19 @@ html {
     font-size: 16px;
   }
   .store-badge {
-    width: 160px;
-    height: 60px;
+    width: 140px;
+    height: 55px;
   }
   .input-wrap {
     height: 56px;
   }
+  .download-phones .phone-2 {
+    right: 0px;
+    bottom: 0px;
+  }
   .send-btn {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
   }
   .scroll-top-btn {
     right: 16px;
@@ -1036,14 +1121,14 @@ html {
     height: 44px;
   }
   .scroll-top-btn i {
-    font-size: 18px;
+    font-size: 25px;
   }
   /* .scroll-top-btn .scroll-top-ring {
     width: 12px;
     height: 12px;
   } */
    .business-portal-mob-res {
-    margin-top: 60px !important;
+    margin-top: 100px !important;
    }
    .hp-business-portal-image,
    .hp-hire-lawyers-image {
@@ -1053,8 +1138,8 @@ html {
     margin-top: 700px;
   }
   .hp-send-button-icon {
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
   }
 }
 
@@ -1177,7 +1262,7 @@ html {
 }
 
 .home-hero-main-btn:hover {
-  background: #416dff;
+  background: #000000;
   color: #fff;
 }
 
@@ -1232,7 +1317,7 @@ html {
 
 @media (max-width: 768px) {
   .home-hero-row {
-    margin-top: 24px;
+    margin-top: 30px;
   }
 
   .home-hero-main-card {
@@ -1241,13 +1326,21 @@ html {
   }
 
   .home-hero-title {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .home-hero-text {
-    font-size: 17px;
+    font-size: 15px;
     line-height: 1.6;
   }
+
+  .accordion-button {
+  font-size: 14px;
+  height: 50px;
+}
+.accordion-body {
+  font-size: 13px;
+}
 
   .home-hero-card {
     border-radius: 22px;
@@ -1438,5 +1531,8 @@ html {
   }
   .footer-logo-wrap {
     justify-content: flex-start !important;
+  }
+  .home-hero-card-title {
+    font-size: 32px;
   }
 }
