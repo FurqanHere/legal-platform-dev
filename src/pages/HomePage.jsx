@@ -249,9 +249,10 @@ const HomePage = () => {
               <div className="col-lg-6 hire-a-lawyer-mob-res">
                 <div className="d-flex flex-column gap-4 home-hero-side">
                   <div
-                    className="home-hero-card home-hero-card-light"
+                    className="home-hero-card home-hero-card-light hp-hero-clickable"
                     data-aos="fade-left"
                     data-aos-delay="200"
+                    onClick={() => navigate("/hire-a-lawyer")}
                   >
                     <h3 className="home-hero-card-title"><AnimatedText text="Hire a Lawyer" /></h3>
                     <div className="home-hero-card-text">
@@ -382,7 +383,11 @@ const HomePage = () => {
               data-aos="flip-left"
               data-aos-delay="300"
             >
-              <div className="who-card hover-lift">
+              <div 
+                className="who-card hover-lift position-relative cursor-pointer" 
+                onClick={() => navigate("/for-corporate")}
+                style={{ cursor: "pointer" }}
+              >
                 <h4>
                   <AnimatedText text="For" tag="span" /> <br className="br" /> <AnimatedText text="Corporate" tag="span" />
                 </h4>
@@ -394,10 +399,17 @@ const HomePage = () => {
                 <div className="who-icon hover-rotate">
                   <img src={corporate} alt="Corporate" style={{ width: "32px", height: "32px" }} />
                 </div>
+                <div className="position-absolute bottom-0 end-0 p-3">
+                   <i className="bi bi-arrow-up-right text-white fs-4"></i>
+                </div>
               </div>
             </div>
             <div className="col-md-3" data-aos="flip-left" data-aos-delay="400">
-              <div className="who-card h-100 hover-lift">
+              <div 
+                className="who-card h-100 hover-lift position-relative cursor-pointer"
+                onClick={() => navigate("/for-users")}
+                style={{ cursor: "pointer" }}
+              >
                 <h4>
                   <AnimatedText text="For" tag="span" /> <br className="br" /> <AnimatedText text="Users" tag="span" />
                 </h4>
@@ -409,6 +421,9 @@ const HomePage = () => {
                 <div className="who-icon hover-rotate">
                   <img src={user} alt="Users" style={{ width: "32px", height: "32px" }} />
                 </div>
+                <div className="position-absolute bottom-0 end-0 p-3">
+                   <i className="bi bi-arrow-up-right text-white fs-4"></i>
+                </div>
               </div>
             </div>
             <div
@@ -416,7 +431,11 @@ const HomePage = () => {
               data-aos="flip-left"
               data-aos-delay="500"
             >
-              <div className="who-card h-100 hover-lift">
+              <div 
+                className="who-card h-100 hover-lift position-relative cursor-pointer"
+                onClick={() => navigate("/for-law-firms")}
+                style={{ cursor: "pointer" }}
+              >
                 <h4>
                   <AnimatedText text="For" tag="span" /> <br className="br" /> <AnimatedText text="Law Firms" tag="span" />
                 </h4>
@@ -428,6 +447,9 @@ const HomePage = () => {
                 <div className="who-icon hover-rotate">
                   <img src={firmLaw} alt="Law Firms" style={{ width: "32px", height: "32px" }} />
                 </div>
+                <div className="position-absolute bottom-0 end-0 p-3">
+                   <i className="bi bi-arrow-up-right text-white fs-4"></i>
+                </div>
               </div>
             </div>
             <div
@@ -435,7 +457,11 @@ const HomePage = () => {
               data-aos="flip-left"
               data-aos-delay="600"
             >
-              <div className="who-card h-100 hover-lift">
+              <div 
+                className="who-card h-100 hover-lift position-relative cursor-pointer"
+                onClick={() => navigate("/for-lawyers")}
+                style={{ cursor: "pointer" }}
+              >
                 <h4>
                   <AnimatedText text="For" tag="span" /> <br className="br" /> <AnimatedText text="Lawyers" tag="span" />
                 </h4>
@@ -446,6 +472,9 @@ const HomePage = () => {
                 </div>
                 <div className="who-icon hover-rotate">
                   <img src={forLawyer} alt="Lawyers" style={{ width: "32px", height: "32px" }} />
+                </div>
+                <div className="position-absolute bottom-0 end-0 p-3">
+                   <i className="bi bi-arrow-up-right text-white fs-4"></i>
                 </div>
               </div>
             </div>
@@ -470,7 +499,11 @@ const HomePage = () => {
         </div>
         <div className="row g-4 align-items-stretch">
           <div className="col-md-4" data-aos="fade-up" data-aos-delay="100">
-            <div className="feature-tile feature-question text-center hover-lift">
+            <div 
+              className="feature-tile feature-question text-center hover-lift"
+              onClick={() => navigate("/post-your-legal-issue")}
+              style={{ cursor: "pointer" }}
+            >
               <h4 className="mt-1 fw-bold"><AnimatedText text="Post Question" /></h4>
               <img
                 src={question}
@@ -489,6 +522,8 @@ const HomePage = () => {
               className="mt-3 case-card hover-lift"
               data-aos="fade-up"
               data-aos-delay="300"
+              onClick={() => navigate("/hire-a-lawyer")}
+              style={{ cursor: "pointer" }}
             >
               <div className="feature-tile feature-case text-center">
                 <h4 className="mt-1 fw-bold text-white"><AnimatedText text="Hire a Lawyer" /></h4>
@@ -562,7 +597,11 @@ const HomePage = () => {
 
         <div className="row g-4 mt-2 business-portal-mob-res">
           <div className="col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div className="multi-panel p-3 hover-lift hp-multi-panel-auto-height">
+            <div 
+              className="multi-panel p-3 hover-lift hp-multi-panel-auto-height"
+              onClick={() => navigate("/business-portal")}
+              style={{ cursor: "pointer" }}
+            >
               <h6 className="fw-semibold mb-3"><AnimatedText text="Business Portal" /></h6>
               <p>
                 <AnimatedText text="Access our platform with a simple tapon the web, iOS, or Android." />
@@ -579,7 +618,11 @@ const HomePage = () => {
             </div>
           </div>
           <div className="col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div className="multi-panel p-3 hover-lift hp-multi-panel-auto-height">
+            <div 
+              className="multi-panel p-3 hover-lift hp-multi-panel-auto-height"
+              onClick={() => navigate("/hire-multiple-lawyers")}
+              style={{ cursor: "pointer" }}
+            >
               <h6 className="fw-semibold mb-3">
                 <AnimatedText text="Hire Multiple Lawyers for Your Business" />
               </h6>

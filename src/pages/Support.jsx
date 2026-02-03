@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
+import AnimatedText from "../components/AnimatedText";
 
 const PrivacyPolicy = () => {
   const { t, i18n } = useTranslation();
@@ -29,15 +30,16 @@ const PrivacyPolicy = () => {
         <div className="row">
           <div className="col-md-1"></div>
           <div className="col-md-7 d-flex flex-column justify-content-center">
-            <div className="position-relative">
-              <h2 className="fw-bold">Contact Digits</h2>
-              {/* <img src={yellow_line} className="yellow_line" /> */}
-            </div>
-
-            <p>Contact Digits by phone or email</p>
-            <div className="d-flex">
-              <p>+971 55 455 5566 | </p>
-              <p className="ms-1"> business@digitsapp.ae</p>
+            <div
+              className="info-page-main-card mb-4"
+              data-aos="fade-up"
+              data-aos-delay="100"
+              style={{ width: "100%", maxWidth: "none" }}
+            >
+              <h1 className="home-hero-title text-center"><AnimatedText text="Support" /></h1>
+              <div className="home-hero-text text-center">
+                <AnimatedText text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo." />
+              </div>
             </div>
           </div>
           <div className="col-md-4">

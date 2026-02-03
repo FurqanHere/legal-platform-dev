@@ -9,6 +9,15 @@ import BecomePartner from "../pages/BecomePartner";
 import PostYourLegalIssue from "../pages/PostYourLegalIssue";
 import ChatWithLawyers from "../pages/ChatWithLawyers";
 import AboutLegalCompany from "../pages/AboutLegalCompany";
+import HireALawyer from "../pages/HireALawyer";
+import ForCorporate from "../pages/ForCorporate";
+import ForUsers from "../pages/ForUsers";
+import ForLawFirms from "../pages/ForLawFirms";
+import ForLawyers from "../pages/ForLawyers";
+import BusinessPortal from "../pages/BusinessPortal";
+import HireMultipleLawyers from "../pages/HireMultipleLawyers";
+import LawFirm from "../pages/LawFirm";
+import Corporate from "../pages/Corporate";
 
 const AppRouter = () => {
     const basePath = process.env.REACT_APP_BASE_PATH;
@@ -25,6 +34,15 @@ const AppRouter = () => {
           <Route path="/post-your-legal-issue" element={<PostYourLegalIssue />} />
           <Route path="/chat-with-lawyers" element={<ChatWithLawyers />} />
           <Route path="/about-legal-company" element={<AboutLegalCompany />} />
+          <Route path="/hire-a-lawyer" element={<HireALawyer />} />
+          <Route path="/for-corporate" element={<ForCorporate />} />
+          <Route path="/for-users" element={<ForUsers />} />
+          <Route path="/for-law-firms" element={<ForLawFirms />} />
+          <Route path="/for-lawyers" element={<ForLawyers />} />
+          <Route path="/business-portal" element={<BusinessPortal />} />
+          <Route path="/hire-multiple-lawyers" element={<HireMultipleLawyers />} />
+          <Route path="/law-firm" element={<LawFirm />} />
+          <Route path="/corporate" element={<Corporate />} />
         </Routes>
       </Router>
     );

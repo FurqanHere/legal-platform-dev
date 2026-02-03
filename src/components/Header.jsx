@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -179,17 +179,17 @@ export default function Header() {
           </ul>
           <div className="header-mobile-actions">
             <Link
-              to="/signin"
+              to="/law-firm"
               className="btn btn-outline-dark rounded-pill d-flex justify-content-center align-items-center"
-              onClick={() => handleMobileNavClick('/signin')}
+              onClick={() => handleMobileNavClick('/law-firm')}
             >
               <i className="bi bi-person me-2" />
               Law Firm
             </Link>
             <Link
-              to="/corporate-login"
+              to="/corporate"
               className="btn btn-dark rounded-pill header-mobile-corp-btn d-flex justify-content-center align-items-center"
-              onClick={() => handleMobileNavClick('/corporate-login')}
+              onClick={() => handleMobileNavClick('/corporate')}
             >
               Corporate
             </Link>
