@@ -18,8 +18,29 @@ export default function Header() {
   const [isVisible, setIsVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(0);
+  const [darkMode, setDarkMode] = useState(false);
   const lastScrollY = useRef(0);
   const navRef = useRef(null);
+
+  useEffect(() => {
+    // Check local storage for dark mode preference
+    const savedMode = localStorage.getItem('darkMode');
+    if (savedMode === 'true') {
+      setDarkMode(true);
+      document.body.classList.add('dark-mode');
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newMode = !darkMode;
+    setDarkMode(newMode);
+    localStorage.setItem('darkMode', newMode);
+    if (newMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  };
 
   useEffect(() => {
     // Sync active link with URL
@@ -91,12 +112,16 @@ export default function Header() {
           </Link>
 
           <button
-            className="navbar-toggler d-lg-none ms-auto"
+            className="navbar-toggler d-lg-none ms-auto custom-mobile-menu-btn"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasNavbar"
           >
-            <span className="navbar-toggler-icon" />
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 7H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M5 17H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
           </button>
 
           <div className="collapse navbar-collapse d-none d-lg-flex header-desktop-nav">
@@ -122,6 +147,14 @@ export default function Header() {
               ))}
             </ul>
             <div className="header-segment-group d-flex align-items-center">
+              <button
+                className="btn border-0"
+                onClick={toggleDarkMode}
+                style={{ fontSize: '1.2rem' }}
+                aria-label="Toggle Dark Mode"
+              >
+                {darkMode ? <i className="bi bi-sun-fill text-white"></i> : <i className="bi bi-moon-fill"></i>}
+              </button>
               <button 
                 type="button" 
                 className="header-segment-btn header-segment-law"
@@ -193,6 +226,20 @@ export default function Header() {
             >
               Corporate
             </Link>
+            <button
+              className="nav-link btn border-0 text-start w-100 mt-2"
+              onClick={toggleDarkMode}
+            >
+              {darkMode ? (
+                <>
+                  <i className="bi bi-sun-fill me-2"></i> Light Mode
+                </>
+              ) : (
+                <>
+                  <i className="bi bi-moon-fill me-2"></i> Dark Mode
+                </>
+              )}
+            </button>
           </div>
         </div>
       </div>

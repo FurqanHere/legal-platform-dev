@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 
 import appStore from "../assets/images/app-store.png";
 import playStore from "../assets/images/play-store.png";
+import appStoreDark from "../assets/images/apple-dark.png";
+import playStoreDark from "../assets/images/google-dark.png";
 
 import sendButton from "../assets/images/send-button.png";
 import attachmentPin from "../assets/images/attachment-pin.png";
@@ -9,6 +11,9 @@ import attachmentPin from "../assets/images/attachment-pin.png";
 import benzinga from "../assets/images/benzinga.png";
 import khaleej from "../assets/images/khaleej.png";
 import chronical from "../assets/images/chronical.png";
+import benzingaDark from "../assets/images/brands-slider/bazinga-dark.png";
+import khaleejDark from "../assets/images/brands-slider/khaleej-dark.png";
+import chronicalDark from "../assets/images/brands-slider/chronicle-dark.png";
 import question from "../assets/images/question.png";
 import caseImg from "../assets/images/case.png";
 
@@ -34,7 +39,6 @@ import AnimatedText from "../components/AnimatedText";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -55,6 +59,28 @@ const HomePage = () => {
   const [showPostQuestion, setShowPostQuestion] = useState(false);
   const [showTop, setShowTop] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDarkMode(document.body.classList.contains("dark-mode"));
+    };
+
+    checkDarkMode(); // Initial check
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === "class") {
+          checkDarkMode();
+        }
+      });
+    });
+
+    observer.observe(document.body, { attributes: true });
+
+    return () => observer.disconnect();
+  }, []);
+
   const generalFaq = [
     {
       q: "What is AI Lawyer?",
@@ -206,32 +232,56 @@ const HomePage = () => {
                   onClick={() => navigate("/post-your-legal-issue")}
                 >
                   <h1 className="home-hero-title text-center">
-                    <AnimatedText text="Post Your" tag="span" /> <span className="d-md-none"> </span>
+                    <AnimatedText text="Post Your" tag="span" />{" "}
+                    <span className="d-md-none"> </span>
                     <AnimatedText text="Legal" tag="span" />
                     <br className="d-none d-md-block" />
-                    <span className="d-md-none"><br /></span>
+                    <span className="d-md-none">
+                      <br />
+                    </span>
                     <AnimatedText text="Issue Today" tag="span" />
                   </h1>
                   <div className="home-hero-text text-center">
-                    <AnimatedText text="Post your legal issue today & connect with trusted" tag="span" />
+                    <AnimatedText
+                      text="Post your legal issue today & connect with trusted"
+                      tag="span"
+                    />
                     <span className="d-md-none"> </span>
                     <br className="d-none d-md-block" />
-                    <AnimatedText text="professionals ready to help. Share your situation" tag="span" />
+                    <AnimatedText
+                      text="professionals ready to help. Share your situation"
+                      tag="span"
+                    />
                     <span className="d-md-none"> </span>
                     <br className="d-none d-md-block" />
-                    <AnimatedText text="securely, receive clear guidance, & explore practical" tag="span" />
+                    <AnimatedText
+                      text="securely, receive clear guidance, & explore practical"
+                      tag="span"
+                    />
                     <span className="d-md-none"> </span>
                     <br className="d-none d-md-block" />
-                    <AnimatedText text="solutions quickly. From family matters to business" tag="span" />
+                    <AnimatedText
+                      text="solutions quickly. From family matters to business"
+                      tag="span"
+                    />
                     <span className="d-md-none"> </span>
                     <br className="d-none d-md-block" />
-                    <AnimatedText text="disputes, get timely answers, save time & money," tag="span" />
+                    <AnimatedText
+                      text="disputes, get timely answers, save time & money,"
+                      tag="span"
+                    />
                     <span className="d-md-none"> </span>
                     <br className="d-none d-md-block" />
-                    <AnimatedText text="and move forward with confidence through an" tag="span" />
+                    <AnimatedText
+                      text="and move forward with confidence through an"
+                      tag="span"
+                    />
                     <span className="d-md-none"> </span>
                     <br className="d-none d-md-block" />
-                    <AnimatedText text="easy, confidential online platform today." tag="span" />
+                    <AnimatedText
+                      text="easy, confidential online platform today."
+                      tag="span"
+                    />
                   </div>
                   <div className="d-flex justify-content-center align-items-center">
                     <button
@@ -254,12 +304,20 @@ const HomePage = () => {
                     data-aos-delay="200"
                     onClick={() => navigate("/hire-a-lawyer")}
                   >
-                    <h3 className="home-hero-card-title"><AnimatedText text="Hire a Lawyer" /></h3>
+                    <h3 className="home-hero-card-title">
+                      <AnimatedText text="Hire a Lawyer" />
+                    </h3>
                     <div className="home-hero-card-text">
-                      <AnimatedText text="Say goodbye to expensive legal consultation," tag="span" />
+                      <AnimatedText
+                        text="Say goodbye to expensive legal consultation,"
+                        tag="span"
+                      />
                       <span className="d-md-none"> </span>
                       <br className="d-none d-md-block" />
-                      <AnimatedText text="long waits for appointments, & confusing" tag="span" />
+                      <AnimatedText
+                        text="long waits for appointments, & confusing"
+                        tag="span"
+                      />
                       <span className="d-md-none"> </span>
                       <br className="d-none d-md-block" />
                       <AnimatedText text="legal texts." tag="span" />
@@ -271,12 +329,20 @@ const HomePage = () => {
                     data-aos-delay="250"
                     onClick={() => navigate("/chat-with-lawyers")}
                   >
-                    <h3 className="home-hero-card-title"><AnimatedText text="Chat with Lawyers" /></h3>
+                    <h3 className="home-hero-card-title">
+                      <AnimatedText text="Chat with Lawyers" />
+                    </h3>
                     <div className="home-hero-card-text text-white">
-                      <AnimatedText text="Say goodbye to expensive legal consultation," tag="span" />
+                      <AnimatedText
+                        text="Say goodbye to expensive legal consultation,"
+                        tag="span"
+                      />
                       <span className="d-md-none"> </span>
                       <br className="d-none d-md-block" />
-                      <AnimatedText text="long waits for appointments, & confusing" tag="span" />
+                      <AnimatedText
+                        text="long waits for appointments, & confusing"
+                        tag="span"
+                      />
                       <span className="d-md-none"> </span>
                       <br className="d-none d-md-block" />
                       <AnimatedText text="legal texts." tag="span" />
@@ -312,42 +378,42 @@ const HomePage = () => {
           >
             <SwiperSlide>
               <img
-                src={benzinga}
+                src={isDarkMode ? benzingaDark : benzinga}
                 alt="Benzinga"
                 className="press-logo hover-scale"
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                src={khaleej}
+                src={isDarkMode ? khaleejDark : khaleej}
                 alt="Khaleej Times"
                 className="press-logo hover-scale"
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                src={chronical}
+                src={isDarkMode ? chronicalDark : chronical}
                 alt="The Chronicle Journal"
                 className="press-logo hover-scale"
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                src={benzinga}
+                src={isDarkMode ? benzingaDark : benzinga}
                 alt="Benzinga"
                 className="press-logo hover-scale"
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                src={khaleej}
+                src={isDarkMode ? khaleejDark : khaleej}
                 alt="Khaleej Times"
                 className="press-logo hover-scale"
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                src={chronical}
+                src={isDarkMode ? chronicalDark : chronical}
                 alt="The Chronicle Journal"
                 className="press-logo hover-scale"
               />
@@ -371,11 +437,17 @@ const HomePage = () => {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            <AnimatedText text="Explore features that boost your productivity. From document" tag="span" />
+            <AnimatedText
+              text="Explore features that boost your productivity. From document"
+              tag="span"
+            />
             <AnimatedText text="automation" tag="span" />
             <span className="d-md-none"> </span>
             <br className="d-none d-md-block" />
-            <AnimatedText text="to advanced research, we've got the hard work covered." tag="span" />
+            <AnimatedText
+              text="to advanced research, we've got the hard work covered."
+              tag="span"
+            />
           </div>
           <div className="row g-3 g-md-4 mt-2">
             <div
@@ -383,46 +455,62 @@ const HomePage = () => {
               data-aos="flip-left"
               data-aos-delay="300"
             >
-              <div 
-                className="who-card hover-lift position-relative cursor-pointer" 
+              <div
+                className="who-card hover-lift position-relative cursor-pointer"
                 onClick={() => navigate("/for-corporate")}
                 style={{ cursor: "pointer" }}
               >
                 <h4>
-                  <AnimatedText text="For" tag="span" /> <br className="br" /> <AnimatedText text="Corporate" tag="span" />
+                  <AnimatedText text="For" tag="span" /> <br className="br" />{" "}
+                  <AnimatedText text="Corporate" tag="span" />
                 </h4>
                 <div>
                   <p>
-                    <AnimatedText text="From deciphering complex terms to understanding rights, we've got you covered." tag="span" />
+                    <AnimatedText
+                      text="From deciphering complex terms to understanding rights, we've got you covered."
+                      tag="span"
+                    />
                   </p>
                 </div>
                 <div className="who-icon hover-rotate">
-                  <img src={corporate} alt="Corporate" style={{ width: "32px", height: "32px" }} />
+                  <img
+                    src={corporate}
+                    alt="Corporate"
+                    style={{ width: "32px", height: "32px" }}
+                  />
                 </div>
                 <div className="position-absolute bottom-0 end-0 p-3">
-                   <i className="bi bi-arrow-up-right text-white fs-4"></i>
+                  <i className="bi bi-arrow-up-right text-white fs-4"></i>
                 </div>
               </div>
             </div>
             <div className="col-md-3" data-aos="flip-left" data-aos-delay="400">
-              <div 
+              <div
                 className="who-card h-100 hover-lift position-relative cursor-pointer"
                 onClick={() => navigate("/for-users")}
                 style={{ cursor: "pointer" }}
               >
                 <h4>
-                  <AnimatedText text="For" tag="span" /> <br className="br" /> <AnimatedText text="Users" tag="span" />
+                  <AnimatedText text="For" tag="span" /> <br className="br" />{" "}
+                  <AnimatedText text="Users" tag="span" />
                 </h4>
                 <div>
                   <p>
-                    <AnimatedText text="Ask questions in plain language, upload documents, and get step‑by‑step guidance on everyday legal issues." tag="span" />
+                    <AnimatedText
+                      text="Ask questions in plain language, upload documents, and get step‑by‑step guidance on everyday legal issues."
+                      tag="span"
+                    />
                   </p>
                 </div>
                 <div className="who-icon hover-rotate">
-                  <img src={user} alt="Users" style={{ width: "32px", height: "32px" }} />
+                  <img
+                    src={user}
+                    alt="Users"
+                    style={{ width: "32px", height: "32px" }}
+                  />
                 </div>
                 <div className="position-absolute bottom-0 end-0 p-3">
-                   <i className="bi bi-arrow-up-right text-white fs-4"></i>
+                  <i className="bi bi-arrow-up-right text-white fs-4"></i>
                 </div>
               </div>
             </div>
@@ -431,24 +519,32 @@ const HomePage = () => {
               data-aos="flip-left"
               data-aos-delay="500"
             >
-              <div 
+              <div
                 className="who-card h-100 hover-lift position-relative cursor-pointer"
                 onClick={() => navigate("/for-law-firms")}
                 style={{ cursor: "pointer" }}
               >
                 <h4>
-                  <AnimatedText text="For" tag="span" /> <br className="br" /> <AnimatedText text="Law Firms" tag="span" />
+                  <AnimatedText text="For" tag="span" /> <br className="br" />{" "}
+                  <AnimatedText text="Law Firms" tag="span" />
                 </h4>
                 <div>
                   <p>
-                    <AnimatedText text="Streamline research, drafting, and client communication while keeping every matter and document organised." tag="span" />
+                    <AnimatedText
+                      text="Streamline research, drafting, and client communication while keeping every matter and document organised."
+                      tag="span"
+                    />
                   </p>
                 </div>
                 <div className="who-icon hover-rotate">
-                  <img src={firmLaw} alt="Law Firms" style={{ width: "32px", height: "32px" }} />
+                  <img
+                    src={firmLaw}
+                    alt="Law Firms"
+                    style={{ width: "32px", height: "32px" }}
+                  />
                 </div>
                 <div className="position-absolute bottom-0 end-0 p-3">
-                   <i className="bi bi-arrow-up-right text-white fs-4"></i>
+                  <i className="bi bi-arrow-up-right text-white fs-4"></i>
                 </div>
               </div>
             </div>
@@ -457,24 +553,32 @@ const HomePage = () => {
               data-aos="flip-left"
               data-aos-delay="600"
             >
-              <div 
+              <div
                 className="who-card h-100 hover-lift position-relative cursor-pointer"
                 onClick={() => navigate("/for-lawyers")}
                 style={{ cursor: "pointer" }}
               >
                 <h4>
-                  <AnimatedText text="For" tag="span" /> <br className="br" /> <AnimatedText text="Lawyers" tag="span" />
+                  <AnimatedText text="For" tag="span" /> <br className="br" />{" "}
+                  <AnimatedText text="Lawyers" tag="span" />
                 </h4>
                 <div>
                   <p>
-                    <AnimatedText text="Build a modern digital practice, manage clients, and respond to matters from web or mobile—on your schedule." tag="span" />
+                    <AnimatedText
+                      text="Build a modern digital practice, manage clients, and respond to matters from web or mobile—on your schedule."
+                      tag="span"
+                    />
                   </p>
                 </div>
                 <div className="who-icon hover-rotate">
-                  <img src={forLawyer} alt="Lawyers" style={{ width: "32px", height: "32px" }} />
+                  <img
+                    src={forLawyer}
+                    alt="Lawyers"
+                    style={{ width: "32px", height: "32px" }}
+                  />
                 </div>
                 <div className="position-absolute bottom-0 end-0 p-3">
-                   <i className="bi bi-arrow-up-right text-white fs-4"></i>
+                  <i className="bi bi-arrow-up-right text-white fs-4"></i>
                 </div>
               </div>
             </div>
@@ -488,33 +592,45 @@ const HomePage = () => {
           <h2>
             <AnimatedText text="Features of Legal Platform" />
           </h2>
-          <div
-            className="text-muted mt-4 mb-5"
-          >
-            <AnimatedText text="Explore features that boost your productivity. From document automation" tag="span" />
+          <div className="mt-4 mb-5">
+            <AnimatedText
+              text="Explore features that boost your productivity. From document automation"
+              tag="span"
+            />
             <span className="d-md-none"> </span>
             <br className="d-none d-md-block" />
-            <AnimatedText text="to advanced research, we've got the hard work covered." tag="span" />
+            <AnimatedText
+              text="to advanced research, we've got the hard work covered."
+              tag="span"
+            />
           </div>
         </div>
         <div className="row g-4 align-items-stretch">
           <div className="col-md-4" data-aos="fade-up" data-aos-delay="100">
-            <div 
+            <div
               className="feature-tile feature-question text-center hover-lift"
               onClick={() => navigate("/post-your-legal-issue")}
               style={{ cursor: "pointer" }}
             >
-              <h4 className="mt-1 fw-bold"><AnimatedText text="Post Question" /></h4>
+              <h4 className="mt-1 fw-bold">
+                <AnimatedText text="Post Question" />
+              </h4>
               <img
                 src={question}
                 alt="Create a Question"
                 className="feature-icon my-4 hover-scale"
               />
               <div className="feature-desc">
-                <AnimatedText text="Explore features that boost your productivity." tag="span" />
+                <AnimatedText
+                  text="Explore features that boost your productivity."
+                  tag="span"
+                />
                 <span className="d-md-none"> </span>
                 <br className="d-none d-md-block" />
-                <AnimatedText text="From document automation to advanced research." tag="span" />
+                <AnimatedText
+                  text="From document automation to advanced research."
+                  tag="span"
+                />
               </div>
             </div>
 
@@ -526,15 +642,24 @@ const HomePage = () => {
               style={{ cursor: "pointer" }}
             >
               <div className="feature-tile feature-case text-center">
-                <h4 className="mt-1 fw-bold text-white"><AnimatedText text="Hire a Lawyer" /></h4>
+                <h4 className="mt-1 fw-bold text-white">
+                  <AnimatedText text="Hire a Lawyer" />
+                </h4>
                 <img
                   src={caseImg}
                   alt="Create a Case"
                   className="feature-icon case-img my-4 hover-scale"
                 />
                 <div className="feature-desc">
-                  <AnimatedText text="Explore features that boost your productivity." tag="span" /> <br />
-                  <AnimatedText text="From document automation to advanced research." tag="span" />
+                  <AnimatedText
+                    text="Explore features that boost your productivity."
+                    tag="span"
+                  />{" "}
+                  <br />
+                  <AnimatedText
+                    text="From document automation to advanced research."
+                    tag="span"
+                  />
                 </div>
               </div>
             </div>
@@ -554,15 +679,26 @@ const HomePage = () => {
                   data-aos="fade-left"
                   data-aos-delay="400"
                 >
-                  <AnimatedText text="I need help reviewing a service contract for my business." tag="span" />
-                  <span className="time align-self-end mt-1" style={{ lineHeight: '1' }}>02:14 PM</span>
+                  <AnimatedText
+                    text="I need help reviewing a service contract for my business."
+                    tag="span"
+                  />
+                  <span
+                    className="time align-self-end mt-1"
+                    style={{ lineHeight: "1" }}
+                  >
+                    02:14 PM
+                  </span>
                 </div>
                 <div
                   className="bubble light d-flex align-items-center justify-content-center hp-light-bubble"
                   data-aos="fade-right"
                   data-aos-delay="500"
                 >
-                  <AnimatedText text="Thank you, this makes everything much clearer." tag="span" />
+                  <AnimatedText
+                    text="Thank you, this makes everything much clearer."
+                    tag="span"
+                  />
                 </div>
               </div>
               <div className="chat-footer mt-3">
@@ -570,11 +706,17 @@ const HomePage = () => {
                   <AnimatedText text="Ask AI Lawyer" />
                 </h6>
                 <div className="text-white hp-ask-ai-text">
-                  <AnimatedText text="Legal research never been easier. Have a conversation with your virtual assistant, gain" tag="span" /> <br /> 
-                  <AnimatedText text="insights and simple answers to your complex questions in real-time." tag="span" />
+                  <AnimatedText
+                    text="Legal research never been easier. Have a conversation with your virtual assistant, gain insights and simple answers to your complex questions in real-time."
+                    tag="span"
+                  />
                 </div>
                 <div className="input-wrap">
-                  <input type="text" placeholder="Write a Messages..." readOnly />
+                  <input
+                    type="text"
+                    placeholder="Write a Messages..."
+                    readOnly
+                  />
                   <div className="input-actions">
                     <img
                       src={attachmentPin}
@@ -597,12 +739,14 @@ const HomePage = () => {
 
         <div className="row g-4 mt-2 business-portal-mob-res">
           <div className="col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div 
+            <div
               className="multi-panel p-3 hover-lift hp-multi-panel-auto-height"
               onClick={() => navigate("/business-portal")}
               style={{ cursor: "pointer" }}
             >
-              <h6 className="fw-semibold mb-3"><AnimatedText text="Business Portal" /></h6>
+              <h6 className="fw-semibold mb-3">
+                <AnimatedText text="Business Portal" />
+              </h6>
               <p>
                 <AnimatedText text="Access our platform with a simple tapon the web, iOS, or Android." />
               </p>
@@ -618,7 +762,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className="col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div 
+            <div
               className="multi-panel p-3 hover-lift hp-multi-panel-auto-height"
               onClick={() => navigate("/hire-multiple-lawyers")}
               style={{ cursor: "pointer" }}
@@ -644,68 +788,70 @@ const HomePage = () => {
       </div>
 
       {/* FAQ's */}
-      <div className="container my-5" id="faq">
-        <div className="faq-wrap p-3 p-md-4" data-aos="fade-up">
-          <div className="text-center mb-3">
-            <h2><AnimatedText text="Have a question?" /></h2>
+      <div className="container-fluid faq-bgImg mt-5">
+        <div className="container my-5" id="faq">
+          <div className="faq-wrap p-3 p-md-4" data-aos="fade-up">
+            <div className="text-center mb-3">
+              <h2>
+                <AnimatedText text="Have a question?" />
+              </h2>
+              <div className="text-muted mb-5">
+                <AnimatedText text="Browse through our frequently asked topics." />
+              </div>
+            </div>
             <div
-              className="text-muted mb-5"
+              className="d-flex justify-content-center mb-4"
+              data-aos="fade-up"
+              data-aos-delay="200"
             >
-              <AnimatedText text="Browse through our frequently asked topics." />
-            </div>
-          </div>
-          <div
-            className="d-flex justify-content-center mb-4"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <div className="faq-tabs">
-              <button
-                className={`faq-tab ${faqTab === "general" ? "active" : ""}`}
-                onClick={() => setFaqTab("general")}
-              >
-                General
-              </button>
-              <button
-                className={`faq-tab ${faqTab === "lawyers" ? "active" : ""}`}
-                onClick={() => setFaqTab("lawyers")}
-              >
-                Lawyers
-              </button>
-            </div>
-          </div>
-          <div className="accordion accordion-flush" id="faqAccordion">
-            {(faqTab === "general" ? generalFaq : lawyersFaq).map(
-              (item, idx) => (
-                <div
-                  className="accordion-item faq-card hover-lift"
-                  key={idx}
-                  data-aos="fade-up"
-                  data-aos-delay={idx * 50}
+              <div className="faq-tabs">
+                <button
+                  className={`faq-tab ${faqTab === "general" ? "active" : ""}`}
+                  onClick={() => setFaqTab("general")}
                 >
-                  <h2 className="accordion-header" id={`flush-heading${idx}`}>
-                    <button
-                      className="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target={`#flush-collapse${idx}`}
-                      aria-expanded="false"
-                      aria-controls={`flush-collapse${idx}`}
-                    >
-                      <AnimatedText text={item.q} />
-                    </button>
-                  </h2>
+                  General
+                </button>
+                <button
+                  className={`faq-tab ${faqTab === "lawyers" ? "active" : ""}`}
+                  onClick={() => setFaqTab("lawyers")}
+                >
+                  Lawyers
+                </button>
+              </div>
+            </div>
+            <div className="accordion accordion-flush" id="faqAccordion">
+              {(faqTab === "general" ? generalFaq : lawyersFaq).map(
+                (item, idx) => (
                   <div
-                    id={`flush-collapse${idx}`}
-                    className="accordion-collapse collapse"
-                    aria-labelledby={`flush-heading${idx}`}
-                    data-bs-parent="#faqAccordion"
+                    className="accordion-item faq-card hover-lift"
+                    key={idx}
+                    data-aos="fade-up"
+                    data-aos-delay={idx * 50}
                   >
-                    <div className="accordion-body">{item.a}</div>
+                    <h2 className="accordion-header" id={`flush-heading${idx}`}>
+                      <button
+                        className="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target={`#flush-collapse${idx}`}
+                        aria-expanded="false"
+                        aria-controls={`flush-collapse${idx}`}
+                      >
+                        <AnimatedText text={item.q} />
+                      </button>
+                    </h2>
+                    <div
+                      id={`flush-collapse${idx}`}
+                      className="accordion-collapse collapse"
+                      aria-labelledby={`flush-heading${idx}`}
+                      data-bs-parent="#faqAccordion"
+                    >
+                      <div className="accordion-body">{item.a}</div>
+                    </div>
                   </div>
-                </div>
-              )
-            )}
+                ),
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -717,7 +863,11 @@ const HomePage = () => {
           data-aos-delay="100"
         >
           <div className="row align-items-center g-4 h-100">
-            <div className="col-md-6 d-none d-md-block" data-aos="fade-right" data-aos-delay="150">
+            <div
+              className="col-md-6 d-none d-md-block"
+              data-aos="fade-right"
+              data-aos-delay="150"
+            >
               <div className="download-phones">
                 <img
                   src={appScreenshot}
@@ -732,35 +882,60 @@ const HomePage = () => {
               </div>
             </div>
             <div className="col-md-6 h-100 d-flex flex-column justify-content-center align-items-center">
-              <div
-                className="text-white"
-              >
+              <div className="text-white">
                 <h2 className="mb-2 download-app-title text-center">
                   <AnimatedText text="Start Your Legal" /> <br />
                   <AnimatedText text="Journey Now!" baseIndex={16} />
                 </h2>
                 <div className="download-app-desc text-center">
-                  <AnimatedText text="Stay connected with your guide on iOS &" tag="span" /> <br className="br" />
-                  <AnimatedText text="Android. Handle documents, track cases," tag="span" /> <br className="br" />
-                  <AnimatedText text="and receive guidance on the go." tag="span" />
+                  <AnimatedText
+                    text="Stay connected with your guide on iOS &"
+                    tag="span"
+                  />{" "}
+                  <br className="br" />
+                  <AnimatedText
+                    text="Android. Handle documents, track cases,"
+                    tag="span"
+                  />{" "}
+                  <br className="br" />
+                  <AnimatedText
+                    text="and receive guidance on the go."
+                    tag="span"
+                  />
                 </div>
                 <div className="d-flex align-items-center justify-content-center gap-3 mt-3">
+                  {/* Light Mode Images */}
                   <img
                     src={appStore}
                     alt="App Store"
-                    className="store-badge hover-scale"
+                    className="store-badge store-badge-light hover-scale"
                     data-aos="fade-up"
                     data-aos-delay="200"
                   />
                   <img
                     src={playStore}
                     alt="Google Play"
-                    className="store-badge hover-scale"
+                    className="store-badge store-badge-light hover-scale"
+                    data-aos="fade-up"
+                    data-aos-delay="300"
+                  />
+                  {/* Dark Mode Images */}
+                  <img
+                    src={appStoreDark}
+                    alt="App Store"
+                    className="store-badge store-badge-dark hover-scale"
+                    data-aos="fade-up"
+                    data-aos-delay="200"
+                  />
+                  <img
+                    src={playStoreDark}
+                    alt="Google Play"
+                    className="store-badge store-badge-dark hover-scale"
                     data-aos="fade-up"
                     data-aos-delay="300"
                   />
                 </div>
-                
+
                 {/* Mobile-only images shown after buttons */}
                 <div className="d-block d-md-none mt-5 text-center">
                   <div className="download-phones position-relative d-inline-block">
@@ -768,7 +943,12 @@ const HomePage = () => {
                       src={appScreenshot2}
                       alt="App preview 2"
                       className="phone-2"
-                      style={{ transform: "none", position: "relative", left: "auto", top: "auto" }}
+                      style={{
+                        transform: "none",
+                        position: "relative",
+                        left: "auto",
+                        top: "auto",
+                      }}
                     />
                   </div>
                 </div>

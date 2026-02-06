@@ -1,0 +1,437 @@
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body.dark-mode .img1 {
+  background-color: #000000;
+}
+
+body.dark-mode .navbar {
+  background-color: transparent;
+}
+
+body.dark-mode .sticky-header-wrapper.scrolled {
+  background-color: #000000;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .header-nav-link {
+  color: #565656;
+}
+
+body.dark-mode .header-nav-link:hover,
+body.dark-mode .header-nav-link.active {
+  color: #ffffff !important;
+  opacity: 1;
+}
+
+body.dark-mode .logo,
+body.dark-mode .header-offcanvas-logo {
+  filter: brightness(0) invert(1);
+}
+
+body.dark-mode .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Header Buttons in Dark Mode */
+body.dark-mode .header-segment-corp {
+  background-color: #333333;
+  border: 1px solid #555;
+}
+
+body.dark-mode .home-hero-card-text {
+  color: #000;
+}
+
+/* Hero Section in Dark Mode */
+body.dark-mode .home-hero-main-card {
+  background: #2D2D2D;
+  background-image: none;
+  color: #ffffff;
+}
+
+body.dark-mode .home-hero-main-card .home-hero-title,
+body.dark-mode .home-hero-main-card .home-hero-text {
+  color: #ffffff;
+}
+
+body.dark-mode .home-hero-main-btn {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+  border: none;
+}
+
+body.dark-mode .home-hero-main-btn:hover {
+  background: #f0f0f0;
+  color: #000000;
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+body.dark-mode .home-hero-card-light {
+  background: #ffffff;
+  color: #000000;
+}
+
+body.dark-mode .home-hero-card-dark {
+  background: #1b1b1b;
+  color: #ffffff;
+  border: 1px solid #333;
+}
+
+body.dark-mode .home-hero-card-dark .text-white {
+    color: #ffffff !important;
+}
+
+body.dark-mode .press-logo {
+  filter: none;
+  opacity: 1;
+}
+
+body.dark-mode .press-logo:hover {
+  opacity: 1;
+}
+
+/* Features of Legal Platform Section in Dark Mode */
+body.dark-mode .features-legal h2 {
+  color: #ffffff;
+}
+
+body.dark-mode .features-legal .text-muted {
+  color: #cccccc ;
+}
+
+/* Post Question Card - Keep Light/White */
+body.dark-mode .feature-question {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark-mode .feature-question h4 {
+  color: #000000;
+}
+
+body.dark-mode .feature-question .feature-desc {
+  color: #666666;
+}
+
+/* Hire a Lawyer Card - Keep Dark */
+body.dark-mode .case-card {
+  background: #2D2D2D;
+  background-image: none;
+}
+
+body.dark-mode .case-card .feature-tile.feature-case {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+body.dark-mode .case-card .feature-tile.feature-case h4 {
+  color: #ffffff !important;
+}
+
+/* Chat Card - Keep Dark */
+body.dark-mode .chat-card {
+  background: #2D2D2D;
+  background-image: none;
+  color: #ffffff;
+}
+
+body.dark-mode .hp-ask-ai-heading {
+  color: #ffffff;
+}
+
+body.dark-mode .hp-ask-ai-text {
+  color: #cccccc;
+}
+
+/* Chat Bubbles in Dark Mode */
+body.dark-mode .bubble.dark {
+  background: #4a4a4a;
+  color: #ffffff;
+}
+
+body.dark-mode .bubble.light {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Chat Input in Dark Mode */
+body.dark-mode .input-wrap {
+  background: #ffffff;
+}
+
+body.dark-mode .input-wrap input {
+  color: #000000;
+}
+
+body.dark-mode .input-wrap input::placeholder {
+  color: #666666;
+}
+
+body.dark-mode .send-btn {
+  background: #000000;
+  color: #ffffff;
+}
+
+body.dark-mode .who-wrap {
+  background: #2D2D2D;
+  background-image: none;
+}
+
+body.dark-mode .who-card {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .who-card h4,
+body.dark-mode .who-card p {
+  color: #000000;
+}
+
+body.dark-mode .who-card .who-for-p {
+    color: #cccccc;
+}
+
+body.dark-mode .who-icon {
+  border-color: #000000;
+  color: #000000;
+}
+
+body.dark-mode .who-icon img {
+  filter: brightness(0); /* Make icons black */
+}
+
+body.dark-mode .who-card .bi-arrow-up-right {
+  color: #000000 !important;
+}
+
+/* Adjust text colors in Who Section headers */
+body.dark-mode .who-for h2 {
+  color: #ffffff !important;
+}
+
+body.dark-mode .who-for-p {
+  color: #aaaaaa;
+}
+
+/* FAQ Section in Dark Mode */
+body.dark-mode .faq-bgImg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../images/brands-slider/3d-cube.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 30px 0;
+}
+
+body.dark-mode .faq-tab.active {
+  background-color: #ffffff;
+  color: #000000;
+}
+body.dark-mode .faq-tab {
+  background-color: #2D2D2D;
+  color: #8E8E8E;
+}
+
+body.dark-mode .faq-wrap h2 {
+  color: #ffffff;
+}
+
+body.dark-mode .faq-wrap .text-muted {
+  color: #cccccc !important;
+}
+
+/* Mobile Offcanvas Dark Mode */
+body.dark-mode .offcanvas {
+  background-color: #1b1b1b;
+  color: #ffffff;
+}
+
+body.dark-mode .offcanvas .btn-close {
+  filter: invert(1);
+}
+
+body.dark-mode .offcanvas .nav-link {
+  color: #ffffff !important;
+}
+
+body.dark-mode .offcanvas .nav-link.active {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+body.dark-mode .offcanvas .btn-outline-dark {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+body.dark-mode .offcanvas .btn-outline-dark:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark-mode .store-badge {
+  width: 170px;
+  height: auto;
+}
+
+/* Mobile App Banner in Dark Mode */
+body.dark-mode .mobile-app-banner {
+  background: #ffffff;
+  background-image: none;
+}
+
+body.dark-mode .mobile-app-banner .text-white {
+  color: #000000 !important;
+}
+
+body.dark-mode .download-app-desc {
+  color: #000000;
+}
+
+body.dark-mode .store-badge-light {
+  display: none;
+}
+
+body.dark-mode .store-badge-dark {
+  display: inline-block;
+}
+
+/* Footer Dark Mode */
+body.dark-mode .footer-minimal {
+  background: #2D2D2D;
+  background-image: none;
+  border-radius: 50px;
+}
+
+/* Business Portal & Hire Multiple Lawyers Panels - Keep Light Background */
+body.dark-mode .multi-panel {
+  background: #f7f8fa;
+  color: #000000;
+}
+
+body.dark-mode .multi-panel h6 {
+  color: #000000;
+}
+
+body.dark-mode .multi-panel p {
+  color: #6B6B6B !important;
+}
+
+@media (max-width: 768px) {
+  body.dark-mode .store-badge {
+    width: 140px;
+    height: auto;
+  }
+}
+
+/* Info & Policy Pages Dark Mode */
+
+/* Wrapper Backgrounds */
+body.dark-mode .info-page-wrapper,
+body.dark-mode .privacy-bg {
+  background-color: #000000;
+}
+
+/* Info Page Main Card - Inverted to White */
+body.dark-mode .info-page-main-card {
+  background: #ffffff;
+  background-image: none;
+  color: #000000;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .info-page-main-card h1,
+body.dark-mode .info-page-main-card .home-hero-title,
+body.dark-mode .info-page-main-card .home-hero-text {
+  color: #000000;
+}
+
+/* Info Page Content Blocks (below card) */
+body.dark-mode .info-page-block-title {
+  color: #ffffff;
+}
+
+body.dark-mode .info-page-block-text {
+  color: #cccccc;
+}
+
+/* Policy Pages Headers & Content */
+body.dark-mode .heading-policy h1 {
+  color: #ffffff;
+}
+
+body.dark-mode .privacy-heading,
+body.dark-mode .privacy-heading h3,
+body.dark-mode .privacy-heading h4,
+body.dark-mode .privacy-heading p,
+body.dark-mode .privacy-heading li,
+body.dark-mode .privacy-heading strong {
+  color: #e0e0e0;
+}
+
+body.dark-mode .data-info,
+body.dark-mode .data-info p,
+body.dark-mode .data-info a {
+  color: #e0e0e0;
+}
+
+body.dark-mode .privacy-heading a {
+  color: #4dabf7; /* Light blue for links */
+}
+
+/* Support Page Form Elements */
+body.dark-mode h5 {
+  color: #ffffff;
+}
+
+body.dark-mode .form-label.text-muted {
+  color: #aaaaaa !important;
+}
+
+body.dark-mode input.form-control,
+body.dark-mode textarea.form-control {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+  border-color: #555555;
+}
+
+body.dark-mode input.form-control::placeholder,
+body.dark-mode textarea.form-control::placeholder {
+  color: #888888;
+}
+
+/* Info Page List */
+body.dark-mode .info-page-list {
+  background-color: #2D2D2D;
+  color: #ffffff;
+}
+
+/* Scroll Top Button */
+body.dark-mode .scroll-top-btn {
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 10px 24px rgba(255, 255, 255, 0.25);
+}
+
+body.dark-mode .scroll-top-btn::after {
+  background: conic-gradient(
+    #000000 var(--progress, 0%),
+    rgba(0, 0, 0, 0.15) 0
+  );
+  -webkit-mask: radial-gradient(
+    circle,
+    transparent calc(100% - var(--ring)),
+    black calc(100% - var(--ring) + 0.5px)
+  );
+  mask: radial-gradient(
+    circle,
+    transparent calc(100% - var(--ring)),
+    black calc(100% - var(--ring) + 0.5px)
+  );
+}
