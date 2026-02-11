@@ -36,13 +36,26 @@ body.dark-mode .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
+body.dark-mode .home-hero-card-title {
+  color: #000;
+}
+
+body.dark-mode .best-app-development-company a {
+  color: #2D2D2D;
+}
+
+body.dark-mode .home-hero-card-title-chat {
+  color: #fff;
+}
+
 /* Header Buttons in Dark Mode */
 body.dark-mode .header-segment-corp {
   background-color: #333333;
   border: 1px solid #555;
 }
 
-body.dark-mode .home-hero-card-text {
+body.dark-mode .home-hero-card-text,
+body.dark-mode .download-app-title {
   color: #000;
 }
 
@@ -78,7 +91,7 @@ body.dark-mode .home-hero-card-light {
 }
 
 body.dark-mode .home-hero-card-dark {
-  background: #1b1b1b;
+  background: #2D2D2D;
   color: #ffffff;
   border: 1px solid #333;
 }
@@ -331,25 +344,22 @@ body.dark-mode .multi-panel p {
 }
 
 /* Info & Policy Pages Dark Mode */
-
-/* Wrapper Backgrounds */
 body.dark-mode .info-page-wrapper,
 body.dark-mode .privacy-bg {
   background-color: #000000;
 }
 
-/* Info Page Main Card - Inverted to White */
 body.dark-mode .info-page-main-card {
-  background: #ffffff;
+  background: #2D2D2D;
   background-image: none;
-  color: #000000;
+  color: #ffffff;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 body.dark-mode .info-page-main-card h1,
 body.dark-mode .info-page-main-card .home-hero-title,
 body.dark-mode .info-page-main-card .home-hero-text {
-  color: #000000;
+  color: #ffffff;
 }
 
 /* Info Page Content Blocks (below card) */
@@ -359,6 +369,16 @@ body.dark-mode .info-page-block-title {
 
 body.dark-mode .info-page-block-text {
   color: #cccccc;
+}
+
+/* Headings Global Override */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #ffffff;
 }
 
 /* Policy Pages Headers & Content */
@@ -371,12 +391,18 @@ body.dark-mode .privacy-heading h3,
 body.dark-mode .privacy-heading h4,
 body.dark-mode .privacy-heading p,
 body.dark-mode .privacy-heading li,
+body.dark-mode .privacy-heading ol,
+body.dark-mode .privacy-heading label,
+body.dark-mode .privacy-heading span,
 body.dark-mode .privacy-heading strong {
   color: #e0e0e0;
 }
 
 body.dark-mode .data-info,
 body.dark-mode .data-info p,
+body.dark-mode .data-info ul li,
+body.dark-mode .data-info label,
+body.dark-mode .data-info span,
 body.dark-mode .data-info a {
   color: #e0e0e0;
 }
@@ -390,6 +416,10 @@ body.dark-mode h5 {
   color: #ffffff;
 }
 
+body.dark-mode .text-muted {
+  color: #aaaaaa !important;
+}
+
 body.dark-mode .form-label.text-muted {
   color: #aaaaaa !important;
 }
@@ -398,7 +428,7 @@ body.dark-mode input.form-control,
 body.dark-mode textarea.form-control {
   background-color: #333333 !important;
   color: #ffffff !important;
-  border-color: #555555;
+  border: 1px solid #555555 !important;
 }
 
 body.dark-mode input.form-control::placeholder,
@@ -434,4 +464,21 @@ body.dark-mode .scroll-top-btn::after {
     transparent calc(100% - var(--ring)),
     black calc(100% - var(--ring) + 0.5px)
   );
+}
+
+/* Breadcrumbs Dark Mode */
+body.dark-mode .breadcrumb-link {
+  color: #ffffff;
+}
+
+body.dark-mode .breadcrumb-link:hover {
+  color: #cccccc;
+}
+
+body.dark-mode .breadcrumb-item.active {
+  color: #aaaaaa;
+}
+
+body.dark-mode .breadcrumb-item + .breadcrumb-item::before {
+  color: #aaaaaa;
 }

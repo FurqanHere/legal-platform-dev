@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
+import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
 
@@ -28,6 +29,7 @@ const PrivacyPolicy = () => {
           <h1>Privacy Policy</h1>
         </div>
       </div>
+      <Breadcrumbs />
 
       <div className="container data-info">
         <div className="text-center">

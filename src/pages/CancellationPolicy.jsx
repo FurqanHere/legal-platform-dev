@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
+import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
 
-const PrivacyPolicy = () => {
+const CancellationPolicy = () => {
   const { t, i18n } = useTranslation();
   const { pathname } = useLocation();
 
@@ -21,104 +22,48 @@ const PrivacyPolicy = () => {
           <h1>Cancellation Policy</h1>
         </div>
       </div>
+      <Breadcrumbs />
 
-      <div className="container">
+      <div className="container data-info">
         <div className="text-center">
-          <p>Effective Date: [June 17, 2025]</p>
-          <p>Website: https://digitsapp.ae</p>
           <p>
-            At
-            <b className="ms-1">
-              FIRST Digits AUTO USING ELECTRONIC MEDIA RENTING VEHICLES L.L.C
-            </b>
-            , we aim to make your rental experience smooth and transparent.
-            Since Digits operates as an aggregator connecting users with
-            third-party rental companies, the following cancellation policy
-            applies:
-          </p>
-          <p>
-            By downloading, accessing, or using the Digits App, you agree to be
-            bound by these Terms. If you do not agree, please do not use the
-            App.
+            Website: <a href="https://digitsapp.ae">https://digitsapp.ae</a>
           </p>
         </div>
         <div className="privacy-heading">
-          <h3>1. General Cancellation Terms</h3>
+          <p>
+            This Cancellation Policy outlines the rules and procedures for cancelling services or subscriptions through <strong>Golden Digits Portal</strong> and the <strong>DigitsApp</strong>.
+          </p>
+
+          <h3 className="mt-5">1. General Cancellation Rules</h3>
+          <p>
+            Users may cancel their subscription or specific service requests through the App settings or by contacting our support team.
+          </p>
+
+          <h3 className="mt-5">2. Refund Eligibility</h3>
+          <p>
+            Refunds for cancelled services are subject to the specific terms of the service level agreement. Generally, cancellations made within 24 hours of the request may be eligible for a full refund.
+          </p>
+
+          <h3 className="mt-5">3. Subscription Cancellation</h3>
+          <p>
+            Subscriptions can be cancelled at any time. However, the cancellation will take effect at the end of the current billing cycle. No partial refunds are provided for remaining days in a billing period.
+          </p>
+
+          <h3 className="mt-5">4. Procedure for Cancellation</h3>
+          <p>
+            To cancel a service, please follow these steps:
+          </p>
           <ul>
-            <li>
-              Users may cancel their booking directly through the Digits app.
-            </li>
-            <li>
-              Each <b> rental partner </b> may have its
-              <b> own cancellation rules</b>, including applicable fees,
-              refundable deposits, and notice periods.
-            </li>
-            <li>
-              Cancellation <b>before the scheduled pickup</b> time may be
-              eligible for a full or partial refund depending on the partner's
-              policy.
-            </li>
+            <li>Go to "My Account" in the DigitsApp.</li>
+            <li>Select "Subscriptions" or "Active Services".</li>
+            <li>Click on "Cancel" and follow the prompts.</li>
           </ul>
 
-          <h3 className="mt-4">2. Same-Day or Last-Minute Cancellations</h3>
-          <ul>
-            <li>
-              Cancellations made <b>within 24 hours</b> of the scheduled rental
-              time may <b>not be eligible for a refund.</b>
-            </li>
-            <li>
-              Any charges or fees retained are determined by the rental
-              partner’s specific terms.
-            </li>
-          </ul>
-
-          <h3 className="mt-4">3. No-Show Policy</h3>
-
-          <ul>
-            <li>
-              Failure to pick up the vehicle at the scheduled time without prior
-              cancellation will be considered a <b> no-show.</b>
-            </li>
-            <li>
-              In case of a no-show, <b> no refund </b> will be issued, and the
-              booking will be marked as forfeited.
-            </li>
-          </ul>
-
-          <h3 className="mt-4">4. Refund Process</h3>
-          <ul>
-            <li>
-              Refunds, if applicable, will be initiated within{" "}
-              <b>7–10 business days</b> after cancellation confirmation.
-            </li>
-            <li>
-              The refund will be processed to the <b>original payment method</b>{" "}
-              used at the time of booking.
-            </li>
-          </ul>
-
-          <h3 className="mt-4">5. How to Cancel</h3>
-          <label>You can cancel a booking by: </label>
-          <ol>
-            <li>Logging into your Digits account</li>
-            <li>
-              Going to <b> My Bookings </b>
-            </li>
-            <li>Selecting the booking you wish to cancel</li>
-            <li>Following the on-screen cancellation steps</li>
-          </ol>
-
-          <span>
-            For assistance, you may also email us at <b>business@digitsapp.ae.</b>
-          </span>
-
-          <h3 className="mt-4">6. Disputes or Special Cases</h3>
-          <span>
-            For disputes, emergencies, or cancellation due to uncontrollable
-            events (e.g., medical, travel restrictions), you may contact our
-            support team. We will review each case with the rental partner, but
-            we cannot guarantee exceptions.
-          </span>
+          <h3 className="mt-5">5. Contact Support</h3>
+          <p>
+            If you encounter any issues with the cancellation process, please contact us at <strong>info@digitsapp.ae</strong>.
+          </p>
         </div>
       </div>
 
@@ -127,4 +72,4 @@ const PrivacyPolicy = () => {
   );
 };
 
-export default PrivacyPolicy;
+export default CancellationPolicy;

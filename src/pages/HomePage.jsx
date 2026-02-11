@@ -329,7 +329,7 @@ const HomePage = () => {
                     data-aos-delay="250"
                     onClick={() => navigate("/chat-with-lawyers")}
                   >
-                    <h3 className="home-hero-card-title">
+                    <h3 className="home-hero-card-title home-hero-card-title-chat">
                       <AnimatedText text="Chat with Lawyers" />
                     </h3>
                     <div className="home-hero-card-text text-white">
@@ -559,7 +559,7 @@ const HomePage = () => {
                 style={{ cursor: "pointer" }}
               >
                 <h4>
-                  <AnimatedText text="For" tag="span" /> <br className="br" />{" "}
+                  <AnimatedText text="For" tag="span" /> <br className="br" />
                   <AnimatedText text="Lawyers" tag="span" />
                 </h4>
                 <div>

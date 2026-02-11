@@ -85,12 +85,26 @@ const Footer = () => {
         </div>
 
         <div className="row mt-5 align-items-center footer-bottom">
-          <div className="col-md-6 text-md-start text-center">
+          <div className="col-md-4 text-md-start text-center">
             <span className="footer-copy">
               <AnimatedText text="©2025 Legal Platform. All rights reserved." />
             </span>
           </div>
-          <div className="col-md-6 d-flex justify-content-md-end justify-content-center mt-3 mt-md-0">
+          
+          <div className="col-md-4 text-center mt-3 mt-md-0 best-app-development-company">
+            <div className="text-center">
+              <a 
+                href="https://www.devicebee.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{ color: '#0E4593', textDecoration: 'none', cursor: 'default' }} 
+              >
+                Best App Development Company Dubai
+              </a>
+            </div>
+          </div>
+
+          <div className="col-md-4 d-flex justify-content-md-end justify-content-center mt-3 mt-md-0">
             <div className="footer-social d-flex align-items-center gap-3">
               <img src={fb} alt="Facebook" className="footer-social-icon hover-scale" />
               <img src={insta} alt="Instagram" className="footer-social-icon hover-scale" />

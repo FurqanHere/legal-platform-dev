@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
+import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import AnimatedText from "../components/AnimatedText";
 
@@ -28,6 +29,7 @@ const ChatWithLawyers = () => {
   return (
     <div className="info-page-wrapper font-inter">
       <Header />
+      <Breadcrumbs />
       <main className="info-page-section py-5">
         <div
           className="info-page-main-card"

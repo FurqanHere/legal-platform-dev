@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
+import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
 
@@ -21,6 +22,7 @@ const TermsAndConditions = () => {
           <h1>Terms & Conditions</h1>
         </div>
       </div>
+      <Breadcrumbs />
 
       <div className="container">
         <div className="text-center">

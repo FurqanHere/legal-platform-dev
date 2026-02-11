@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
+import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
 
-const PrivacyPolicy = () => {
+const BecomePartner = () => {
   const { t, i18n } = useTranslation();
   const { pathname } = useLocation();
 
@@ -24,6 +25,7 @@ const PrivacyPolicy = () => {
       <div className="privacy-bg from-top">
         <Header />
       </div>
+      <Breadcrumbs />
 
       <div className="container mt-5">
         <div className="row">
@@ -110,4 +112,4 @@ const PrivacyPolicy = () => {
   );
 };
 
-export default PrivacyPolicy;
+export default BecomePartner;

@@ -235,6 +235,10 @@ body.dark-mode .custom-mobile-menu-btn:hover {
 }
 
 /* Specific Component Enhancements */
+.best-app-development-company a {
+  color: transparent !important;
+  text-decoration: none !important;
+}
 .footer-social-icon {
   transition: transform 0.3s ease;
 }
@@ -985,6 +989,10 @@ body.dark-mode .custom-mobile-menu-btn:hover {
 .postq-submit {
   height: 56px;
 }
+.breadcrumb-item.active {
+  color: #888;
+}
+
 .send-btn {
   border: none;
   background: #000;
@@ -1037,6 +1045,99 @@ body.dark-mode .custom-mobile-menu-btn:hover {
   width: 494px;
   height: 100%;
 }
+
+/* Breadcrumbs */
+.breadcrumb-container {
+  margin-top: 50px; /* Space for sticky header */
+}
+
+@media (max-width: 768px) {
+  .breadcrumb-container {
+    margin-top: 10px;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0 0;
+  list-style: none;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.breadcrumb::-webkit-scrollbar {
+  display: none;
+}
+
+.breadcrumb-item {
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  line-height: 1.5;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .breadcrumb-item {
+    font-size: 13px;
+  }
+}
+
+.breadcrumb-item + .breadcrumb-item {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "->";
+  padding: 0 6px;
+  color: #888;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .breadcrumb-item + .breadcrumb-item::before {
+    padding: 0 5px;
+    font-size: 10px;
+  }
+}
+
+.breadcrumb-item .animated-text-wrapper {
+  display: inline-block !important;
+  vertical-align: middle;
+}
+
+.breadcrumb-item .animated-text-wrapper > span {
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0;
+  margin-right: 2px;
+  padding: 0;
+}
+
+.breadcrumb-link {
+  color: #000;
+  text-decoration: none !important;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb-link:hover {
+  color: #555;
+}
+
+.breadcrumb-item.active {
+  color: #888;
+}
+
 @media (max-width: 768px) {
   .img1 {
     height: auto;
@@ -1176,6 +1277,40 @@ body.dark-mode .custom-mobile-menu-btn:hover {
   .hp-send-button-icon {
     width: 22px;
     height: 22px;
+  }
+
+  /* Justify text for all paragraphs and info blocks on mobile */
+  p, 
+  ul,
+  ol,
+  .info-page-block-text, 
+  .home-hero-text, 
+  .data-info, 
+  .info-page-section p,
+  .info-page-list li,
+  .faq-tab-content p,
+  .feature-tile p,
+  .who-card p {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto; /* Allow hyphenation for better justification on narrow screens */
+  }
+
+  /* Reset justification for explicitly centered text or specific components */
+  .text-center, 
+  .text-center p, 
+  .text-center .animated-text-wrapper,
+  .breadcrumb-item,
+  .breadcrumb-item .animated-text-wrapper,
+  .navbar-nav,
+  .footer-links {
+    text-align: left !important;
+  }
+
+  .text-center, 
+  .text-center p, 
+  .text-center .animated-text-wrapper {
+    text-align: center !important;
   }
 }
 
