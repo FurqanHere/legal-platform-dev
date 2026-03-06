@@ -651,33 +651,61 @@ const HomePage = () => {
           </div>
           <div className="col-md-8" data-aos="fade-up" data-aos-delay="200">
             <div className="chat-card hover-lift">
-              <img
-                src={profileOne}
-                alt="Profile"
-                className="mini-chat-avatar"
-              />
-              <div className="mini-chat-card d-flex justify-content-center">
-                <img
-                  src={contractor}
-                  alt=""
-                  className="contractor hover-scale"
-                />
-              </div>
+          
 
               <div className="chat-bubbles">
                 <div className="d-flex align-items-center justify-content-end mb-3">
                   <div
                     className="bubble dark align-self-end hp-dark-bubble d-flex flex-column align-items-end justify-content-between w-auto"
                     data-aos="fade-left"
-                    data-aos-delay="400"
+                    data-aos-delay="350"
                   >
                     <span className="mb-1">
                       <AnimatedText
-                        text="accusantium doloremque laudantium, totam."
+                        text="Hi! I need a quick review of this contractor agreement. Can you help?"
                         tag="span"
                       />
                     </span>
-                    <span className="time">02:14 PM</span>
+                    <span className="time time-right">02:12 PM</span>
+                  </div>
+                  <img
+                    src={profileOne}
+                    alt="User avatar"
+                    className="chat-avatar ms-2"
+                  />
+                </div>
+
+                <div className="d-flex align-items-center mb-3">
+                  <img
+                    src={profileTwo}
+                    alt="Lawyer avatar"
+                    className="chat-avatar me-2"
+                  />
+                  <div
+                    className="bubble light d-flex flex-column align-items-start justify-content-between hp-light-bubble w-auto"
+                    data-aos="fade-right"
+                    data-aos-delay="420"
+                  >
+                    <span className="mb-1">
+                      <AnimatedText text="Absolutely. Please upload the document and confirm the jurisdiction." tag="span" />
+                    </span>
+                    <span className="time time-left">02:12 PM</span>
+                  </div>
+                </div>
+
+                <div className="d-flex align-items-center justify-content-end mb-3">
+                  <div
+                    className="bubble dark align-self-end hp-dark-bubble d-flex flex-column align-items-end justify-content-between w-auto"
+                    data-aos="fade-left"
+                    data-aos-delay="480"
+                  >
+                    <span className="mb-1">
+                      <AnimatedText
+                        text="Uploaded. It’s for California — please check termination and payment terms."
+                        tag="span"
+                      />
+                    </span>
+                    <span className="time time-right">02:13 PM</span>
                   </div>
                   <img
                     src={profileOne}
@@ -693,12 +721,36 @@ const HomePage = () => {
                     className="chat-avatar me-2"
                   />
                   <div
-                    className="bubble light d-flex align-items-center justify-content-center hp-light-bubble"
+                    className="bubble light d-flex flex-column align-items-start justify-content-between hp-light-bubble w-auto"
                     data-aos="fade-right"
-                    data-aos-delay="500"
+                    data-aos-delay="540"
                   >
-                    <AnimatedText text="Ok. Thanks Bro!" tag="span" />
+                    <span className="mb-1">
+                      <AnimatedText text="Got it. I’ll review now and share notes within 2 hours. Fee: USD 50." tag="span" />
+                    </span>
+                    <span className="time time-left">02:13 PM</span>
                   </div>
+                </div>
+
+                <div className="d-flex align-items-center justify-content-end">
+                  <div
+                    className="bubble dark align-self-end hp-dark-bubble d-flex flex-column align-items-end justify-content-between w-auto"
+                    data-aos="fade-left"
+                    data-aos-delay="600"
+                  >
+                    <span className="mb-1">
+                      <AnimatedText
+                        text="Sounds good. Please proceed."
+                        tag="span"
+                      />
+                    </span>
+                    <span className="time time-right">02:14 PM</span>
+                  </div>
+                  <img
+                    src={profileOne}
+                    alt="User avatar"
+                    className="chat-avatar ms-2"
+                  />
                 </div>
               </div>
               <div className="chat-footer">
