@@ -50,7 +50,11 @@ const Footer = () => {
               <li className="footer-text hover-text-theme"><AnimatedText text="Contract Drafting" /></li>
               <li className="footer-text hover-text-theme"><AnimatedText text="General Legal Consultation" /></li>
               <li className="footer-text hover-text-theme"><AnimatedText text="Will Preparation" /></li>
-              <li className="footer-text hover-text-theme"><AnimatedText text="Post Legal Issue" /></li>
+              <li>
+                <Link to="/post-your-legal-issue" className="footer-link hover-text-theme">
+                  <AnimatedText text="Post Legal Issue" />
+                </Link>
+              </li>
               <li className="footer-text hover-text-theme"><AnimatedText text="See More Services" /></li>
             </ul>
           </div>
@@ -59,8 +63,16 @@ const Footer = () => {
             <h6 className="footer-heading"><AnimatedText text="Products" /></h6>
             <ul className="list-unstyled footer-list mt-3">
               <li className="footer-text hover-text-theme"><AnimatedText text="Lawyers App Dashboard" /></li>
-              <li className="footer-text hover-text-theme"><AnimatedText text="Businesses Portal" /></li>
-              <li className="footer-text hover-text-theme"><AnimatedText text="Law Firm Portal" /></li>
+              <li>
+                <Link to="/business-portal" className="footer-link hover-text-theme">
+                  <AnimatedText text="Businesses Portal" />
+                </Link>
+              </li>
+              <li>
+                <Link to="/law-firm" className="footer-link hover-text-theme">
+                  <AnimatedText text="Law Firm Portal" />
+                </Link>
+              </li>
               <li className="footer-text hover-text-theme"><AnimatedText text="User App Dashboard" /></li>
             </ul>
             {/* Mobile Logo Position (Left Column) */}
@@ -72,9 +84,21 @@ const Footer = () => {
           <div className="col-md-3 col-6">
             <h6 className="footer-heading"><AnimatedText text="Features" /></h6>
             <ul className="list-unstyled footer-list mt-3">
-              <li className="footer-text hover-text-theme"><AnimatedText text="Post Your Legal Issue" /></li>
-              <li className="footer-text hover-text-theme"><AnimatedText text="Hire a Lawyer" /></li>
-              <li className="footer-text hover-text-theme"><AnimatedText text="Chat Box" /></li>
+              <li>
+                <Link to="/post-your-legal-issue" className="footer-link hover-text-theme">
+                  <AnimatedText text="Post Your Legal Issue" />
+                </Link>
+              </li>
+              <li>
+                <Link to="/hire-a-lawyer" className="footer-link hover-text-theme">
+                  <AnimatedText text="Hire a Lawyer" />
+                </Link>
+              </li>
+              <li>
+                <Link to="/chat-with-lawyers" className="footer-link hover-text-theme">
+                  <AnimatedText text="Chat Box" />
+                </Link>
+              </li>
               <li className="footer-text hover-text-theme"><AnimatedText text="Create a Case" /></li>
             </ul>
             {/* Desktop Logo Position (Right Column) */}

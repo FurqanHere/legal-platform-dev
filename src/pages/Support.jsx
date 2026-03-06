@@ -57,9 +57,8 @@ const Support = () => {
                   </label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control support-control"
                     placeholder=""
-                    style={{ backgroundColor: "#f5f5f5", border: "none" }}
                   />
                 </div>
 
@@ -69,9 +68,8 @@ const Support = () => {
                   </label>
                   <input
                     type="tel"
-                    className="form-control"
+                    className="form-control support-control"
                     placeholder=""
-                    style={{ backgroundColor: "#f5f5f5", border: "none" }}
                   />
                 </div>
 
@@ -80,9 +78,8 @@ const Support = () => {
                     Tell us more about your issue?
                   </label>
                   <textarea
-                    className="form-control"
+                    className="form-control support-control"
                     rows="4"
-                    style={{ backgroundColor: "#f5f5f5", border: "none" }}
                   ></textarea>
                 </div>
 
