@@ -35,7 +35,6 @@ import { useNavigate } from "react-router-dom";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import PostQuestion from "../components/PostQuestion";
 import AnimatedText from "../components/AnimatedText";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -51,6 +50,8 @@ import { scroller } from "react-scroll";
 // Import AOS
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Seo from "../components/Seo";
+import axios from "axios";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -58,10 +59,10 @@ const HomePage = () => {
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
   const [audienceTab, setAudienceTab] = useState("consumers");
   const [faqTab, setFaqTab] = useState("general");
-  const [showPostQuestion, setShowPostQuestion] = useState(false);
   const [showTop, setShowTop] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [generalFaqApi, setGeneralFaqApi] = useState([]);
 
   useEffect(() => {
     const checkDarkMode = () => {
@@ -81,6 +82,20 @@ const HomePage = () => {
     observer.observe(document.body, { attributes: true });
 
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const fetchFaqs = async () => {
+      try {
+        const res = await axios.get("https://legalplatform.co/api/getFaqs");
+        const faqs = res?.data?.data?.faqs || [];
+        const mapped = faqs.map((f) => ({ q: f.question, a: f.answer }));
+        setGeneralFaqApi(mapped);
+      } catch (e) {
+        // Fallback to static FAQs if API fails
+      }
+    };
+    fetchFaqs();
   }, []);
 
   const generalFaq = [
@@ -233,6 +248,12 @@ const HomePage = () => {
 
   return (
     <>
+      <Seo
+        title="Legal Platform — Start your legal journey today"
+        description="Access trusted legal professionals, post issues, hire lawyers, and manage matters securely across web, iOS, and Android."
+        canonicalPath="/"
+        image="/favicon.png"
+      />
       <div className="img1 font-inter">
         <Header />
         <div className="header-banner" id="home">
@@ -301,7 +322,7 @@ const HomePage = () => {
                       className="btn home-hero-main-btn"
                       onClick={(e) => {
                         e.stopPropagation();
-                        setShowPostQuestion(true);
+                        navigate("/post-your-legal-issue");
                       }}
                     >
                       Post Question
@@ -870,16 +891,11 @@ const HomePage = () => {
                 >
                   General
                 </button>
-                <button
-                  className={`faq-tab ${faqTab === "lawyers" ? "active" : ""}`}
-                  onClick={() => setFaqTab("lawyers")}
-                >
-                  Lawyers
-                </button>
+                {/* Temporarily disabled per request */}
               </div>
             </div>
             <div className="accordion accordion-flush" id="faqAccordion">
-              {(faqTab === "general" ? generalFaq : lawyersFaq).map(
+              {(generalFaqApi && generalFaqApi.length ? generalFaqApi : generalFaq).map(
                 (item, idx) => (
                   <div
                     className="accordion-item faq-card hover-lift"
@@ -964,35 +980,63 @@ const HomePage = () => {
                 </div>
                 <div className="d-flex align-items-center justify-content-center gap-3 mt-3">
                   {/* Light Mode Images */}
-                  <img
-                    src={appStore}
-                    alt="App Store"
-                    className="store-badge store-badge-light hover-scale"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                  />
-                  <img
-                    src={playStore}
-                    alt="Google Play"
-                    className="store-badge store-badge-light hover-scale"
-                    data-aos="fade-up"
-                    data-aos-delay="300"
-                  />
+                  <a
+                    href="https://apps.apple.com/us/app/legal-platform/id6475202489"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Download on the App Store"
+                  >
+                    <img
+                      src={appStore}
+                      alt="App Store"
+                      className="store-badge store-badge-light hover-scale"
+                      data-aos="fade-up"
+                      data-aos-delay="200"
+                    />
+                  </a>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.app.legalplatform&hl=en"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Get it on Google Play"
+                  >
+                    <img
+                      src={playStore}
+                      alt="Google Play"
+                      className="store-badge store-badge-light hover-scale"
+                      data-aos="fade-up"
+                      data-aos-delay="300"
+                    />
+                  </a>
                   {/* Dark Mode Images */}
-                  <img
-                    src={appStoreDark}
-                    alt="App Store"
-                    className="store-badge store-badge-dark hover-scale"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                  />
-                  <img
-                    src={playStoreDark}
-                    alt="Google Play"
-                    className="store-badge store-badge-dark hover-scale"
-                    data-aos="fade-up"
-                    data-aos-delay="300"
-                  />
+                  <a
+                    href="https://apps.apple.com/us/app/legal-platform/id6475202489"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Download on the App Store"
+                  >
+                    <img
+                      src={appStoreDark}
+                      alt="App Store"
+                      className="store-badge store-badge-dark hover-scale"
+                      data-aos="fade-up"
+                      data-aos-delay="200"
+                    />
+                  </a>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.app.legalplatform&hl=en"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Get it on Google Play"
+                  >
+                    <img
+                      src={playStoreDark}
+                      alt="Google Play"
+                      className="store-badge store-badge-dark hover-scale"
+                      data-aos="fade-up"
+                      data-aos-delay="300"
+                    />
+                  </a>
                 </div>
 
                 {/* Mobile-only images shown after buttons */}
@@ -1031,10 +1075,6 @@ const HomePage = () => {
       )}
 
       <Footer />
-      <PostQuestion
-        isOpen={showPostQuestion}
-        onClose={() => setShowPostQuestion(false)}
-      />
     </>
   );
 };

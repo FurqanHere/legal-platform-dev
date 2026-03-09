@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import AnimatedText from "../components/AnimatedText";
+import Seo from "../components/Seo";
 
 const ForUsers = () => {
   const [showTop, setShowTop] = useState(false);
@@ -28,6 +29,12 @@ const ForUsers = () => {
 
   return (
     <div className="info-page-wrapper font-inter">
+      <Seo
+        title="For Users — Legal Platform"
+        description="Post legal issues, hire lawyers, and manage matters securely inside one streamlined platform."
+        canonicalPath="/for-users"
+        image="/favicon.png"
+      />
       <Header />
       <Breadcrumbs />
       <main className="info-page-section py-5">

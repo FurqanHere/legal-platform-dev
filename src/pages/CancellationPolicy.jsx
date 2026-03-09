@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
+import Seo from "../components/Seo";
 
 const CancellationPolicy = () => {
   const { t, i18n } = useTranslation();
@@ -15,6 +16,12 @@ const CancellationPolicy = () => {
 
   return (
     <>
+      <Seo
+        title="Cancellation Policy — Legal Platform"
+        description="Read Legal Platform’s policy on cancellations, refunds, and service adjustments."
+        canonicalPath="/cancellation-policy"
+        image="/favicon.png"
+      />
       <div className="privacy-bg from-top">
         <Header />
 

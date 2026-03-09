@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
+import Seo from "../components/Seo";
 
 const BecomePartner = () => {
   const { t, i18n } = useTranslation();
@@ -22,6 +23,12 @@ const BecomePartner = () => {
 
   return (
     <>
+      <Seo
+        title="Become a Partner — Legal Platform"
+        description="Contact Legal Platform to explore partnership opportunities and business collaborations."
+        canonicalPath="/become-a-partner"
+        image="/favicon.png"
+      />
       <div className="privacy-bg from-top">
         <Header />
       </div>

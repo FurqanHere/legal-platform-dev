@@ -44,10 +44,7 @@ export default function Header() {
   };
 
   useEffect(() => {
-    // Sync active link with URL
     const currentPath = location.pathname + location.hash;
-    // Check if the current path matches any link, if not, maybe just pathname (for sub-routes if any)
-    // For now, exact match seems expected based on links array
     if (location.hash) {
         setActiveLink(location.pathname + location.hash);
     } else {
@@ -154,17 +151,20 @@ export default function Header() {
                 style={{ fontSize: '1.2rem' }}
                 aria-label="Toggle Dark Mode"
               >
-                {darkMode ? <i className="bi bi-sun-fill text-white"></i> : <i className="bi bi-moon-fill"></i>}
+                {darkMode ? (
+                  <i className="bi bi-sun-fill text-white" data-aos="fade-down" data-aos-delay="250"></i>
+                ) : (
+                  <i className="bi bi-moon-fill" data-aos="fade-down" data-aos-delay="250"></i>
+                )}
               </button>
-              <button 
-                type="button" 
+              <a 
+                href="https://legalplatform.co/partner/login"
                 className="header-segment-btn header-segment-law"
                 data-aos="fade-down"
                 data-aos-delay="400"
-                onClick={() => navigate("/law-firm")}
               >
                 Law Firm
-              </button>
+              </a>
               <button 
                 type="button" 
                 className="header-segment-btn header-segment-corp"
@@ -179,7 +179,6 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* Spacer to prevent content overlap */}
       <div style={{ height: headerHeight > 0 ? headerHeight : '80px' }}></div>
 
       <div
@@ -214,14 +213,13 @@ export default function Header() {
             ))}
           </ul>
           <div className="header-mobile-actions">
-            <Link
-              to="/law-firm"
+            <a
+              href="https://legalplatform.co/partner/login"
               className="btn btn-outline-dark rounded-pill d-flex justify-content-center align-items-center"
-              onClick={() => handleMobileNavClick('/law-firm')}
             >
               <i className="bi bi-person me-2" />
               Law Firm
-            </Link>
+            </a>
             <Link
               to="/corporate"
               className="btn btn-dark rounded-pill header-mobile-corp-btn d-flex justify-content-center align-items-center"
@@ -235,11 +233,11 @@ export default function Header() {
             >
               {darkMode ? (
                 <>
-                  <i className="bi bi-sun-fill me-2"></i> Light Mode
+                  <i className="bi bi-sun-fill me-2" data-aos="fade-up" data-aos-delay="100"></i> Light Mode
                 </>
               ) : (
                 <>
-                  <i className="bi bi-moon-fill me-2"></i> Dark Mode
+                  <i className="bi bi-moon-fill me-2" data-aos="fade-up" data-aos-delay="100"></i> Dark Mode
                 </>
               )}
             </button>

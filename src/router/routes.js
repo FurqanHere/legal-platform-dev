@@ -18,6 +18,11 @@ import BusinessPortal from "../pages/BusinessPortal";
 import HireMultipleLawyers from "../pages/HireMultipleLawyers";
 import LawFirm from "../pages/LawFirm";
 import Corporate from "../pages/Corporate";
+import ContractReview from "../pages/ContractReview";
+import ContractDrafting from "../pages/ContractDrafting";
+import GeneralLegalConsultation from "../pages/GeneralLegalConsultation";
+import WillPreparation from "../pages/WillPreparation";
+import Services from "../pages/Services";
 
 const AppRouter = () => {
     const basePath = process.env.REACT_APP_BASE_PATH;
@@ -43,6 +48,11 @@ const AppRouter = () => {
           <Route path="/hire-multiple-lawyers" element={<HireMultipleLawyers />} />
           <Route path="/law-firm" element={<LawFirm />} />
           <Route path="/corporate" element={<Corporate />} />
+          <Route path="/contract-review" element={<ContractReview />} />
+          <Route path="/contract-drafting" element={<ContractDrafting />} />
+          <Route path="/general-legal-consultation" element={<GeneralLegalConsultation />} />
+          <Route path="/will-preparation" element={<WillPreparation />} />
+          <Route path="/services" element={<Services />} />
         </Routes>
       </Router>
     );

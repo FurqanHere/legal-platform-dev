@@ -4,6 +4,7 @@ import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import AnimatedText from "../components/AnimatedText";
 import chatWithLawyer from "../assets/images/chatWithLawyer.png";
+import Seo from "../components/Seo";
 
 const ChatWithLawyers = () => {
   const [showTop, setShowTop] = useState(false);
@@ -29,6 +30,12 @@ const ChatWithLawyers = () => {
 
   return (
     <div className="info-page-wrapper font-inter">
+      <Seo
+        title="Chat with Lawyers — Legal Platform"
+        description="Speak directly with experienced lawyers, discuss your case, and manage communications securely."
+        canonicalPath="/chat-with-lawyers"
+        image="/favicon.png"
+      />
       <Header />
       <Breadcrumbs />
       <main className="info-page-section py-5">

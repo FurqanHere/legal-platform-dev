@@ -4,6 +4,7 @@ import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import AnimatedText from "../components/AnimatedText";
 import aboutImg from "../assets/images/aboutImg.png";
+import Seo from "../components/Seo";
 
 const AboutLegalCompany = () => {
   const [showTop, setShowTop] = useState(false);
@@ -29,6 +30,12 @@ const AboutLegalCompany = () => {
 
   return (
     <div className="info-page-wrapper font-inter">
+      <Seo
+        title="About Legal Platform — next‑generation legal marketplace"
+        description="LegalPlatform connects users, businesses, and legal professionals in one secure ecosystem to access and deliver legal services."
+        canonicalPath="/about-legal-company"
+        image="/favicon.png"
+      />
       <Header />
       <Breadcrumbs />
       <main className="info-page-section py-5">

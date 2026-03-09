@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import AnimatedText from "../components/AnimatedText";
+import Seo from "../components/Seo";
 
 const HireALawyer = () => {
   const [showTop, setShowTop] = useState(false);
@@ -28,6 +29,12 @@ const HireALawyer = () => {
 
   return (
     <div className="info-page-wrapper font-inter">
+      <Seo
+        title="Hire a Lawyer — Legal Platform"
+        description="Hire trusted lawyers online, compare services, and get professional legal advice — all in one secure platform."
+        canonicalPath="/hire-a-lawyer"
+        image="/favicon.png"
+      />
       <Header />
       <Breadcrumbs />
       <main className="info-page-section py-5">

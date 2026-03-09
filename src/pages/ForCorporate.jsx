@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import AnimatedText from "../components/AnimatedText";
+import Seo from "../components/Seo";
 
 const ForCorporate = () => {
   const [showTop, setShowTop] = useState(false);
@@ -28,6 +29,12 @@ const ForCorporate = () => {
 
   return (
     <div className="info-page-wrapper font-inter">
+      <Seo
+        title="For Corporate — Legal Platform"
+        description="Flexible, scalable legal support for startups, SMEs, and enterprises with one-time advisory and ongoing retainers."
+        canonicalPath="/for-corporate"
+        image="/favicon.png"
+      />
       <Header />
       <Breadcrumbs />
       <main className="info-page-section py-5">

@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import AnimatedText from "../components/AnimatedText";
+import Seo from "../components/Seo";
 
 const BusinessPortal = () => {
   const [showTop, setShowTop] = useState(false);
@@ -28,6 +29,12 @@ const BusinessPortal = () => {
 
   return (
     <div className="info-page-wrapper font-inter">
+      <Seo
+        title="Business Portal — Legal Platform"
+        description="Centralized portal to manage company legal matters, post issues, track cases, and collaborate with lawyers."
+        canonicalPath="/business-portal"
+        image="/favicon.png"
+      />
       <Header />
       <Breadcrumbs />
       <main className="info-page-section py-5">

@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import AnimatedText from "../components/AnimatedText";
+import Seo from "../components/Seo";
 
 const LawFirm = () => {
   const [showTop, setShowTop] = useState(false);
@@ -28,6 +29,12 @@ const LawFirm = () => {
 
   return (
     <div className="info-page-wrapper font-inter">
+      <Seo
+        title="For Law Firms — Legal Platform"
+        description="Boutique to international law firms: expand digital presence, diversify revenue, and access new markets."
+        canonicalPath="/law-firm"
+        image="/favicon.png"
+      />
       <Header />
       <Breadcrumbs />
       <main className="info-page-section py-5">

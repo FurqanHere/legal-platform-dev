@@ -2,7 +2,14 @@ import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
-import AnimatedText from "../components/AnimatedText";
+import Seo from "../components/Seo";
+import corpBg from "../assets/images/corporate/corporate-main-bg-img.jpg";
+import corpFormImg from "../assets/images/corporate/form-img.png";
+import imgPriority from "../assets/images/corporate/priority-img.png";
+import imgEarly from "../assets/images/corporate/early-img.png";
+import imgExclusive from "../assets/images/corporate/exclusive-img.png";
+import imgCommitment from "../assets/images/corporate/our-comitment-img.png";
+import imgCorporate from "../assets/images/corporate/legalPlatform-corporate-img.png";
 
 const Corporate = () => {
   const [showTop, setShowTop] = useState(false);
@@ -27,63 +34,83 @@ const Corporate = () => {
   };
 
   return (
-    <div className="info-page-wrapper font-inter">
+    <div className="font-inter">
+      <Seo
+        title="Corporate — Legal Platform"
+        description="Empower your business with seamless access to legal services at any time."
+        canonicalPath="/corporate"
+        image="/favicon.png"
+      />
       <Header />
+      <div className="corp-hero">
+        <div className="container h-100">
+          <div className="row h-100 align-items-center">
+            <div className="col-lg-5 d-flex justify-content-center">
+              <div className="corp-form-wrap" data-aos="fade-right" data-aos-delay="150">
+                <img src={corpFormImg} alt="Corporate registration preview" className="corp-form-img hover-scale" />
+              </div>
+            </div>
+            <div className="col-lg-7" data-aos="fade-left" data-aos-delay="200">
+              <h1 className="corp-hero-title">Get legal help <br /> in minutes!</h1>
+              <p className="corp-hero-sub">Empower your businesses with <br /> seamless access to legal services <br /> at anytime.</p>
+            </div>
+          </div>
+        </div>
+        <img src={corpBg} alt="" className="corp-hero-bg" />
+      </div>
       <Breadcrumbs />
-      <main className="info-page-section py-5">
-        <div
-          className="info-page-main-card"
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
-          <h1 className="home-hero-title text-center"><AnimatedText text="For Corporate" /></h1>
-          <div className="home-hero-text text-center">
-            <AnimatedText text="Manage all your company's legal needs through one powerful, centralized portal. Onboard multiple team members, hire and retain multiple lawyers across different practice areas, and streamline your legal operations with full visibility and control." />
+      <main className="container my-5">
+        <div className="text-center mb-4">
+          <h2 className="corp-section-title">Why Pre-Register?</h2>
+        </div>
+        <div className="row g-4 mb-5">
+          <div className="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div className="corp-feature-card hover-lift">
+              <img src={imgPriority} alt="" className="corp-feature-icon" />
+              <h5 className="corp-feature-title">Priority Access</h5>
+              <p className="corp-feature-text">Be first in line to receive an invite once the LegalPlatform Business Portal goes live and secure your spot ahead of others.</p>
+            </div>
+          </div>
+          <div className="col-md-4" data-aos="fade-up" data-aos-delay="150">
+            <div className="corp-feature-card hover-lift">
+              <img src={imgEarly} alt="" className="corp-feature-icon bw" />
+              <h5 className="corp-feature-title">Early Advantage</h5>
+              <p className="corp-feature-text">Get a head start in streamlining your company’s legal needs with access to tools designed to save time and reduce costs.</p>
+            </div>
+          </div>
+          <div className="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div className="corp-feature-card hover-lift">
+              <img src={imgExclusive} alt="" className="corp-feature-icon" />
+              <h5 className="corp-feature-title">Exclusive Updates</h5>
+              <p className="corp-feature-text">Stay informed on launch progress & be the first to know about new features built specifically for corporates.</p>
+            </div>
           </div>
         </div>
 
-        <div className="info-page-list">
-          <div
-            className="info-page-block"
-            data-aos="fade-up"
-            data-aos-delay="150"
-          >
-            <h3 className="info-page-block-title"><AnimatedText text="Legal Platform Mission" /></h3>
-            <div className="info-page-block-text">
-              <AnimatedText text="Our mission is to transform how businesses access legal services by providing a secure, scalable digital infrastructure. We empower companies to manage legal matters efficiently, reduce overhead costs, and gain immediate access to verified legal professionals worldwide." />
+        <div className="corp-info-card" data-aos="fade-up" data-aos-delay="200">
+          <div className="row g-0 align-items-center">
+            <div className="col-md-4">
+              <img src={imgCommitment} alt="" className="corp-info-img" />
+            </div>
+            <div className="col-md-8">
+              <div className="corp-info-content">
+                <h4 className="corp-info-title">Our Commitment</h4>
+                <p className="corp-info-text">We’re shaping LegalPlatform Corporate to be more than just a service — it’s a trusted partner for your company. By pre-registering, you’re joining a select group of businesses preparing to access a platform where your team can consult lawyers anytime for fast, reliable advice. Invite team members & manage all company legal matters in one place. The best lawyers for the needs of your business across domains and jurisdictions. This is your opportunity to get early access to a smarter way of handling legal matters — faster, more affordable, & tailored to the needs of modern companies.</p>
+              </div>
             </div>
           </div>
+        </div>
 
-          <div
-            className="info-page-block"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <h3 className="info-page-block-title"><AnimatedText text="Legal Platform Vision" /></h3>
-            <div className="info-page-block-text">
-              <AnimatedText text="Our vision is to become the global operating system for legal services — where companies of all sizes can seamlessly hire, retain, and manage legal professionals through one unified platform." />
+        <div className="corp-info-card reverse" data-aos="fade-up" data-aos-delay="250">
+          <div className="row g-0 align-items-center">
+            <div className="col-md-8">
+              <div className="corp-info-content">
+                <h4 className="corp-info-title">LegalPlatform Corporate</h4>
+                <p className="corp-info-text">We’re shaping LegalPlatform Corporate to be more than just a service — it’s a trusted partner for your company. By pre-registering, you’re joining a select group of businesses preparing to access a platform where your team can consult lawyers anytime for fast, reliable advice. Invite team members & manage all company legal matters in one place. The best lawyers for the needs of your business across domains and jurisdictions. This is your opportunity to get early access to a smarter way of handling legal matters — faster, more affordable, & tailored to the needs of modern companies.</p>
+              </div>
             </div>
-          </div>
-
-          <div
-            className="info-page-block"
-            data-aos="fade-up"
-            data-aos-delay="250"
-          >
-            <h3 className="info-page-block-title"><AnimatedText text="Legal Platform History" /></h3>
-            <div className="info-page-block-text">
-              <AnimatedText text="LegalPlatform was built to eliminate inefficiencies in traditional legal engagement models. We created a technology-driven marketplace that enables businesses to access legal expertise on-demand or through structured retainers, while maintaining transparency, security, and operational efficiency." />
-            </div>
-          </div>
-
-          <div
-            className="info-page-block"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <h3 className="info-page-block-title"><AnimatedText text="Target Audience" /></h3>
-            <div className="info-page-block-text">
-              <AnimatedText text="LegalPlatform is designed for startups, SMEs, and large corporations seeking flexible and scalable legal support. Whether you require one-time advisory services or ongoing retainers across multiple departments, our platform adapts to your company's structure and growth." />
+            <div className="col-md-4">
+              <img src={imgCorporate} alt="" className="corp-info-img" />
             </div>
           </div>
         </div>

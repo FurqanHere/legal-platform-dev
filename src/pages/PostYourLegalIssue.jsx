@@ -3,11 +3,15 @@ import Header from "../components/Header";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import AnimatedText from "../components/AnimatedText";
-// removed illustrative images per request
+import Seo from "../components/Seo";
+import postQuestionBgImg from "../assets/images/postQuestionBgImg.png";
 
 const PostYourLegalIssue = () => {
   const [showTop, setShowTop] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [summary, setSummary] = useState("");
+  const [jurisdiction, setJurisdiction] = useState("");
+  const [fileName, setFileName] = useState("");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,88 +31,92 @@ const PostYourLegalIssue = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleFileChange = (e) => {
+    const f = e.target.files && e.target.files[0];
+    if (f) setFileName(f.name);
+  };
+
   return (
-    <div className="info-page-wrapper font-inter">
+    <div className="postq-page font-inter">
+      <Seo
+        title="Post Your Legal Issue — Legal Platform"
+        description="Fill the form to post your legal issue and connect with verified lawyers."
+        canonicalPath="/post-your-legal-issue"
+        image="/favicon.png"
+      />
       <Header />
-      <Breadcrumbs />
-      <main className="info-page-section py-5">
-        <div
-          className="info-page-main-card"
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
-          <h1 className="home-hero-title text-center">
-            <AnimatedText text="Post Your Legal Issue Today" />
-          </h1>
-          <div className="home-hero-text text-center">
-            <AnimatedText text="The Post Question feature allows users to submit their legal issue and receive responses from multiple lawyers. Users can review the responses, choose the lawyer that best fits their needs, and proceed with legal services through secure engagement." />
+      <div className="postq-page-hero">
+        <div className="container h-100 d-flex align-items-center">
+          <div className="postq-hero-copy">
+            <h1 className="postq-hero-title">Post Your Legal Issue Today</h1>
+            <p className="postq-hero-sub">
+              Fill form and put your question with professional lawyers.
+            </p>
           </div>
         </div>
-
-        <div className="info-page-list">
-          <div
-            className="info-page-block"
-            data-aos="fade-up"
-            data-aos-delay="150"
-          >
-            <h3 className="info-page-block-title">
-              <AnimatedText text="Post Your Legal Issue" />
-            </h3>
-            <div className="info-page-block-text">
-              <AnimatedText text="Submit your legal matter through the platform and describe your situation. You can also upload relevant documents to help lawyers better understand your case." />
+        <img src={postQuestionBgImg} alt="" className="postq-hero-img" />
+      </div>
+      <Breadcrumbs />
+      <main className="container my-4">
+        <div className="postq-form-card" data-aos="fade-up" data-aos-delay="100">
+          <div className="postq-form-title">Post Question</div>
+          <div className="mb-3">
+            <div className="postq-textarea-wrapper">
+              <textarea
+                className="form-control postq-textarea"
+                placeholder="Explain Your Question"
+                value={summary}
+                onChange={(e) => setSummary(e.target.value)}
+              />
             </div>
           </div>
-
-          <div
-            className="info-page-block"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <h3 className="info-page-block-title">
-              <AnimatedText text="Receive Responses from Lawyers" />
-            </h3>
-            <div className="info-page-block-text">
-              <AnimatedText text="Once your issue is posted, multiple lawyers may review your matter and provide their initial responses or opinions based on their expertise." />
+          <div className="mb-3">
+            <div className="postq-select-wrap">
+              <select
+                className="form-select postq-select"
+                value={jurisdiction}
+                onChange={(e) => setJurisdiction(e.target.value)}
+              >
+                <option value="">Jurisdiction</option>
+                <option value="usa">United States</option>
+                <option value="uk">United Kingdom</option>
+                <option value="uae">United Arab Emirates</option>
+                <option value="india">India</option>
+                <option value="canada">Canada</option>
+                <option value="other">Other</option>
+              </select>
             </div>
           </div>
-
-          <div
-            className="info-page-block"
-            data-aos="fade-up"
-            data-aos-delay="250"
-          >
-            <h3 className="info-page-block-title">
-              <AnimatedText text="Choose the Right Lawyer for Your Case" />
-            </h3>
-            <div className="info-page-block-text">
-              <AnimatedText text="Review the responses and select the lawyer who best fits your situation. You can then connect directly and discuss your matter further through secure chat." />
+          <div className="mb-3">
+            <label className="postq-attach d-flex align-items-center gap-2">
+              <i className="bi bi-paperclip" />
+              <span>{fileName || "Attach Document"}</span>
+              <input type="file" className="d-none" onChange={handleFileChange} />
+            </label>
+          </div>
+          <div className="postq-bottom-section mt-4">
+            <div className="postq-how mb-3">
+              <div className="postq-how-title">How it works</div>
+              <ul className="postq-how-list">
+                <li>Ask your question and see the answer in Questions & Answers.</li>
+                <li>You will be notified when a lawyer answers.</li>
+              </ul>
+            </div>
+            <div className="postq-fee-card d-flex align-items-center justify-content-between">
+              <div>
+                <div className="postq-fee-title">Post Question Fee</div>
+                <div className="postq-fee-sub">1 Question post only</div>
+              </div>
+              <div className="text-end postq-fee-amount-wrap">
+                <div className="postq-fee-currency">USD</div>
+                <div className="postq-fee-amount">1.00</div>
+              </div>
             </div>
           </div>
-
-          <div
-            className="info-page-block"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <h3 className="info-page-block-title">
-              <AnimatedText text="Review the Service Proposal" />
-            </h3>
-            <div className="info-page-block-text">
-              <AnimatedText text="The lawyer may send a customized invoice or service proposal based on the legal work required, whether it is consultation, case handling, or document review." />
-            </div>
-          </div>
-
-          <div
-            className="info-page-block"
-            data-aos="fade-up"
-            data-aos-delay="350"
-          >
-            <h3 className="info-page-block-title">
-              <AnimatedText text="Proceed with Your Legal Support" />
-            </h3>
-            <div className="info-page-block-text">
-              <AnimatedText text="Once the invoice is approved, you can proceed with the legal service. If you are satisfied with the lawyer, you may continue working together through a one-time engagement or retain them on a monthly basis for ongoing legal support." />
-            </div>
+          <div className="mt-4">
+            <button type="button" className="btn btn-dark rounded-pill postq-submit">
+              Post Your Legal Issues
+            </button>
           </div>
         </div>
       </main>

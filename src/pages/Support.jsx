@@ -5,6 +5,7 @@ import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
 import AnimatedText from "../components/AnimatedText";
+import Seo from "../components/Seo";
 
 const Support = () => {
   const { t, i18n } = useTranslation();
@@ -23,6 +24,12 @@ const Support = () => {
 
   return (
     <>
+      <Seo
+        title="Support — Legal Platform"
+        description="Get help with accounts, payments, technical issues, and platform usage. Our team ensures a smooth, secure experience."
+        canonicalPath="/support"
+        image="/favicon.png"
+      />
       <div className="privacy-bg from-top">
         <Header />
       </div>

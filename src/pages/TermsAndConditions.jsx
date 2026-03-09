@@ -3,10 +3,10 @@ import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
-import { useTranslation } from "react-i18next";
+import AnimatedText from "../components/AnimatedText";
+import Seo from "../components/Seo";
 
 const TermsAndConditions = () => {
-  const { t, i18n } = useTranslation();
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -16,8 +16,13 @@ const TermsAndConditions = () => {
   return (
     <>
       <div className="from-top">
+        <Seo
+          title="Terms & Conditions — Legal Platform"
+          description="Read the legal terms governing use of the Legal Platform website and mobile app, including payments, policies, and responsibilities."
+          canonicalPath="/terms"
+          image="/favicon.png"
+        />
         <Header />
-
         <div className="heading-policy flex-column">
           <h1>Terms & Conditions</h1>
         </div>
@@ -25,110 +30,171 @@ const TermsAndConditions = () => {
       <Breadcrumbs />
 
       <div className="container">
-        <div className="text-center">
-          <p>
-            Website: <a href="https://digitsapp.ae">https://digitsapp.ae</a>
-          </p>
-        </div>
         <div className="privacy-heading">
-          <h3>1. Introduction</h3>
+          <h3><AnimatedText text="Introduction & Acceptance" /></h3>
           <p>
-            Welcome to DigitsApp (the "App") provided by <strong>Golden Digits Portal</strong>, registered in the United Arab Emirates, with its registered address at [Address]. By downloading, installing, accessing or using the App (and/or website at <a href="https://digitsapp.ae">https://digitsapp.ae</a>) (the "Service"), you ("you", "User", "Member") agree to be bound by these terms and conditions ("Terms"). If you do not agree, do not use the Service.
+            <AnimatedText text="These Terms and Conditions govern the use of Legal Platform and the Legal Platform mobile application. By accessing or using the Site or App, you agree to comply with these Terms and our Privacy Policy." />
+          </p>
+          <p>
+            <AnimatedText text="By accessing the App, you agree to follow all applicable laws and these Terms. Users must create an account to access certain features. We may, at our discretion, suspend or terminate accounts for violation of these Terms." />
           </p>
 
-          <h3 className="mt-5">2. Definitions</h3>
+          <h3 className="mt-5"><AnimatedText text="Eligibility & Accounts" /></h3>
           <ul>
-            <li><strong>"App" or "Service"</strong>: the mobile application and/or website platform provided by DigitsApp including any updates, features, functionalities.</li>
-            <li><strong>"User Content"</strong>: any content which you upload, post or otherwise transmit through the Service.</li>
-            <li><strong>"We", "us", "our"</strong>: Golden Digits Portal and its affiliates.</li>
-            <li><strong>"Account"</strong>: the user account you create to use the Service.</li>
+            <li><AnimatedText text="Individuals must be at least 21 years of age under UAE law or of legal age in their jurisdiction." /></li>
+            <li><AnimatedText text="If representing a company or entity, you confirm you have authority to act on its behalf." /></li>
+            <li><AnimatedText text="You are responsible for safeguarding your ID and login credentials. In case of unauthorized use, we assume no liability." /></li>
           </ul>
 
-          <h3 className="mt-5">3. Eligibility</h3>
-          <p>
-            You must be at least 18 years old (or such minimum age as per applicable local law) in order to use the Service. If you are using the Service on behalf of a company or entity, you represent that you are authorised to do so.
-          </p>
-
-          <h3 className="mt-5">4. Account Registration & Security</h3>
+          <h3 className="mt-5"><AnimatedText text="Content & Third‑Party Links" /></h3>
           <ul>
-            <li>You must register an Account to access certain features. You agree to provide accurate, current and complete information and to update it as required.</li>
-            <li>You are responsible for safeguarding your login credentials and for all activities that occur under your Account. You must notify us immediately in case of any unauthorised use.</li>
-            <li>We reserve the right to suspend or terminate Accounts at our discretion (e.g., for breaches of these Terms).</li>
+            <li><AnimatedText text="Specifications and content are for guidance and may be updated from time to time." /></li>
+            <li><AnimatedText text="Users warrant content posted is original and they own necessary rights and permissions." /></li>
+            <li><AnimatedText text="The Site may include links to third‑party websites. Your use of those sites is subject to their terms and policies." /></li>
           </ul>
 
-          <h3 className="mt-5">5. License to Use the Service</h3>
-          <p>
-            Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable licence to download, install and use the App on a device that you own or control. You agree not to copy, modify, distribute, sell, reverse engineer or otherwise misuse the Service.
-          </p>
-
-          <h3 className="mt-5">6. User Conduct & Prohibited Uses</h3>
-          <p>You agree not to:</p>
+          <h3 className="mt-5"><AnimatedText text="Intellectual Property & Conduct" /></h3>
           <ul>
-            <li>use the Service for any illegal purpose or in violation of UAE law or other applicable law;</li>
-            <li>upload, post or transmit any User Content that is defamatory, obscene, infringing, or otherwise objectionable;</li>
-            <li>interfere with or disrupt the Service or servers or networks connected to the Service;</li>
-            <li>attempt to gain unauthorised access to other accounts, computer systems or networks;</li>
-            <li>use the Service in any manner that could disable, overburden, or impair the Service.</li>
+            <li><AnimatedText text="Users must respect copyrights and other intellectual property rights." /></li>
+            <li><AnimatedText text="Impersonation, misleading, deceptive, or harmful behavior is prohibited." /></li>
+            <li><AnimatedText text="We enforce a zero‑tolerance policy against abusive or harmful behavior and may remove content, issue warnings, suspend rights, or terminate accounts." /></li>
           </ul>
 
-          <h3 className="mt-5">7. User Content</h3>
+          <h3 className="mt-5"><AnimatedText text="Payments, Refunds & Cancellations" /></h3>
           <ul>
-            <li>You retain ownership of your User Content. By uploading or posting User Content, you grant us a worldwide, non-exclusive, royalty-free, sublicensable licence to host, store, use, reproduce, modify, create derivative works, communicate, publish, perform or display such User Content in order to provide the Service.</li>
-            <li>We may remove or disable access to any User Content at our discretion, including if it violates these Terms.</li>
+            <li><AnimatedText text="Payments are processed via approved methods; invoices and receipts are provided through the Platform." /></li>
+            <li><AnimatedText text="VAT is applied where applicable and may be added to totals." /></li>
+            <li><AnimatedText text="Refunds for non‑subscription services are processed within a minimum of 7 days after request approval." /></li>
+            <li><AnimatedText text="Platform fees and certain service fees are non‑refundable unless explicitly stated in platform policies." /></li>
+            <li><AnimatedText text="Quick questions may be non‑refundable unless specific platform policies apply." /></li>
           </ul>
 
-          <h3 className="mt-5">8. Intellectual Property Rights</h3>
+          <h3 className="mt-5"><AnimatedText text="Limitation of Liability & Indemnity" /></h3>
           <p>
-            All rights, title and interest in and to the Service (excluding your User Content) are and shall remain with us and/or our licensors. The Service is protected by copyright, trademark, patent or other proprietary rights. You agree not to copy, reproduce, distribute, publicly display, translate or create derivative works of the Service.
+            <AnimatedText text="To the extent permitted by law, Legal Platform is not liable for indirect, incidental, or consequential damages arising from the use of the Site or App. Users agree to indemnify and hold Legal Platform harmless against claims resulting from their use, breach of these Terms, or violation of laws." />
           </p>
 
-          <h3 className="mt-5">9. Disclaimers & Warranties</h3>
+          <h3 className="mt-5"><AnimatedText text="User Payment Terms" /></h3>
           <ul>
-            <li>The Service is provided "as is" and "as available", without warranties of any kind, whether express or implied.</li>
-            <li>We do not warrant that the Service will be uninterrupted, secure, error-free or free of harmful components.</li>
-            <li>You acknowledge that you use the Service at your own risk.</li>
+            <li><AnimatedText text="Users must pay the full amount for services rendered via platform‑approved methods." /></li>
+            <li><AnimatedText text="VAT and applicable taxes may be charged in addition to platform fees." /></li>
+            <li><AnimatedText text="Compliance with applicable laws and regulations in the user’s jurisdiction is required." /></li>
           </ul>
 
-          <h3 className="mt-5">12. Indemnification</h3>
-          <p>
-            You agree to indemnify, defend and hold us harmless from and against all claims, damages, liabilities, costs and expenses (including reasonable legal fees) arising out of or related to your use of the Service, your User Content, your breach of these Terms, or your violation of applicable laws.
-          </p>
-
-          <h3 className="mt-5">13. Governing Law & Dispute Resolution</h3>
-          <p>
-            These Terms shall be governed by and construed in accordance with the laws of the United Arab Emirates and the Emirate of Dubai, without regard to conflict of law provisions. Any dispute arising out of or relating to these Terms or the Service shall be submitted exclusively to the courts of Dubai.
-          </p>
-
-          <h3 className="mt-5">14. Changes to Terms</h3>
-          <p>
-            We may modify these Terms at any time. We will notify you by posting the revised Terms on the App/website and/or by email. Your continued use of the Service after such changes constitutes your acceptance of the new Terms. It's recommended you review the Terms periodically.
-          </p>
-
-          <h3 className="mt-5">15. Termination</h3>
-          <p>
-            We may suspend or terminate your access to the Service or delete your Account at our sole discretion, without notice, if you breach these Terms or for any reason. Upon termination, your right to use the Service ceases immediately. The provisions which by their nature should survive termination shall survive.
-          </p>
-
-          <h3 className="mt-5">16. Miscellaneous</h3>
+          <h3 className="mt-5"><AnimatedText text="Service Provider Payment Terms" /></h3>
           <ul>
-            <li>If any provision of these Terms is held invalid or unenforceable, the remaining provisions will remain in full force and effect.</li>
-            <li>No waiver of any term shall be deemed a further or continuing waiver of such term or any other term.</li>
-            <li>These Terms constitute the entire agreement between you and us regarding your use of the Service and supersede all prior or contemporaneous understandings or agreements regarding same.</li>
+            <li><AnimatedText text="Platform applies a 10% platform fee on transactions as a usage charge." /></li>
+            <li><AnimatedText text="Invoices must accurately detail services, timelines, and applicable VAT." /></li>
+            <li><AnimatedText text="Payments are disbursed according to platform payout schedules, not less than 7 days, subject to processing delays." /></li>
+            <li><AnimatedText text="Service Providers must comply with applicable financial laws and regulations." /></li>
           </ul>
 
-          <h3 className="mt-5">17. Contact Information</h3>
+          <h3 className="mt-5"><AnimatedText text="Platform Fees & Structure" /></h3>
+          <ul>
+            <li><AnimatedText text="Client Service Fee: a service fee equal to ten percent (10%) of the user’s payable total applies." /></li>
+            <li><AnimatedText text="Lawyer Commission Fee: a commission equal to ten percent (10%) of the lawyer’s total invoiced amount applies." /></li>
+            <li><AnimatedText text="Net Payout: fees, deductions, and applicable VAT are automatically calculated before payout." /></li>
+            <li><AnimatedText text="Acknowledgement: using the Platform constitutes acceptance of these fees and deductions." /></li>
+          </ul>
+
+          <h3 className="mt-5"><AnimatedText text="Payment Delays & Service Provider Independence" /></h3>
+          <ul>
+            <li><AnimatedText text="Platform is not liable for delays due to third‑party processors or gateway issues." /></li>
+            <li><AnimatedText text="Service Providers operate independently; services and agreements are between Service Providers and clients." /></li>
+          </ul>
+
+          <h3 className="mt-5"><AnimatedText text="Off‑Platform Payments Prohibited" /></h3>
+          <ul>
+            <li><AnimatedText text="All payments must be processed through the Platform’s payment system." /></li>
+            <li><AnimatedText text="Redirecting payments or sharing off‑platform payment details is prohibited and may result in suspension or termination." /></li>
+            <li><AnimatedText text="The Platform may take action to recover unpaid fees or losses from off‑platform arrangements." /></li>
+          </ul>
+
+          <h3 className="mt-5"><AnimatedText text="Service Provider Accounts & Responsibilities" /></h3>
+          <ul>
+            <li><AnimatedText text="To become a Service Provider (Lawyer or Law Firm), create an account and complete verification." /></li>
+            <li><AnimatedText text="Service Providers are responsible for legality, quality, and accuracy of services." /></li>
+            <li><AnimatedText text="Set pricing, terms, and conditions; ensure licenses and qualifications for services." /></li>
+            <li><AnimatedText text="Payments are processed by third‑party providers; Platform is not a party to transactions between clients and Service Providers." /></li>
+          </ul>
+
+          <h3 className="mt-5"><AnimatedText text="Client Responsibilities" /></h3>
+          <ul>
+            <li><AnimatedText text="Select suitable Service Providers and verify qualifications for your legal needs." /></li>
+            <li><AnimatedText text="Provide accurate information and instructions related to services." /></li>
+            <li><AnimatedText text="Review credentials and agree to scope, timelines, fees, and deliverables." /></li>
+            <li><AnimatedText text="Comply with terms, professional requirements, and applicable laws." /></li>
+          </ul>
+
+          <h3 className="mt-5"><AnimatedText text="Timely Payment & Lawful Use" /></h3>
+          <ul>
+            <li><AnimatedText text="Make full and timely payments through the Platform in accordance with agreed terms." /></li>
+            <li><AnimatedText text="Ensure services requested are lawful and not intended for any illegal or fraudulent purpose." /></li>
+          </ul>
+
+          <h3 className="mt-5"><AnimatedText text="Confidentiality & Independent Judgment" /></h3>
+          <ul>
+            <li><AnimatedText text="Safeguard confidential information; Platform facilitates communication but is not a law firm and does not provide legal advice." /></li>
+            <li><AnimatedText text="Acknowledge the Platform is a technology marketplace and does not endorse or guarantee any legal service provided by any Service Provider." /></li>
+            <li><AnimatedText text="Confirm requested service is appropriate for your jurisdiction and that Service Providers are authorized where required." /></li>
+          </ul>
+
+          <h3 className="mt-5"><AnimatedText text="Termination & Suspension" /></h3>
           <p>
-            If you have any questions about these Terms, please contact us at:
+            <AnimatedText text="We may suspend or terminate accounts or access if Terms are violated or for legal, security, or other reasons. We may withdraw posting rights, remove content, issue warnings, disclose to law enforcement where required, and take further action as necessary." />
+          </p>
+
+          <h3 className="mt-5"><AnimatedText text="Disclaimer" /></h3>
+          <p>
+            <AnimatedText text="The App and Site are provided on an “as is” and “as available” basis without warranties of any kind. We do not warrant uninterrupted, secure, error‑free service, or freedom from harmful components. You use the App/Site at your own risk." />
           </p>
           <p>
-            <strong>Golden Digits Portal</strong>
+            <AnimatedText text="We disclaim liability for third‑party content and services, including User‑uploaded content or linked sites." />
           </p>
-          <p>Al Ain, United Arab Emirates</p>
+
+          <h3 className="mt-5"><AnimatedText text="Privacy & Data Protection" /></h3>
           <p>
-            Email: <strong>info@digitsapp.ae</strong>
+            <AnimatedText text="We process data and documents only as explicitly permitted by users and according to the Privacy Policy. Users must protect their accounts and promptly report suspicious activity." />
           </p>
+
+          <h3 className="mt-5"><AnimatedText text="Confidentiality" /></h3>
           <p>
-            Website: <a href="https://digitsapp.ae">https://digitsapp.ae</a>
+            <AnimatedText text="Users and Service Providers must keep confidential information and case data secure and use it solely to perform obligations on the Platform. Information should not be shared unless authorized or legally required." />
+          </p>
+
+          <h3 className="mt-5"><AnimatedText text="Waiver" /></h3>
+          <p>
+            <AnimatedText text="No failure to exercise any right or enforce any obligation shall constitute a waiver. Any waiver must be explicit and in writing." />
+          </p>
+
+          <h3 className="mt-5"><AnimatedText text="Severability" /></h3>
+          <p>
+            <AnimatedText text="If any provision is found invalid or unenforceable, the remaining provisions continue in full force. The invalid provision shall be modified as needed to make it valid and enforceable." />
+          </p>
+
+          <h3 className="mt-5"><AnimatedText text="Entire Agreement" /></h3>
+          <p>
+            <AnimatedText text="These Terms constitute the entire agreement between you and Legal Platform concerning use of the App/Site and supersede prior understandings and communications." />
+          </p>
+
+          <h3 className="mt-5"><AnimatedText text="Future Amendments" /></h3>
+          <p>
+            <AnimatedText text="We may amend these Terms by posting updates on the Site/App without prior notice. Continued use after amendments constitutes acceptance of the updated Terms." />
+          </p>
+
+          <h3 className="mt-5"><AnimatedText text="Right to Refuse Services" /></h3>
+          <p>
+            <AnimatedText text="We reserve the right to refuse any or all Services to any User without providing reasons and shall not be responsible for such refusal." />
+          </p>
+
+          <h3 className="mt-5"><AnimatedText text="Governing Law & Disputes" /></h3>
+          <p>
+            <AnimatedText text="These Terms are governed by the laws of the Emirate of Dubai and the federal laws of the United Arab Emirates. Disputes arising in connection with the Terms are subject to the exclusive jurisdiction of the Dubai Courts." />
+          </p>
+
+          <h3 className="mt-5"><AnimatedText text="Contact" /></h3>
+          <p>
+            <AnimatedText text="For questions about the app, site, or Terms, contact support@legalplatform.co." />
           </p>
         </div>
       </div>

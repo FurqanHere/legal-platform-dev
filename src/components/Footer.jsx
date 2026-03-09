@@ -16,28 +16,28 @@ const Footer = () => {
             <h6 className="footer-heading"><AnimatedText text="Quick Links" /></h6>
             <ul className="list-unstyled footer-list mt-3">
               <li>
-                <a href="#home" className="footer-link hover-text-theme">
+                <Link to="/#home" className="footer-link hover-text-theme">
                   <AnimatedText text="Home" />
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#who-for" className="footer-link hover-text-theme">
+                <Link to="/#who-for" className="footer-link hover-text-theme">
                   <AnimatedText text="About Us" />
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#faq" className="footer-link hover-text-theme">
+                <Link to="/#faq" className="footer-link hover-text-theme">
                   <AnimatedText text="FAQ" />
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#download-app" className="footer-link hover-text-theme">
+                <Link to="/#download-app" className="footer-link hover-text-theme">
                   <AnimatedText text="Download App" />
-                </a>
+                </Link>
               </li>
               <li>
-                <Link to="/privacy" className="footer-link hover-text-theme">
-                  <AnimatedText text="Privacy Policy" />
+                <Link to="/terms" className="footer-link hover-text-theme">
+                  <AnimatedText text="Terms and Conditions" />
                 </Link>
               </li>
             </ul>
@@ -46,23 +46,47 @@ const Footer = () => {
           <div className="col-md-3 col-6">
             <h6 className="footer-heading"><AnimatedText text="Service" /></h6>
             <ul className="list-unstyled footer-list mt-3">
-              <li className="footer-text hover-text-theme"><AnimatedText text="Contract Review" /></li>
-              <li className="footer-text hover-text-theme"><AnimatedText text="Contract Drafting" /></li>
-              <li className="footer-text hover-text-theme"><AnimatedText text="General Legal Consultation" /></li>
-              <li className="footer-text hover-text-theme"><AnimatedText text="Will Preparation" /></li>
+              <li>
+                <Link to="/contract-review" className="footer-link hover-text-theme">
+                  <AnimatedText text="Contract Review" />
+                </Link>
+              </li>
+              <li>
+                <Link to="/contract-drafting" className="footer-link hover-text-theme">
+                  <AnimatedText text="Contract Drafting" />
+                </Link>
+              </li>
+              <li>
+                <Link to="/general-legal-consultation" className="footer-link hover-text-theme">
+                  <AnimatedText text="General Legal Consultation" />
+                </Link>
+              </li>
+              <li>
+                <Link to="/will-preparation" className="footer-link hover-text-theme">
+                  <AnimatedText text="Will Preparation" />
+                </Link>
+              </li>
               <li>
                 <Link to="/post-your-legal-issue" className="footer-link hover-text-theme">
                   <AnimatedText text="Post Legal Issue" />
                 </Link>
               </li>
-              <li className="footer-text hover-text-theme"><AnimatedText text="See More Services" /></li>
+              <li>
+                <Link to="/services" className="footer-link hover-text-theme">
+                  <AnimatedText text="See More Services" />
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div className="col-md-3 col-6">
             <h6 className="footer-heading"><AnimatedText text="Products" /></h6>
             <ul className="list-unstyled footer-list mt-3">
-              <li className="footer-text hover-text-theme"><AnimatedText text="Lawyers App Dashboard" /></li>
+              <li>
+                <Link to="/for-lawyers" className="footer-link hover-text-theme">
+                  <AnimatedText text="Lawyers App Dashboard" />
+                </Link>
+              </li>
               <li>
                 <Link to="/business-portal" className="footer-link hover-text-theme">
                   <AnimatedText text="Businesses Portal" />
@@ -73,7 +97,11 @@ const Footer = () => {
                   <AnimatedText text="Law Firm Portal" />
                 </Link>
               </li>
-              <li className="footer-text hover-text-theme"><AnimatedText text="User App Dashboard" /></li>
+              <li>
+                <Link to="/for-users" className="footer-link hover-text-theme">
+                  <AnimatedText text="User App Dashboard" />
+                </Link>
+              </li>
             </ul>
             {/* Mobile Logo Position (Left Column) */}
             <div className="footer-logo-wrap mt-4 d-block d-md-none" data-aos="fade-in" data-aos-delay="500">
@@ -99,7 +127,11 @@ const Footer = () => {
                   <AnimatedText text="Chat Box" />
                 </Link>
               </li>
-              <li className="footer-text hover-text-theme"><AnimatedText text="Create a Case" /></li>
+              <li>
+                <Link to="/post-your-legal-issue" className="footer-link hover-text-theme">
+                  <AnimatedText text="Create a Case" />
+                </Link>
+              </li>
             </ul>
             {/* Desktop Logo Position (Right Column) */}
             <div className="footer-logo-wrap mt-4 d-none d-md-block" data-aos="fade-in" data-aos-delay="500">
@@ -111,7 +143,7 @@ const Footer = () => {
         <div className="row mt-5 align-items-center footer-bottom">
           <div className="col-md-4 text-md-start text-center">
             <span className="footer-copy">
-              <AnimatedText text="©2025 Legal Platform. All rights reserved." />
+              <AnimatedText text="©2026 Legal Platform. All rights reserved." />
             </span>
           </div>
           
@@ -130,12 +162,36 @@ const Footer = () => {
 
           <div className="col-md-4 d-flex justify-content-md-end justify-content-center mt-3 mt-md-0">
             <div className="footer-social d-flex align-items-center gap-3">
-              <img src={fb} alt="Facebook" className="footer-social-icon hover-scale" />
-              <img src={insta} alt="Instagram" className="footer-social-icon hover-scale" />
-              <img src={whatsApp} alt="WhatsApp" className="footer-social-icon hover-scale" />
-              <span className="bg-white d-flex align-items-center justify-content-center rounded-pill hover-scale" style={{ width: "40px", height: "40px" }}>
-                <img src={tiktok} alt="TikTok" className="footer-social-icon" style={{ width: "19px", height: "23px" }} />
-              </span>
+              <a 
+                href="https://www.linkedin.com/in/legalplatform-co/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <span 
+                  className="footer-social-icon hover-scale d-inline-flex align-items-center justify-content-center"
+                  style={{ background: "#fff", borderRadius: "50%" }}
+                >
+                  <i className="bi bi-linkedin" style={{ fontSize: "20px", color: "#000" }}></i>
+                </span>
+              </a>
+              <a 
+                href="https://www.instagram.com/legalplatform.co/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <img src={insta} alt="Instagram" className="footer-social-icon hover-scale" />
+              </a>
+              <a 
+                href="https://wa.me/971565556294"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp Chat"
+              >
+                <img src={whatsApp} alt="WhatsApp" className="footer-social-icon hover-scale" />
+              </a>
+              
             </div>
           </div>
         </div>

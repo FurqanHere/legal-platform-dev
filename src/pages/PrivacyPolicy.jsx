@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
+import Seo from "../components/Seo";
 
 const PrivacyPolicy = () => {
   const { t, i18n } = useTranslation();
@@ -26,6 +27,12 @@ const PrivacyPolicy = () => {
 
   return (
     <>
+      <Seo
+        title="Privacy Policy — Legal Platform"
+        description="How Legal Platform collects, uses, and protects personal information for users, businesses, and lawyers."
+        canonicalPath="/privacy"
+        image="/favicon.png"
+      />
       <div className="privacy-bg from-top">
         <Header />
 
