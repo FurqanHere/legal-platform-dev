@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import Breadcrumbs from "../components/Breadcrumbs";
@@ -6,10 +6,17 @@ import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
 import AnimatedText from "../components/AnimatedText";
 import Seo from "../components/Seo";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Support = () => {
   const { t, i18n } = useTranslation();
   const { pathname } = useLocation();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -57,7 +64,60 @@ const Support = () => {
               <h5 className="fw-bold mb-4">
                 Get instant help from our experienced support team
               </h5>
-              <form>
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  if (!name.trim() || !email.trim() || !phone.trim() || !message.trim()) {
+                    toast.error("Please fill all fields.");
+                    return;
+                  }
+                  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+                  if (!emailOk) {
+                    toast.error("Please enter a valid email.");
+                    return;
+                  }
+                  setLoading(true);
+                  try {
+                    const cleaned = phone.replace(/[^\d+]/g, "");
+                    let phoneCode = "";
+                    let phoneNumber = cleaned;
+                    if (cleaned.startsWith("+")) {
+                      const digits = cleaned.slice(1).replace(/\D/g, "");
+                      if (digits.length > 9) {
+                        phoneCode = digits.slice(0, digits.length - 9);
+                        phoneNumber = digits.slice(-9);
+                      } else {
+                        phoneNumber = digits;
+                      }
+                    } else {
+                      const digits = cleaned.replace(/\D/g, "");
+                      phoneNumber = digits;
+                    }
+                    const url = `${process.env.REACT_APP_API_URL}/contact-us`;
+                    const payload = {
+                      name,
+                      email,
+                      phoneCode,
+                      phone: phoneNumber,
+                      message,
+                    };
+                    const res = await axios.post(url, payload);
+                    if (res?.data?.status) {
+                      toast.success(res?.data?.message || "Thank you for contacting us.");
+                      setName("");
+                      setEmail("");
+                      setPhone("");
+                      setMessage("");
+                    } else {
+                      toast.error(res?.data?.message || "Something went wrong.");
+                    }
+                  } catch (err) {
+                    toast.error("Unable to submit your request. Please try again.");
+                  } finally {
+                    setLoading(false);
+                  }
+                }}
+              >
                 <div className="mb-3">
                   <label className="form-label text-muted">
                     What is your name?
@@ -66,6 +126,21 @@ const Support = () => {
                     type="text"
                     className="form-control support-control"
                     placeholder=""
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <label className="form-label text-muted">
+                    What is your email?
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control support-control"
+                    placeholder=""
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
 
@@ -77,6 +152,8 @@ const Support = () => {
                     type="tel"
                     className="form-control support-control"
                     placeholder=""
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                   />
                 </div>
 
@@ -87,6 +164,8 @@ const Support = () => {
                   <textarea
                     className="form-control support-control"
                     rows="4"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                   ></textarea>
                 </div>
 
@@ -101,8 +180,9 @@ const Support = () => {
                       width: "120px",
                       marginBottom: "32px",
                     }}
+                    disabled={loading}
                   >
-                    Submit
+                    {loading ? "Submitting..." : "Submit"}
                   </button>
                 </div>
               </form>
