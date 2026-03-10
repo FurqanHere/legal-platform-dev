@@ -1958,7 +1958,7 @@ body.dark-mode .faq-tab.active {
 .corp-input:focus {
   border-color: #000 !important;
   outline: 2px solid #000 !important;
-  outline-offset: 0;
+  outline-offset: 0
 }
 .corp-label {
   font-weight: 600;
