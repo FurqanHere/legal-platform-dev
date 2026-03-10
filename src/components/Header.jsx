@@ -152,9 +152,9 @@ export default function Header() {
                 aria-label="Toggle Dark Mode"
               >
                 {darkMode ? (
-                  <i className="bi bi-sun-fill text-white" data-aos="fade-down" data-aos-delay="250"></i>
+                  <i className="bi bi-sun-fill text-white"></i>
                 ) : (
-                  <i className="bi bi-moon-fill" data-aos="fade-down" data-aos-delay="250"></i>
+                  <i className="bi bi-moon-fill"></i>
                 )}
               </button>
               <a 
@@ -233,11 +233,11 @@ export default function Header() {
             >
               {darkMode ? (
                 <>
-                  <i className="bi bi-sun-fill me-2" data-aos="fade-up" data-aos-delay="100"></i> Light Mode
+                  <i className="bi bi-sun-fill me-2"></i> Light Mode
                 </>
               ) : (
                 <>
-                  <i className="bi bi-moon-fill me-2" data-aos="fade-up" data-aos-delay="100"></i> Dark Mode
+                  <i className="bi bi-moon-fill me-2"></i> Dark Mode
                 </>
               )}
             </button>

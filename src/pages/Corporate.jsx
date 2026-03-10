@@ -4,7 +4,6 @@ import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
 import corpBg from "../assets/images/corporate/corporate-main-bg-img.jpg";
-import corpFormImg from "../assets/images/corporate/form-img.png";
 import imgPriority from "../assets/images/corporate/priority-img.png";
 import imgEarly from "../assets/images/corporate/early-img.png";
 import imgExclusive from "../assets/images/corporate/exclusive-img.png";
@@ -44,19 +43,75 @@ const Corporate = () => {
       <Header />
       <div className="corp-hero">
         <div className="container h-100">
-          <div className="row h-100 align-items-center">
-            <div className="col-lg-5 d-flex justify-content-center">
-              <div className="corp-form-wrap" data-aos="fade-right" data-aos-delay="150">
-                <img src={corpFormImg} alt="Corporate registration preview" className="corp-form-img hover-scale" />
+          <div className="row h-100 align-items-center justify-content-end">
+            <div className="col-lg-6 d-flex flex-column justify-content-center align-items-start text-start" data-aos="fade-left" data-aos-delay="200">
+              <div className="corp-hero-textwrap">
+                <h1 className="corp-hero-title">Get legal help <br /> in minutes!</h1>
+                <p className="corp-hero-sub">Empower your businesses with <br /> seamless access to legal services <br /> at anytime.</p>
               </div>
-            </div>
-            <div className="col-lg-7" data-aos="fade-left" data-aos-delay="200">
-              <h1 className="corp-hero-title">Get legal help <br /> in minutes!</h1>
-              <p className="corp-hero-sub">Empower your businesses with <br /> seamless access to legal services <br /> at anytime.</p>
             </div>
           </div>
         </div>
         <img src={corpBg} alt="" className="corp-hero-bg" />
+
+        {/* Form */}
+      <div className="col-lg-5 d-flex justify-content-center corp-form-pos">
+              <div className="corp-form-wrap" data-aos="fade-right" data-aos-delay="150">
+                <div className="corp-form-card">
+                  <label className="corp-label">Company Name <span className="corp-asterisk">*</span></label>
+                  <input type="text" className="form-control corp-input mb-3" placeholder="Company Name" />
+
+                  <div className="row g-2">
+                    <div className="col-6">
+                      <label className="corp-label">First Name <span className="corp-asterisk">*</span></label>
+                      <input type="text" className="form-control corp-input" placeholder="First Name" />
+                    </div>
+                    <div className="col-6">
+                      <label className="corp-label">Last Name <span className="corp-asterisk">*</span></label>
+                      <input type="text" className="form-control corp-input" placeholder="Last Name" />
+                    </div>
+                  </div>
+
+                  <div className="row g-2 mt-3">
+                    <div className="col-6">
+                      <label className="corp-label">Company Email <span className="corp-asterisk">*</span></label>
+                      <input type="email" className="form-control corp-input" placeholder="Company Email" />
+                    </div>
+                    <div className="col-6">
+                      <label className="corp-label">Phone Number <span className="corp-asterisk">*</span></label>
+                      <div className="input-group corp-phone">
+                        <span className="input-group-text corp-cc"><span className="corp-flag" aria-hidden="true"></span> +971 ▾</span>
+                        <input type="tel" className="form-control corp-input corp-phone-input" placeholder="50 123 4567" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="row g-2 mt-3">
+                    <div className="col-6">
+                      <label className="corp-label">Website</label>
+                      <input type="url" className="form-control corp-input" placeholder="https://example.com" />
+                    </div>
+                    <div className="col-6">
+                      <label className="corp-label">Company Trade License <span className="corp-asterisk">*</span></label>
+                      <input type="file" className="form-control corp-input" />
+                    </div>
+                  </div>
+
+                  <div className="mt-3">
+                    <label className="corp-label">Company Logo</label>
+                    <input type="file" className="form-control corp-input" />
+                  </div>
+
+                  <div className="mt-3">
+                    <button type="button" className="btn w-100 corp-btn">Register</button>
+                  </div>
+
+                  <div className="corp-form-note mt-2 small text-muted">
+                    This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+                  </div>
+                </div>
+              </div>
+            </div>
       </div>
       <Breadcrumbs />
       <main className="container my-5">
@@ -66,51 +121,58 @@ const Corporate = () => {
         <div className="row g-4 mb-5">
           <div className="col-md-4" data-aos="fade-up" data-aos-delay="100">
             <div className="corp-feature-card hover-lift">
-              <img src={imgPriority} alt="" className="corp-feature-icon" />
-              <h5 className="corp-feature-title">Priority Access</h5>
+              <div className="corp-feature-header">
+                <img src={imgPriority} alt="" className="corp-feature-icon corp-icon-priority" />
+                <h5 className="corp-feature-title">Priority Access</h5>
+              </div>
               <p className="corp-feature-text">Be first in line to receive an invite once the LegalPlatform Business Portal goes live and secure your spot ahead of others.</p>
             </div>
           </div>
           <div className="col-md-4" data-aos="fade-up" data-aos-delay="150">
             <div className="corp-feature-card hover-lift">
-              <img src={imgEarly} alt="" className="corp-feature-icon bw" />
-              <h5 className="corp-feature-title">Early Advantage</h5>
+              <div className="corp-feature-header">
+                <img src={imgEarly} alt="" className="corp-feature-icon corp-icon-early bw" />
+                <h5 className="corp-feature-title">Early Advantage</h5>
+              </div>
               <p className="corp-feature-text">Get a head start in streamlining your company’s legal needs with access to tools designed to save time and reduce costs.</p>
             </div>
           </div>
           <div className="col-md-4" data-aos="fade-up" data-aos-delay="200">
             <div className="corp-feature-card hover-lift">
-              <img src={imgExclusive} alt="" className="corp-feature-icon" />
-              <h5 className="corp-feature-title">Exclusive Updates</h5>
+              <div className="corp-feature-header">
+                <img src={imgExclusive} alt="" className="corp-feature-icon corp-icon-exclusive" />
+                <h5 className="corp-feature-title">Exclusive Updates</h5>
+              </div>
               <p className="corp-feature-text">Stay informed on launch progress & be the first to know about new features built specifically for corporates.</p>
             </div>
           </div>
         </div>
-
-        <div className="corp-info-card" data-aos="fade-up" data-aos-delay="200">
-          <div className="row g-0 align-items-center">
-            <div className="col-md-4">
-              <img src={imgCommitment} alt="" className="corp-info-img" />
-            </div>
-            <div className="col-md-8">
-              <div className="corp-info-content">
-                <h4 className="corp-info-title">Our Commitment</h4>
-                <p className="corp-info-text">We’re shaping LegalPlatform Corporate to be more than just a service — it’s a trusted partner for your company. By pre-registering, you’re joining a select group of businesses preparing to access a platform where your team can consult lawyers anytime for fast, reliable advice. Invite team members & manage all company legal matters in one place. The best lawyers for the needs of your business across domains and jurisdictions. This is your opportunity to get early access to a smarter way of handling legal matters — faster, more affordable, & tailored to the needs of modern companies.</p>
+        <div className="corp-info-section p-4 rounded-4">
+          <div className="corp-info-card" data-aos="fade-up" data-aos-delay="200">
+            <div className="row g-0 align-items-center">
+              <div className="col-md-auto">
+                <img src={imgCommitment} alt="" className="corp-info-img corp-info-img-left" />
+              </div>
+              <div className="col-md">
+                <div className="corp-info-content">
+                  <h4 className="corp-info-title">Our Commitment</h4>
+                  <p className="corp-info-text">We’re shaping LegalPlatform Corporate to be more than just a service — it’s a trusted partner for your company. By pre-registering, you’re joining a select group of businesses preparing to access a platform where your team can consult lawyers anytime for fast, reliable advice. Invite team members & manage all company legal matters in one place. The best lawyers for the needs of your business across domains and jurisdictions. This is your opportunity to get early access to a smarter way of handling legal matters — faster, more affordable, & tailored to the needs of modern companies.</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="corp-info-card reverse" data-aos="fade-up" data-aos-delay="250">
-          <div className="row g-0 align-items-center">
-            <div className="col-md-8">
-              <div className="corp-info-content">
-                <h4 className="corp-info-title">LegalPlatform Corporate</h4>
-                <p className="corp-info-text">We’re shaping LegalPlatform Corporate to be more than just a service — it’s a trusted partner for your company. By pre-registering, you’re joining a select group of businesses preparing to access a platform where your team can consult lawyers anytime for fast, reliable advice. Invite team members & manage all company legal matters in one place. The best lawyers for the needs of your business across domains and jurisdictions. This is your opportunity to get early access to a smarter way of handling legal matters — faster, more affordable, & tailored to the needs of modern companies.</p>
+          <div className="corp-info-card" data-aos="fade-up" data-aos-delay="250">
+            <div className="row g-0 align-items-center">
+              <div className="col-md">
+                <div className="corp-info-content">
+                  <h4 className="corp-info-title">LegalPlatform Corporate</h4>
+                  <p className="corp-info-text">We’re shaping LegalPlatform Corporate to be more than just a service — it’s a trusted partner for your company. By pre-registering, you’re joining a select group of businesses preparing to access a platform where your team can consult lawyers anytime for fast, reliable advice. Invite team members & manage all company legal matters in one place. The best lawyers for the needs of your business across domains and jurisdictions. This is your opportunity to get early access to a smarter way of handling legal matters — faster, more affordable, & tailored to the needs of modern companies.</p>
+                </div>
               </div>
-            </div>
-            <div className="col-md-4">
-              <img src={imgCorporate} alt="" className="corp-info-img" />
+              <div className="col-md-auto">
+                <img src={imgCorporate} alt="" className="corp-info-img corp-info-img-right" />
+              </div>
             </div>
           </div>
         </div>
