@@ -9,10 +9,21 @@ import imgEarly from "../assets/images/corporate/early-img.png";
 import imgExclusive from "../assets/images/corporate/exclusive-img.png";
 import imgCommitment from "../assets/images/corporate/our-comitment-img.png";
 import imgCorporate from "../assets/images/corporate/legalPlatform-corporate-img.png";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Corporate = () => {
   const [showTop, setShowTop] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [companyName, setCompanyName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [website, setWebsite] = useState("");
+  const [tradeLicense, setTradeLicense] = useState(null);
+  const [companyLogo, setCompanyLogo] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -59,29 +70,29 @@ const Corporate = () => {
               <div className="corp-form-wrap" data-aos="fade-right" data-aos-delay="150">
                 <div className="corp-form-card">
                   <label className="corp-label">Company Name <span className="corp-asterisk">*</span></label>
-                  <input type="text" className="form-control corp-input mb-3" placeholder="Company Name" />
+                  <input type="text" className="form-control corp-input mb-3" placeholder="Company Name" value={companyName} onChange={(e) => setCompanyName(e.target.value)} />
 
                   <div className="row g-2">
                     <div className="col-6">
                       <label className="corp-label">First Name <span className="corp-asterisk">*</span></label>
-                      <input type="text" className="form-control corp-input" placeholder="First Name" />
+                      <input type="text" className="form-control corp-input" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                     </div>
                     <div className="col-6">
                       <label className="corp-label">Last Name <span className="corp-asterisk">*</span></label>
-                      <input type="text" className="form-control corp-input" placeholder="Last Name" />
+                      <input type="text" className="form-control corp-input" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                     </div>
                   </div>
 
                   <div className="row g-2 mt-3">
                     <div className="col-6">
                       <label className="corp-label">Company Email <span className="corp-asterisk">*</span></label>
-                      <input type="email" className="form-control corp-input" placeholder="Company Email" />
+                      <input type="email" className="form-control corp-input" placeholder="Company Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className="col-6">
                       <label className="corp-label">Phone Number <span className="corp-asterisk">*</span></label>
                       <div className="input-group corp-phone">
                         <span className="input-group-text corp-cc"><span className="corp-flag" aria-hidden="true"></span> +971 ▾</span>
-                        <input type="tel" className="form-control corp-input corp-phone-input" placeholder="50 123 4567" />
+                        <input type="tel" className="form-control corp-input corp-phone-input" placeholder="50 123 4567" value={phone} onChange={(e) => setPhone(e.target.value)} />
                       </div>
                     </div>
                   </div>
@@ -89,21 +100,77 @@ const Corporate = () => {
                   <div className="row g-2 mt-3">
                     <div className="col-6">
                       <label className="corp-label">Website</label>
-                      <input type="url" className="form-control corp-input" placeholder="https://example.com" />
+                      <input type="url" className="form-control corp-input" placeholder="https://example.com" value={website} onChange={(e) => setWebsite(e.target.value)} />
                     </div>
                     <div className="col-6">
                       <label className="corp-label">Company Trade License <span className="corp-asterisk">*</span></label>
-                      <input type="file" className="form-control corp-input" />
+                      <input type="file" className="form-control corp-input" onChange={(e) => setTradeLicense(e.target.files?.[0] || null)} />
                     </div>
                   </div>
 
                   <div className="mt-3">
                     <label className="corp-label">Company Logo</label>
-                    <input type="file" className="form-control corp-input" />
+                    <input type="file" className="form-control corp-input" onChange={(e) => setCompanyLogo(e.target.files?.[0] || null)} />
                   </div>
 
                   <div className="mt-3">
-                    <button type="button" className="btn w-100 corp-btn">Register</button>
+                    <button
+                      type="button"
+                      className="btn w-100 corp-btn"
+                      disabled={loading}
+                      onClick={async () => {
+                        if (!companyName.trim() || !firstName.trim() || !lastName.trim() || !email.trim() || !phone.trim() || !tradeLicense) {
+                          toast.error("Please fill all required fields.");
+                          return;
+                        }
+                        const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+                        if (!emailOk) {
+                          toast.error("Please enter a valid email.");
+                          return;
+                        }
+                        const digits = phone.replace(/\D/g, "");
+                        if (digits.length < 7) {
+                          toast.error("Please enter a valid phone number.");
+                          return;
+                        }
+                        setLoading(true);
+                        try {
+                          const form = new FormData();
+                          form.append("company_name", companyName);
+                          form.append("first_name", firstName);
+                          form.append("last_name", lastName);
+                          form.append("email", email);
+                          form.append("country_code", "AE");
+                          form.append("phone_number", digits);
+                          if (website) form.append("website", website);
+                          form.append("trade_license", tradeLicense);
+                          if (companyLogo) form.append("company_logo", companyLogo);
+                          const url = `${process.env.REACT_APP_API_URL}/business-register`;
+                          const res = await axios.post(url, form, {
+                            headers: { "Content-Type": "multipart/form-data" },
+                          });
+                          if (res?.data?.status) {
+                            toast.success(res?.data?.message || "Registration submitted.");
+                            setCompanyName("");
+                            setFirstName("");
+                            setLastName("");
+                            setEmail("");
+                            setPhone("");
+                            setWebsite("");
+                            setTradeLicense(null);
+                            setCompanyLogo(null);
+                          } else {
+                            toast.error(res?.data?.message || "Submission failed.");
+                          }
+                        } catch (e) {
+                          toast.error("Unable to submit. Please try again.");
+                        } finally {
+                          setLoading(false);
+                        }
+                      }}
+                    >
+                      {loading ? "Registering..." : "Register"}
+                    </button>
                   </div>
 
                   <div className="corp-form-note mt-2 small text-muted">

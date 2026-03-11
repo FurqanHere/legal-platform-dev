@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 import Header from "../components/Header";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
@@ -14,6 +16,123 @@ const PostYourLegalIssue = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
+  const [paymentPrice, setPaymentPrice] = useState("3.99");
+  const [otpLoading, setOtpLoading] = useState(false);
+  const [otpVerified, setOtpVerified] = useState(false);
+  const [authToken, setAuthToken] = useState(null);
+  const [payLoading, setPayLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchAppVersion = async () => {
+      try {
+        const url = `${process.env.REACT_APP_API_URL}/getAppVersion`;
+        const res = await axios.get(url);
+        if (res?.data?.status) {
+          const price = res?.data?.data?.question_payment;
+          if (price) setPaymentPrice(price);
+        }
+      } catch (e) {
+        console.error("Error fetching app version:", e);
+      }
+    };
+    fetchAppVersion();
+  }, []);
+
+  const handleSendOtp = async () => {
+    if (!fullName || !email) {
+      toast.error("Please provide both name and email.");
+      return;
+    }
+
+    setOtpLoading(true);
+    try {
+      const formData = new FormData();
+      formData.append("name", fullName);
+      formData.append("email", email);
+
+      const url = `${process.env.REACT_APP_API_URL}/resendOTP`;
+      const res = await axios.post(url, formData);
+
+      if (res?.data?.status) {
+        toast.success(res?.data?.message || "OTP sent successfully!");
+      } else {
+        toast.error(res?.data?.message || "Failed to send OTP.");
+      }
+    } catch (e) {
+      toast.error("An error occurred while sending OTP.");
+    } finally {
+      setOtpLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const verifyOtp = async () => {
+      if (otp.length === 4) {
+        if (!email) {
+          toast.error("Email is required to verify OTP.");
+          return;
+        }
+        try {
+          const formData = new FormData();
+          formData.append("email", email);
+          formData.append("otp", otp);
+
+          const url = `${process.env.REACT_APP_API_URL}/verifyOTP`;
+          const res = await axios.post(url, formData);
+
+          if (res?.data?.status) {
+            toast.success(res?.data?.message || "OTP verified successfully!");
+            setOtpVerified(true);
+            setAuthToken(res.data.data.auth_token);
+          } else {
+            toast.error(res?.data?.message || "Invalid OTP.");
+            setOtpVerified(false);
+            setAuthToken(null);
+          }
+        } catch (e) {
+          toast.error("An error occurred during OTP verification.");
+          setOtpVerified(false);
+          setAuthToken(null);
+        }
+      }
+    };
+    verifyOtp();
+  }, [otp, email]);
+
+  const handleProceedToPayment = async () => {
+    if (!summary || !jurisdiction || !fullName || !email) {
+      toast.error("Please fill all required fields.");
+      return;
+    }
+    if (!otpVerified) {
+      toast.error("Please verify your OTP first.");
+      return;
+    }
+
+    setPayLoading(true);
+    try {
+      const formData = new FormData();
+      formData.append("amount", paymentPrice);
+
+      const url = `${process.env.REACT_APP_API_URL}/stripePayment`;
+      const res = await axios.post(url, formData, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
+
+      if (res?.data?.status) {
+        toast.success(res?.data?.message || "Payment intent created successfully!");
+        // Further payment processing logic can go here (e.g., Stripe SDK)
+      } else {
+        toast.error(res?.data?.message || "Failed to create payment intent.");
+      }
+    } catch (e) {
+      toast.error("An error occurred during payment processing.");
+    } finally {
+      setPayLoading(false);
+    }
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -131,15 +250,26 @@ const PostYourLegalIssue = () => {
                 </div>
                 <div className="mt-3">
                 <div className="postq-otp-block">
-                  <button type="button" className="postq-otp-btn w-100">
-                    Send OTP
+                  <button 
+                    type="button" 
+                    className="postq-otp-btn w-100" 
+                    onClick={handleSendOtp} 
+                    disabled={otpLoading}
+                  >
+                    {otpLoading ? "Sending..." : "Send OTP"}
                   </button>
                   <input
                     type="text"
                     className="postq-otp-input"
                     placeholder="Enter OTP"
                     value={otp}
-                    onChange={(e) => setOtp(e.target.value)}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      if (/^\d{0,4}$/.test(value)) {
+                        setOtp(value);
+                      }
+                    }}
+                    maxLength="4"
                   />
                 </div>
               </div>
@@ -148,15 +278,22 @@ const PostYourLegalIssue = () => {
                   <input className="form-check-input" type="checkbox" id="agreeTerms" />
                 </div>
                 <label htmlFor="agreeTerms" className="form-check-label postq-terms">
-                  By clicking the button, you agree to Legal Platform{" "}
-                  <a href="/terms" className="text-decoration-none">Terms of Services</a> &{" "}
+                  By clicking the button, you agree to Legal Platform
+                  <a href="/terms" className="text-decoration-none">Terms of Services</a> &
                   <a href="/terms" className="text-decoration-none">Payment Terms</a>
                 </label>
               </div>
               <div className="mt-3">
-                <button type="button" className="postq-pay-btn">
-                  <span className="postq-pay-label">Proceed to Payment</span>
-                  <span className="postq-pay-price">3.99 US</span>
+                <button 
+                  type="button" 
+                  className="postq-pay-btn" 
+                  onClick={handleProceedToPayment} 
+                  disabled={payLoading || !otpVerified}
+                >
+                  <span className="postq-pay-label">
+                    {payLoading ? "Processing..." : "Proceed to Payment"}
+                  </span>
+                  <span className="postq-pay-price">{paymentPrice} US</span>
                 </button>
               </div>
             </div>

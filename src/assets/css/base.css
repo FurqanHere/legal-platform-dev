@@ -961,6 +961,11 @@ body.dark-mode .faq-tab.active {
 }
 
 /* Post Question Modal */
+.postq-pay-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
 .postq-backdrop {
   position: fixed;
   inset: 0;
