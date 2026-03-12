@@ -17,6 +17,7 @@ import ForLawyers from "../pages/ForLawyers";
 import BusinessPortal from "../pages/BusinessPortal";
 import HireMultipleLawyers from "../pages/HireMultipleLawyers";
 import LawFirm from "../pages/LawFirm";
+import Corporate from "../pages/Corporate";
 import BusinessAndCorporateLaw from "../pages/BusinessAndCorporateLaw";
 import LegalConsultation from "../pages/LegalConsultation";
 import Services from "../pages/Services";
@@ -51,6 +52,7 @@ const AppRouter = () => {
           <Route path="/business-portal" element={<BusinessPortal />} />
           <Route path="/hire-multiple-lawyers" element={<HireMultipleLawyers />} />
           <Route path="/law-firm" element={<LawFirm />} />
+          <Route path="/corporate" element={<Corporate />} />
           <Route path="/business-corporate-law" element={<BusinessAndCorporateLaw />} />
           <Route path="/legal-consultation" element={<LegalConsultation />} />
           <Route path="/contract-services" element={<ContractServices />} />
