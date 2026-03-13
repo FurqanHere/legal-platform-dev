@@ -6,7 +6,6 @@ import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
 import postQuestionBgImg from "../assets/images/postQuestionBgImg.png";
-import { Dropdown } from 'primereact/dropdown';
 
 const PostYourLegalIssue = () => {
   const [showTop, setShowTop] = useState(false);
@@ -242,17 +241,18 @@ const PostYourLegalIssue = () => {
               </div>
               <div className="mb-3">
                 <div className="postq-select-wrap">
-                  <Dropdown
+                  <select
+                    className="form-select postq-select"
                     value={jurisdiction}
-                    onChange={(e) => setJurisdiction(e.value)}
-                    options={jurisdictionsList}
-                    optionLabel="name"
-                    optionValue="id"
-                    placeholder="Jurisdiction"
-                    className="w-100 postq-select"
-                    style={{ border: 'none', height: '52px' }}
-                    filter
-                  />
+                    onChange={(e) => setJurisdiction(e.target.value)}
+                  >
+                    <option value="">Jurisdiction</option>
+                    {jurisdictionsList.map((item) => (
+                      <option key={item.id} value={item.id}>
+                        {item.name}
+                      </option>
+                    ))}
+                  </select>
                 </div>
               </div>
               <div className="mb-3">
